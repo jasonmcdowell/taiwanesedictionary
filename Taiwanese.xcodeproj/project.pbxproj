@@ -7,14 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B43953751906153B00E8CD81 /* FredEye.m in Sources */ = {isa = PBXBuildFile; fileRef = B43953681906153B00E8CD81 /* FredEye.m */; };
+		B43953761906153B00E8CD81 /* FredFace.m in Sources */ = {isa = PBXBuildFile; fileRef = B439536A1906153B00E8CD81 /* FredFace.m */; };
+		B43953771906153B00E8CD81 /* FredHair.m in Sources */ = {isa = PBXBuildFile; fileRef = B439536C1906153B00E8CD81 /* FredHair.m */; };
+		B43953781906153B00E8CD81 /* FredMouth.m in Sources */ = {isa = PBXBuildFile; fileRef = B439536E1906153B00E8CD81 /* FredMouth.m */; };
+		B43953791906153B00E8CD81 /* FredNose.m in Sources */ = {isa = PBXBuildFile; fileRef = B43953701906153B00E8CD81 /* FredNose.m */; };
+		B439537A1906153B00E8CD81 /* FredView.m in Sources */ = {isa = PBXBuildFile; fileRef = B43953721906153B00E8CD81 /* FredView.m */; };
+		B439537B1906153B00E8CD81 /* FredViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B43953741906153B00E8CD81 /* FredViewController.m */; };
+		B4759D291906156C00A75B12 /* Definition.m in Sources */ = {isa = PBXBuildFile; fileRef = B4759D221906156C00A75B12 /* Definition.m */; };
+		B4759D2A1906156C00A75B12 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = B4759D241906156C00A75B12 /* Entry.m */; };
+		B4759D2B1906156C00A75B12 /* Example.m in Sources */ = {isa = PBXBuildFile; fileRef = B4759D261906156C00A75B12 /* Example.m */; };
+		B4759D2C1906156C00A75B12 /* NSString+Taiwanese.m in Sources */ = {isa = PBXBuildFile; fileRef = B4759D281906156C00A75B12 /* NSString+Taiwanese.m */; };
+		B4B09313190614A90077E556 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4B09309190614A90077E556 /* Main.storyboard */; };
+		B4B09314190614A90077E556 /* StartingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0930B190614A90077E556 /* StartingViewController.m */; };
+		B4B09315190614A90077E556 /* TaiwaneseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0930D190614A90077E556 /* TaiwaneseTableViewController.m */; };
+		B4B09316190614A90077E556 /* EntryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0930F190614A90077E556 /* EntryTableViewController.m */; };
+		B4B09317190614A90077E556 /* DefinitionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B09311190614A90077E556 /* DefinitionTableViewCell.m */; };
+		B4B09318190614A90077E556 /* DefinitionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B09312190614A90077E556 /* DefinitionTableViewCell.xib */; };
+		B4B0931A190614D50077E556 /* dictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = B4B09319190614D50077E556 /* dictionary.plist */; };
 		B4C4F5E9190612F60001270F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C4F5E8190612F60001270F /* Foundation.framework */; };
 		B4C4F5EB190612F60001270F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C4F5EA190612F60001270F /* CoreGraphics.framework */; };
 		B4C4F5ED190612F60001270F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C4F5EC190612F60001270F /* UIKit.framework */; };
 		B4C4F5F3190612F60001270F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B4C4F5F1190612F60001270F /* InfoPlist.strings */; };
 		B4C4F5F5190612F60001270F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B4C4F5F4190612F60001270F /* main.m */; };
 		B4C4F5F9190612F70001270F /* TaiwaneseAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B4C4F5F8190612F70001270F /* TaiwaneseAppDelegate.m */; };
-		B4C4F5FC190612F70001270F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4C4F5FA190612F70001270F /* Main.storyboard */; };
-		B4C4F5FF190612F70001270F /* TaiwaneseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4C4F5FE190612F70001270F /* TaiwaneseViewController.m */; };
 		B4C4F601190612F70001270F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4C4F600190612F70001270F /* Images.xcassets */; };
 		B4C4F608190612F70001270F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C4F607190612F70001270F /* XCTest.framework */; };
 		B4C4F609190612F70001270F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C4F5E8190612F60001270F /* Foundation.framework */; };
@@ -34,6 +50,39 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B43953671906153B00E8CD81 /* FredEye.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FredEye.h; sourceTree = "<group>"; };
+		B43953681906153B00E8CD81 /* FredEye.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FredEye.m; sourceTree = "<group>"; };
+		B43953691906153B00E8CD81 /* FredFace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FredFace.h; sourceTree = "<group>"; };
+		B439536A1906153B00E8CD81 /* FredFace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FredFace.m; sourceTree = "<group>"; };
+		B439536B1906153B00E8CD81 /* FredHair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FredHair.h; sourceTree = "<group>"; };
+		B439536C1906153B00E8CD81 /* FredHair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FredHair.m; sourceTree = "<group>"; };
+		B439536D1906153B00E8CD81 /* FredMouth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FredMouth.h; sourceTree = "<group>"; };
+		B439536E1906153B00E8CD81 /* FredMouth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FredMouth.m; sourceTree = "<group>"; };
+		B439536F1906153B00E8CD81 /* FredNose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FredNose.h; sourceTree = "<group>"; };
+		B43953701906153B00E8CD81 /* FredNose.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FredNose.m; sourceTree = "<group>"; };
+		B43953711906153B00E8CD81 /* FredView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FredView.h; sourceTree = "<group>"; };
+		B43953721906153B00E8CD81 /* FredView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FredView.m; sourceTree = "<group>"; };
+		B43953731906153B00E8CD81 /* FredViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FredViewController.h; sourceTree = "<group>"; };
+		B43953741906153B00E8CD81 /* FredViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FredViewController.m; sourceTree = "<group>"; };
+		B4759D211906156C00A75B12 /* Definition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Definition.h; sourceTree = "<group>"; };
+		B4759D221906156C00A75B12 /* Definition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Definition.m; sourceTree = "<group>"; };
+		B4759D231906156C00A75B12 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
+		B4759D241906156C00A75B12 /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
+		B4759D251906156C00A75B12 /* Example.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Example.h; sourceTree = "<group>"; };
+		B4759D261906156C00A75B12 /* Example.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Example.m; sourceTree = "<group>"; };
+		B4759D271906156C00A75B12 /* NSString+Taiwanese.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Taiwanese.h"; sourceTree = "<group>"; };
+		B4759D281906156C00A75B12 /* NSString+Taiwanese.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Taiwanese.m"; sourceTree = "<group>"; };
+		B4B09309190614A90077E556 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		B4B0930A190614A90077E556 /* StartingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartingViewController.h; sourceTree = "<group>"; };
+		B4B0930B190614A90077E556 /* StartingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartingViewController.m; sourceTree = "<group>"; };
+		B4B0930C190614A90077E556 /* TaiwaneseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaiwaneseTableViewController.h; sourceTree = "<group>"; };
+		B4B0930D190614A90077E556 /* TaiwaneseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaiwaneseTableViewController.m; sourceTree = "<group>"; };
+		B4B0930E190614A90077E556 /* EntryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryTableViewController.h; sourceTree = "<group>"; };
+		B4B0930F190614A90077E556 /* EntryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryTableViewController.m; sourceTree = "<group>"; };
+		B4B09310190614A90077E556 /* DefinitionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefinitionTableViewCell.h; sourceTree = "<group>"; };
+		B4B09311190614A90077E556 /* DefinitionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefinitionTableViewCell.m; sourceTree = "<group>"; };
+		B4B09312190614A90077E556 /* DefinitionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DefinitionTableViewCell.xib; sourceTree = "<group>"; };
+		B4B09319190614D50077E556 /* dictionary.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = dictionary.plist; sourceTree = "<group>"; };
 		B4C4F5E5190612F60001270F /* Taiwanese.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taiwanese.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4C4F5E8190612F60001270F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B4C4F5EA190612F60001270F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -44,9 +93,6 @@
 		B4C4F5F6190612F60001270F /* Taiwanese-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Taiwanese-Prefix.pch"; sourceTree = "<group>"; };
 		B4C4F5F7190612F70001270F /* TaiwaneseAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaiwaneseAppDelegate.h; sourceTree = "<group>"; };
 		B4C4F5F8190612F70001270F /* TaiwaneseAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaiwaneseAppDelegate.m; sourceTree = "<group>"; };
-		B4C4F5FB190612F70001270F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B4C4F5FD190612F70001270F /* TaiwaneseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaiwaneseViewController.h; sourceTree = "<group>"; };
-		B4C4F5FE190612F70001270F /* TaiwaneseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaiwaneseViewController.m; sourceTree = "<group>"; };
 		B4C4F600190612F70001270F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B4C4F606190612F70001270F /* TaiwaneseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaiwaneseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4C4F607190612F70001270F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -79,6 +125,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B43953661906153B00E8CD81 /* Fred */ = {
+			isa = PBXGroup;
+			children = (
+				B43953671906153B00E8CD81 /* FredEye.h */,
+				B43953681906153B00E8CD81 /* FredEye.m */,
+				B43953691906153B00E8CD81 /* FredFace.h */,
+				B439536A1906153B00E8CD81 /* FredFace.m */,
+				B439536B1906153B00E8CD81 /* FredHair.h */,
+				B439536C1906153B00E8CD81 /* FredHair.m */,
+				B439536D1906153B00E8CD81 /* FredMouth.h */,
+				B439536E1906153B00E8CD81 /* FredMouth.m */,
+				B439536F1906153B00E8CD81 /* FredNose.h */,
+				B43953701906153B00E8CD81 /* FredNose.m */,
+				B43953711906153B00E8CD81 /* FredView.h */,
+				B43953721906153B00E8CD81 /* FredView.m */,
+				B43953731906153B00E8CD81 /* FredViewController.h */,
+				B43953741906153B00E8CD81 /* FredViewController.m */,
+			);
+			path = Fred;
+			sourceTree = "<group>";
+		};
+		B4759D201906156C00A75B12 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B4759D211906156C00A75B12 /* Definition.h */,
+				B4759D221906156C00A75B12 /* Definition.m */,
+				B4759D231906156C00A75B12 /* Entry.h */,
+				B4759D241906156C00A75B12 /* Entry.m */,
+				B4759D251906156C00A75B12 /* Example.h */,
+				B4759D261906156C00A75B12 /* Example.m */,
+				B4759D271906156C00A75B12 /* NSString+Taiwanese.h */,
+				B4759D281906156C00A75B12 /* NSString+Taiwanese.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		B4C4F5DC190612F60001270F = {
 			isa = PBXGroup;
 			children = (
@@ -112,12 +194,19 @@
 		B4C4F5EE190612F60001270F /* Taiwanese */ = {
 			isa = PBXGroup;
 			children = (
-				B4C4F5F7190612F70001270F /* TaiwaneseAppDelegate.h */,
-				B4C4F5F8190612F70001270F /* TaiwaneseAppDelegate.m */,
-				B4C4F5FA190612F70001270F /* Main.storyboard */,
-				B4C4F5FD190612F70001270F /* TaiwaneseViewController.h */,
-				B4C4F5FE190612F70001270F /* TaiwaneseViewController.m */,
+				B4B09309190614A90077E556 /* Main.storyboard */,
+				B4B0930A190614A90077E556 /* StartingViewController.h */,
+				B4B0930B190614A90077E556 /* StartingViewController.m */,
+				B4B0930C190614A90077E556 /* TaiwaneseTableViewController.h */,
+				B4B0930D190614A90077E556 /* TaiwaneseTableViewController.m */,
+				B4B0930E190614A90077E556 /* EntryTableViewController.h */,
+				B4B0930F190614A90077E556 /* EntryTableViewController.m */,
+				B4B09310190614A90077E556 /* DefinitionTableViewCell.h */,
+				B4B09311190614A90077E556 /* DefinitionTableViewCell.m */,
+				B4B09312190614A90077E556 /* DefinitionTableViewCell.xib */,
 				B4C4F600190612F70001270F /* Images.xcassets */,
+				B4759D201906156C00A75B12 /* Model */,
+				B43953661906153B00E8CD81 /* Fred */,
 				B4C4F5EF190612F60001270F /* Supporting Files */,
 			);
 			path = Taiwanese;
@@ -126,8 +215,11 @@
 		B4C4F5EF190612F60001270F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B4C4F5F7190612F70001270F /* TaiwaneseAppDelegate.h */,
+				B4C4F5F8190612F70001270F /* TaiwaneseAppDelegate.m */,
 				B4C4F5F0190612F60001270F /* Taiwanese-Info.plist */,
 				B4C4F5F1190612F60001270F /* InfoPlist.strings */,
+				B4B09319190614D50077E556 /* dictionary.plist */,
 				B4C4F5F4190612F60001270F /* main.m */,
 				B4C4F5F6190612F60001270F /* Taiwanese-Prefix.pch */,
 			);
@@ -229,9 +321,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4B09318190614A90077E556 /* DefinitionTableViewCell.xib in Resources */,
+				B4B09313190614A90077E556 /* Main.storyboard in Resources */,
+				B4B0931A190614D50077E556 /* dictionary.plist in Resources */,
 				B4C4F601190612F70001270F /* Images.xcassets in Resources */,
 				B4C4F5F3190612F60001270F /* InfoPlist.strings in Resources */,
-				B4C4F5FC190612F70001270F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,8 +344,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4759D2B1906156C00A75B12 /* Example.m in Sources */,
 				B4C4F5F9190612F70001270F /* TaiwaneseAppDelegate.m in Sources */,
-				B4C4F5FF190612F70001270F /* TaiwaneseViewController.m in Sources */,
+				B4759D2C1906156C00A75B12 /* NSString+Taiwanese.m in Sources */,
+				B439537B1906153B00E8CD81 /* FredViewController.m in Sources */,
+				B439537A1906153B00E8CD81 /* FredView.m in Sources */,
+				B4B09315190614A90077E556 /* TaiwaneseTableViewController.m in Sources */,
+				B4B09314190614A90077E556 /* StartingViewController.m in Sources */,
+				B4B09316190614A90077E556 /* EntryTableViewController.m in Sources */,
+				B4759D2A1906156C00A75B12 /* Entry.m in Sources */,
+				B43953791906153B00E8CD81 /* FredNose.m in Sources */,
+				B43953751906153B00E8CD81 /* FredEye.m in Sources */,
+				B43953761906153B00E8CD81 /* FredFace.m in Sources */,
+				B43953781906153B00E8CD81 /* FredMouth.m in Sources */,
+				B4759D291906156C00A75B12 /* Definition.m in Sources */,
+				B4B09317190614A90077E556 /* DefinitionTableViewCell.m in Sources */,
+				B43953771906153B00E8CD81 /* FredHair.m in Sources */,
 				B4C4F5F5190612F60001270F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,14 +389,6 @@
 				B4C4F5F2190612F60001270F /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		B4C4F5FA190612F70001270F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B4C4F5FB190612F70001270F /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		B4C4F610190612F70001270F /* InfoPlist.strings */ = {
@@ -457,6 +557,7 @@
 				B4C4F619190612F70001270F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B4C4F61A190612F70001270F /* Build configuration list for PBXNativeTarget "TaiwaneseTests" */ = {
 			isa = XCConfigurationList;
@@ -465,6 +566,7 @@
 				B4C4F61C190612F70001270F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
