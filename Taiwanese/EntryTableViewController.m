@@ -124,8 +124,6 @@
                                                context:nil];
     CGFloat examplesHeight = ceil(rect.size.height);
     
-    NSLog(@"h1: %f\th2: %f", englishHeight, examplesHeight);
-    
     if ([definition.examples count]) {
         // top space + taiwaneseHeight + inner space + englishHeight + inner space + examplesHeight + bottom space
         heightForRow = 20 + 21 + 8 + englishHeight + 8 + examplesHeight + 20;
@@ -134,7 +132,7 @@
         heightForRow = 20 + 21 + 8 + englishHeight + 20;
     }
     
-    NSLog(@"h1: %f\th2: %f\th3: %f", englishHeight, examplesHeight, heightForRow);
+    //NSLog(@"h1: %f\th2: %f\th3: %f", englishHeight, examplesHeight, heightForRow);
 
     return heightForRow;
 }
