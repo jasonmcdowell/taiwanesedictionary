@@ -72,37 +72,22 @@
     cell.chineseLabel.text = definition.chinese;
     cell.englishLabel.text = definition.english;
     
-    NSString *text = definition.english;
-    CGFloat width = cell.englishLabel.frame.size.width;
-    UIFont *font = cell.englishLabel.font;
-    NSAttributedString *attributedText =
-    [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName: font}];
-    CGRect rect = [attributedText boundingRectWithSize:(CGSize){width, CGFLOAT_MAX}
-                                               options:NSStringDrawingUsesLineFragmentOrigin
-                                               context:nil];
-    CGFloat height = ceil(rect.size.height);
-    //NSLog(@"Old height: %f\tNew height: %f", cell.englishLabel.frame.size.height, height);
-    cell.englishLabel.frame = CGRectMake(cell.englishLabel.frame.origin.x, cell.englishLabel.frame.origin.y, cell.englishLabel.frame.size.width, height);
-    
     if ([definition.examples count]) {
         NSString *examplesString = @"";
         for (Example *example in definition.examples) {
-            //NSLog(@"Number of examples: %d", [definition.examples count]);
             examplesString = [examplesString stringByAppendingString:[NSString stringWithFormat:@"%@\n%@\n%@\n\n",example.taiwanese, example.chinese, example.english]];
         }
         cell.examplesLabel.text = [examplesString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     } else {
-        //cell.examplesLabel.text = nil;
-        //cell.examplesLabel.hidden = YES;
         [cell.examplesLabel removeFromSuperview];
     }
-    
-    //[cell setNeedsDisplay];
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    CGFloat heightForRow = 0;
     
     NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"DefinitionTableViewCell" owner:self options:nil];
     DefinitionTableViewCell *cell = [topLevelObjects objectAtIndex:0];
@@ -121,7 +106,7 @@
                                                options:NSStringDrawingUsesLineFragmentOrigin
                                                context:nil];
     CGFloat englishHeight = ceil(rect.size.height);
-    
+
     // English Label height calculations
     NSString *examplesString = @"";
     for (Example *example in definition.examples) {
@@ -139,14 +124,19 @@
                                                context:nil];
     CGFloat examplesHeight = ceil(rect.size.height);
     
+    NSLog(@"h1: %f\th2: %f", englishHeight, examplesHeight);
+    
     if ([definition.examples count]) {
         // top space + taiwaneseHeight + inner space + englishHeight + inner space + examplesHeight + bottom space
-        return 20 + 21 + 8 + englishHeight + 8 + examplesHeight + 20;
+        heightForRow = 20 + 21 + 8 + englishHeight + 8 + examplesHeight + 20;
     } else {
         // top space + taiwaneseHeight + inner space + englishHeight + bottom space
-        return 20 + 21 + 8 + englishHeight + 20;
+        heightForRow = 20 + 21 + 8 + englishHeight + 20;
     }
     
+    NSLog(@"h1: %f\th2: %f\th3: %f", englishHeight, examplesHeight, heightForRow);
+
+    return heightForRow;
 }
 
 
