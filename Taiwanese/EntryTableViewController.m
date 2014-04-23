@@ -71,7 +71,7 @@
     cell.taiwaneseLabel.text = [NSString stringWithFormat:@"%@. %@",@(indexPath.row + 1),definition.taiwanese];
     cell.chineseLabel.text = definition.chinese;
     cell.englishLabel.text = definition.english;
-    
+
     if ([definition.examples count]) {
         NSString *examplesString = @"";
         for (Example *example in definition.examples) {
@@ -97,17 +97,37 @@
     cell.chineseLabel.text = definition.chinese;
     cell.englishLabel.text = definition.english;
     
-    // English Label height calculations
-    NSString *text = definition.english;
-    CGFloat width = cell.englishLabel.frame.size.width;
-    UIFont *font = cell.englishLabel.font;
+    // Taiwanese Label height calculations
+    NSString *text = cell.taiwaneseLabel.text;
+    CGFloat width = cell.taiwaneseLabel.frame.size.width;
+    UIFont *font = cell.taiwaneseLabel.font;
     NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName: font}];
     CGRect rect = [attributedText boundingRectWithSize:(CGSize){width, CGFLOAT_MAX}
                                                options:NSStringDrawingUsesLineFragmentOrigin
                                                context:nil];
+    CGFloat taiwaneseHeight = ceil(rect.size.height);
+
+    // Chinese Label height calculations
+    text = cell.chineseLabel.text;
+    width = cell.chineseLabel.frame.size.width;
+    font = cell.chineseLabel.font;
+    attributedText = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName: font}];
+    rect = [attributedText boundingRectWithSize:(CGSize){width, CGFLOAT_MAX}
+                                        options:NSStringDrawingUsesLineFragmentOrigin
+                                        context:nil];
+    CGFloat chineseHeight = ceil(rect.size.height);
+    
+    // English Label height calculations
+    text = definition.english;
+    width = cell.englishLabel.frame.size.width;
+    font = cell.englishLabel.font;
+    attributedText = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName: font}];
+    rect = [attributedText boundingRectWithSize:(CGSize){width, CGFLOAT_MAX}
+                                        options:NSStringDrawingUsesLineFragmentOrigin
+                                        context:nil];
     CGFloat englishHeight = ceil(rect.size.height);
 
-    // English Label height calculations
+    // Examples Label height calculations
     NSString *examplesString = @"";
     for (Example *example in definition.examples) {
         //NSLog(@"Number of examples: %d", [definition.examples count]);
@@ -124,12 +144,14 @@
                                                context:nil];
     CGFloat examplesHeight = ceil(rect.size.height);
     
+    int topRowHeight = taiwaneseHeight > chineseHeight ? taiwaneseHeight:chineseHeight;
+    
     if ([definition.examples count]) {
         // top space + taiwaneseHeight + inner space + englishHeight + inner space + examplesHeight + bottom space
-        heightForRow = 20 + 21 + 8 + englishHeight + 8 + examplesHeight + 20;
+        heightForRow = 20 + topRowHeight + 8 + englishHeight + 8 + examplesHeight + 20;
     } else {
         // top space + taiwaneseHeight + inner space + englishHeight + bottom space
-        heightForRow = 20 + 21 + 8 + englishHeight + 20;
+        heightForRow = 20 + topRowHeight + 8 + englishHeight + 20;
     }
     
     //NSLog(@"h1: %f\th2: %f\th3: %f", englishHeight, examplesHeight, heightForRow);
