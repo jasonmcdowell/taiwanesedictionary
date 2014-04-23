@@ -54,6 +54,14 @@
 
 #pragma mark - Initialize Table View
 
+//- (void)viewWillAppear:(BOOL)animated
+//{
+//    [super viewWillAppear:animated];
+//    
+//    self.filteredArray = [NSMutableArray arrayWithArray:@[]];
+//    self.searchText = @"";
+//}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -177,7 +185,7 @@
     {
         self.searchText = [searchText copy];
     }
-    
+        
     dispatch_queue_t queue = dispatch_queue_create("search", NULL);
     dispatch_async(queue, ^{
         //NSDate* start = [NSDate date];
