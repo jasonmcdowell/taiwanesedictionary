@@ -89,7 +89,7 @@ Search in Chinese using Traditional characters.</string>
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="993" y="806"/>
+            <point key="canvasLocation" x="1315" y="520"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="YsC-Ah-K70">
@@ -168,7 +168,7 @@ http://www.taiwanesedictionary.org/US_License.html</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ac7-DM-OtU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1509" y="806"/>
+            <point key="canvasLocation" x="1831" y="520"/>
         </scene>
         <!--Fred View Controller - Be Like Fred-->
         <scene sceneID="ZHs-p7-gAx">
@@ -188,7 +188,7 @@ http://www.taiwanesedictionary.org/US_License.html</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="04G-jq-kXc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2077" y="806"/>
+            <point key="canvasLocation" x="2399" y="520"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0qK-eY-EQa">
@@ -206,7 +206,7 @@ http://www.taiwanesedictionary.org/US_License.html</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ftb-0J-HBY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="467" y="806"/>
+            <point key="canvasLocation" x="789" y="520"/>
         </scene>
     </scenes>
     <resources>

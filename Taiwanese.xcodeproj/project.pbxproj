@@ -20,7 +20,6 @@
 		B4759D2C1906156C00A75B12 /* NSString+Taiwanese.m in Sources */ = {isa = PBXBuildFile; fileRef = B4759D281906156C00A75B12 /* NSString+Taiwanese.m */; };
 		B4B09313190614A90077E556 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4B09309190614A90077E556 /* Main.storyboard */; };
 		B4B09314190614A90077E556 /* StartingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0930B190614A90077E556 /* StartingViewController.m */; };
-		B4B09315190614A90077E556 /* TaiwaneseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0930D190614A90077E556 /* TaiwaneseTableViewController.m */; };
 		B4B09316190614A90077E556 /* EntryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0930F190614A90077E556 /* EntryTableViewController.m */; };
 		B4B09317190614A90077E556 /* DefinitionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B09311190614A90077E556 /* DefinitionTableViewCell.m */; };
 		B4B09318190614A90077E556 /* DefinitionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B09312190614A90077E556 /* DefinitionTableViewCell.xib */; };
@@ -75,8 +74,6 @@
 		B4B09309190614A90077E556 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B4B0930A190614A90077E556 /* StartingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartingViewController.h; sourceTree = "<group>"; };
 		B4B0930B190614A90077E556 /* StartingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartingViewController.m; sourceTree = "<group>"; };
-		B4B0930C190614A90077E556 /* TaiwaneseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaiwaneseTableViewController.h; sourceTree = "<group>"; };
-		B4B0930D190614A90077E556 /* TaiwaneseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaiwaneseTableViewController.m; sourceTree = "<group>"; };
 		B4B0930E190614A90077E556 /* EntryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryTableViewController.h; sourceTree = "<group>"; };
 		B4B0930F190614A90077E556 /* EntryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryTableViewController.m; sourceTree = "<group>"; };
 		B4B09310190614A90077E556 /* DefinitionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefinitionTableViewCell.h; sourceTree = "<group>"; };
@@ -197,8 +194,6 @@
 				B4B09309190614A90077E556 /* Main.storyboard */,
 				B4B0930A190614A90077E556 /* StartingViewController.h */,
 				B4B0930B190614A90077E556 /* StartingViewController.m */,
-				B4B0930C190614A90077E556 /* TaiwaneseTableViewController.h */,
-				B4B0930D190614A90077E556 /* TaiwaneseTableViewController.m */,
 				B4B0930E190614A90077E556 /* EntryTableViewController.h */,
 				B4B0930F190614A90077E556 /* EntryTableViewController.m */,
 				B4B09310190614A90077E556 /* DefinitionTableViewCell.h */,
@@ -349,7 +344,6 @@
 				B4759D2C1906156C00A75B12 /* NSString+Taiwanese.m in Sources */,
 				B439537B1906153B00E8CD81 /* FredViewController.m in Sources */,
 				B439537A1906153B00E8CD81 /* FredView.m in Sources */,
-				B4B09315190614A90077E556 /* TaiwaneseTableViewController.m in Sources */,
 				B4B09314190614A90077E556 /* StartingViewController.m in Sources */,
 				B4B09316190614A90077E556 /* EntryTableViewController.m in Sources */,
 				B4759D2A1906156C00A75B12 /* Entry.m in Sources */,

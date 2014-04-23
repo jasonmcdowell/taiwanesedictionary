@@ -71,25 +71,80 @@
     cell.taiwaneseLabel.text = [NSString stringWithFormat:@"%@. %@",@(indexPath.row + 1),definition.taiwanese];
     cell.chineseLabel.text = definition.chinese;
     cell.englishLabel.text = definition.english;
+    
+    NSString *text = definition.english;
+    CGFloat width = cell.englishLabel.frame.size.width;
+    UIFont *font = cell.englishLabel.font;
+    NSAttributedString *attributedText =
+    [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName: font}];
+    CGRect rect = [attributedText boundingRectWithSize:(CGSize){width, CGFLOAT_MAX}
+                                               options:NSStringDrawingUsesLineFragmentOrigin
+                                               context:nil];
+    CGFloat height = ceil(rect.size.height);
+    //NSLog(@"Old height: %f\tNew height: %f", cell.englishLabel.frame.size.height, height);
+    cell.englishLabel.frame = CGRectMake(cell.englishLabel.frame.origin.x, cell.englishLabel.frame.origin.y, cell.englishLabel.frame.size.width, height);
+    
     if ([definition.examples count]) {
+        NSString *examplesString = @"";
         for (Example *example in definition.examples) {
-            cell.examplesLabel.text = [NSString stringWithFormat:@"%@\n%@\n%@\n\n",example.taiwanese, example.chinese, example.english ];
+            //NSLog(@"Number of examples: %d", [definition.examples count]);
+            examplesString = [examplesString stringByAppendingString:[NSString stringWithFormat:@"%@\n%@\n%@\n\n",example.taiwanese, example.chinese, example.english]];
         }
+        cell.examplesLabel.text = [examplesString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     } else {
-        cell.examplesLabel.text = nil;
-
+        //cell.examplesLabel.text = nil;
+        //cell.examplesLabel.hidden = YES;
+        [cell.examplesLabel removeFromSuperview];
     }
+    
+    //[cell setNeedsDisplay];
+    
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"DefinitionTableViewCell" owner:self options:nil];
+    DefinitionTableViewCell *cell = [topLevelObjects objectAtIndex:0];
+    
     Definition *definition = self.entry.definitions[indexPath.row];
+    cell.taiwaneseLabel.text = [NSString stringWithFormat:@"%@. %@",@(indexPath.row + 1),definition.taiwanese];
+    cell.chineseLabel.text = definition.chinese;
+    cell.englishLabel.text = definition.english;
+    
+    // English Label height calculations
+    NSString *text = definition.english;
+    CGFloat width = cell.englishLabel.frame.size.width;
+    UIFont *font = cell.englishLabel.font;
+    NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName: font}];
+    CGRect rect = [attributedText boundingRectWithSize:(CGSize){width, CGFLOAT_MAX}
+                                               options:NSStringDrawingUsesLineFragmentOrigin
+                                               context:nil];
+    CGFloat englishHeight = ceil(rect.size.height);
+    
+    // English Label height calculations
+    NSString *examplesString = @"";
+    for (Example *example in definition.examples) {
+        //NSLog(@"Number of examples: %d", [definition.examples count]);
+        examplesString = [examplesString stringByAppendingString:[NSString stringWithFormat:@"%@\n%@\n%@\n\n",example.taiwanese, example.chinese, example.english]];
+    }
+    cell.examplesLabel.text = [examplesString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
+    text = cell.examplesLabel.text;
+    width = cell.examplesLabel.frame.size.width;
+    font = cell.examplesLabel.font;
+    attributedText = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName: font}];
+    rect = [attributedText boundingRectWithSize:(CGSize){width, CGFLOAT_MAX}
+                                               options:NSStringDrawingUsesLineFragmentOrigin
+                                               context:nil];
+    CGFloat examplesHeight = ceil(rect.size.height);
     
     if ([definition.examples count]) {
-        return 200;
+        // top space + taiwaneseHeight + inner space + englishHeight + inner space + examplesHeight + bottom space
+        return 20 + 21 + 8 + englishHeight + 8 + examplesHeight + 20;
     } else {
-        return 100;
+        // top space + taiwaneseHeight + inner space + englishHeight + bottom space
+        return 20 + 21 + 8 + englishHeight + 20;
     }
     
 }

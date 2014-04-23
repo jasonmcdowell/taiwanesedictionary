@@ -59,7 +59,14 @@
     [super viewDidLoad];
     // Retrieve stored dictionary
     dispatch_queue_t queue = dispatch_queue_create("loadDictionary", NULL);
-    dispatch_async(queue, ^{[self loadDictionary];});
+    dispatch_async(queue, ^{
+        [self loadDictionary];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.searchBar.text = self.searchText;
+        });
+    });
+    
+    //[self loadDictionary];
 }
 
 - (void) loadDictionary
@@ -240,10 +247,11 @@
                     // search Taiwanese definitions
                     if (foundEntry)
                     {
+                        // if the scope is "begins" and the string is matched at the beginning OR if the scope is "contains"
                         if (([scope isEqualToString:@"begins"] && (matchedRange.location == 0)) || [scope isEqualToString:@"contains"]) {
                             [tempArray addObject:entry];
+                            break;
                         }
-                        
                     }
                     else
                     {
@@ -255,6 +263,7 @@
                         {
                             if (([scope isEqualToString:@"begins"] && (matchedRange.location == 0)) || [scope isEqualToString:@"contains"]) {
                                 [tempArray addObject:entry];
+                                break;
                             }
                             
                         }
