@@ -118,11 +118,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
-        return [self.filteredArray count];
-    } else {
-        return [self.dictionaryArray count];
-    }
+    return [self.filteredArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -160,8 +156,6 @@
     Definition *definition = [entry.definitions firstObject];
     cell.textLabel.text = definition.taiwanese;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, %@",definition.chinese, definition.english];
-    
-    
     
     return cell;
 }
@@ -212,7 +206,7 @@
         //        NSLog(@"Orthography: %@", orthography);
         
         // start searching for matching strings
-        NSMutableArray *tempArray = [[NSMutableArray alloc]initWithCapacity:[self.dictionaryArray count]];
+        NSMutableArray *tempArray = [[NSMutableArray alloc]initWithCapacity:1];
         // Filter the array using NSPredicate
         NSInteger i = 0;
         for (Entry *entry in self.dictionaryArray) {
@@ -273,7 +267,6 @@
                                 [tempArray addObject:entry];
                                 break;
                             }
-                            
                         }
                     }
                     
@@ -299,7 +292,8 @@
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
     
     // Tells the table data source to reload when text changes
-    [self filterContentForSearchText:searchString scope:[[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
+    [self filterContentForSearchText:searchString
+                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
     
     // Return YES to cause the search result table view to be reloaded.
     return YES;

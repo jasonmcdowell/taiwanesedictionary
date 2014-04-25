@@ -287,6 +287,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Jason McDowell";
 				TargetAttributes = {
+					B4C4F5E4190612F60001270F = {
+						DevelopmentTeam = PAW8J8HXCG;
+					};
 					B4C4F605190612F70001270F = {
 						TestTargetID = B4C4F5E4190612F60001270F;
 					};
@@ -471,9 +474,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Taiwanese/Taiwanese-Prefix.pch";
 				INFOPLIST_FILE = "Taiwanese/Taiwanese-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -484,9 +489,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Taiwanese/Taiwanese-Prefix.pch";
 				INFOPLIST_FILE = "Taiwanese/Taiwanese-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
