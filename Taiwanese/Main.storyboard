@@ -20,7 +20,7 @@
                             <searchBar contentMode="redraw" placeholder="Search in English, Chinese, or Taiwanese" translatesAutoresizingMaskIntoConstraints="NO" id="ZG4-0w-Vev">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                 <scopeButtonTitles>
                                     <string>begins</string>
                                     <string>contains</string>
