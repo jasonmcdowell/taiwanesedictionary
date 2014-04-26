@@ -179,7 +179,7 @@
     {
         self.searchText = [searchText copy];
     }
-        
+    
     dispatch_queue_t queue = dispatch_queue_create("search", NULL);
     dispatch_async(queue, ^{
         //NSDate* start = [NSDate date];
