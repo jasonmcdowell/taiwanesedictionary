@@ -342,8 +342,8 @@ http://www.taiwanesedictionary.org/US_License.html</string>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" placeholderIntrinsicWidth="263" placeholderIntrinsicHeight="111" text="Examples" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="263" translatesAutoresizingMaskIntoConstraints="NO" id="r9E-iG-LDm">
-                                            <rect key="frame" x="37" y="107" width="263" height="111"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="263" placeholderIntrinsicHeight="157" text="Examples" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="263" translatesAutoresizingMaskIntoConstraints="NO" id="r9E-iG-LDm">
+                                            <rect key="frame" x="37" y="107" width="263" height="157"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
@@ -352,17 +352,16 @@ http://www.taiwanesedictionary.org/US_License.html</string>
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="r9E-iG-LDm" secondAttribute="bottom" constant="20" id="7Vq-95-o6z"/>
                                         <constraint firstItem="ClA-On-zSr" firstAttribute="top" secondItem="dBB-GK-jYo" secondAttribute="bottom" constant="8" symbolic="YES" id="AOq-Ru-bUO"/>
                                         <constraint firstAttribute="trailing" secondItem="Qa8-xA-z7W" secondAttribute="trailing" constant="20" symbolic="YES" id="BFj-rx-B1o"/>
-                                        <constraint firstItem="r9E-iG-LDm" firstAttribute="leading" secondItem="ngT-GQ-QFq" secondAttribute="leading" constant="37" id="H0L-cC-uAg"/>
-                                        <constraint firstAttribute="bottom" secondItem="r9E-iG-LDm" secondAttribute="bottom" constant="20" symbolic="YES" id="MIU-Pc-OUA"/>
+                                        <constraint firstItem="r9E-iG-LDm" firstAttribute="trailing" secondItem="ClA-On-zSr" secondAttribute="trailing" id="Of1-JT-2r1"/>
                                         <constraint firstItem="Qa8-xA-z7W" firstAttribute="trailing" secondItem="ClA-On-zSr" secondAttribute="trailing" id="T1y-7Q-cuK"/>
                                         <constraint firstItem="Qa8-xA-z7W" firstAttribute="leading" secondItem="dBB-GK-jYo" secondAttribute="trailing" constant="8" symbolic="YES" id="W6i-hf-bmC"/>
                                         <constraint firstItem="Qa8-xA-z7W" firstAttribute="top" secondItem="dBB-GK-jYo" secondAttribute="top" id="YDT-YY-Y4b"/>
                                         <constraint firstItem="dBB-GK-jYo" firstAttribute="top" secondItem="ngT-GQ-QFq" secondAttribute="top" constant="20" symbolic="YES" id="Ymo-Gu-Zq9"/>
                                         <constraint firstItem="dBB-GK-jYo" firstAttribute="baseline" secondItem="Qa8-xA-z7W" secondAttribute="baseline" id="cd6-mL-rjZ"/>
                                         <constraint firstItem="dBB-GK-jYo" firstAttribute="leading" secondItem="ClA-On-zSr" secondAttribute="leading" id="cyX-sM-UCS"/>
-                                        <constraint firstItem="r9E-iG-LDm" firstAttribute="trailing" secondItem="ClA-On-zSr" secondAttribute="trailing" id="r73-WJ-SA1"/>
                                         <constraint firstItem="dBB-GK-jYo" firstAttribute="leading" secondItem="ngT-GQ-QFq" secondAttribute="leading" constant="20" symbolic="YES" id="ucC-c3-0IV"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -425,8 +424,8 @@ http://www.taiwanesedictionary.org/US_License.html</string>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" placeholderIntrinsicWidth="263" placeholderIntrinsicHeight="111" text="Examples" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="263" translatesAutoresizingMaskIntoConstraints="NO" id="qiI-JL-QID">
-                                            <rect key="frame" x="37" y="107" width="263" height="111"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="263" placeholderIntrinsicHeight="157" text="Examples" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="263" translatesAutoresizingMaskIntoConstraints="NO" id="qiI-JL-QID">
+                                            <rect key="frame" x="37" y="107" width="263" height="157"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
@@ -435,17 +434,17 @@ http://www.taiwanesedictionary.org/US_License.html</string>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="qiI-JL-QID" firstAttribute="trailing" secondItem="1iI-cM-LdS" secondAttribute="trailing" id="0Bm-rr-jM4"/>
                                         <constraint firstItem="1iI-cM-LdS" firstAttribute="top" secondItem="7y3-Rs-VQR" secondAttribute="bottom" constant="8" symbolic="YES" id="4Ci-TY-Nmn"/>
                                         <constraint firstItem="CL5-6o-OVS" firstAttribute="trailing" secondItem="1iI-cM-LdS" secondAttribute="trailing" id="B1v-5k-t4P"/>
                                         <constraint firstItem="CL5-6o-OVS" firstAttribute="top" secondItem="7y3-Rs-VQR" secondAttribute="top" id="HNF-6i-BQZ"/>
                                         <constraint firstItem="7y3-Rs-VQR" firstAttribute="baseline" secondItem="CL5-6o-OVS" secondAttribute="baseline" id="IWb-qd-HPw"/>
                                         <constraint firstItem="7y3-Rs-VQR" firstAttribute="leading" secondItem="FTf-dk-ZJN" secondAttribute="leading" constant="20" symbolic="YES" id="K4v-Gc-HzU"/>
                                         <constraint firstItem="7y3-Rs-VQR" firstAttribute="leading" secondItem="1iI-cM-LdS" secondAttribute="leading" id="M5S-dj-vhc"/>
-                                        <constraint firstAttribute="bottom" secondItem="qiI-JL-QID" secondAttribute="bottom" constant="20" symbolic="YES" id="R6X-Cv-Pdb"/>
+                                        <constraint firstAttribute="bottom" secondItem="qiI-JL-QID" secondAttribute="bottom" constant="20" id="RGG-37-yYW"/>
+                                        <constraint firstItem="qiI-JL-QID" firstAttribute="trailing" secondItem="1iI-cM-LdS" secondAttribute="trailing" id="ZaY-7V-O2C"/>
+                                        <constraint firstItem="qiI-JL-QID" firstAttribute="top" secondItem="1iI-cM-LdS" secondAttribute="bottom" constant="8" symbolic="YES" id="d0o-X1-uif"/>
                                         <constraint firstItem="7y3-Rs-VQR" firstAttribute="top" secondItem="FTf-dk-ZJN" secondAttribute="top" constant="20" symbolic="YES" id="fUf-Tj-qd6"/>
                                         <constraint firstItem="CL5-6o-OVS" firstAttribute="leading" secondItem="7y3-Rs-VQR" secondAttribute="trailing" constant="8" symbolic="YES" id="wz6-gP-YXJ"/>
-                                        <constraint firstItem="qiI-JL-QID" firstAttribute="leading" secondItem="FTf-dk-ZJN" secondAttribute="leading" constant="37" id="xcH-cO-F0r"/>
                                         <constraint firstAttribute="trailing" secondItem="CL5-6o-OVS" secondAttribute="trailing" constant="20" symbolic="YES" id="zD6-bF-F5P"/>
                                     </constraints>
                                 </tableViewCellContentView>
