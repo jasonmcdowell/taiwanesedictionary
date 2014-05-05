@@ -56,6 +56,48 @@
     
     self.navigationItem.title = self.entry.key;
     //self.navigationItem.rightBarButtonItem.image = [UIImage imageNamed:@"history"];
+    
+    [self saveHistory];
+    
+}
+
+- (void) saveHistory
+{
+    // Get existing history
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *fileName = @"recent.plist";
+    NSString *filePath =  [documentsDirectory stringByAppendingPathComponent:fileName];
+    NSData *data = [NSData dataWithContentsOfFile:filePath];
+    NSArray *array = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    
+    // if history is nil, create an empty array
+    if (!array) {
+        array = @[];
+    }
+    
+    // Add entry to history, filtering array for duplicates
+    NSMutableArray *newHistory = [@[] mutableCopy];
+    [newHistory addObject:self.entry];
+    for (Entry *entry in array) {
+        if (![entry.key isEqualToString:self.entry.key]) {
+            [newHistory addObject:entry];
+        }
+    }
+    
+    // Limit length of history to 25 entries
+    if ([newHistory count] > 25) {
+        [newHistory removeLastObject];
+    }
+    
+    // Store new history
+    NSData *newData = [NSKeyedArchiver archivedDataWithRootObject:newHistory];
+    BOOL result = [newData writeToFile:filePath atomically:YES];
+    if (result) {
+        //NSLog(@"Successfully wrote %@ to %@. %lu items total.",self.entry.key, fileName, (unsigned long)[newHistory count]);
+    } else {
+        NSLog(@"Error writing the history to a file");
+    }
 }
 
 -(void)addFavorite

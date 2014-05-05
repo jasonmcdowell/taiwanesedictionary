@@ -183,42 +183,7 @@
     Entry *entry;
     entry = self.filteredArray[indexPath.row];
     controller.entry = entry;
-    [self saveHistory:entry];
     [self.navigationController pushViewController:controller animated:YES];
-}
-
-- (void) saveHistory: (Entry *) entry
-{
-    // Get existing history
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *fileName = @"recent.plist";
-    NSString *filePath =  [documentsDirectory stringByAppendingPathComponent:fileName];
-    NSData *data = [NSData dataWithContentsOfFile:filePath];
-    NSArray *array = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-    
-    // if history is nil, create an empty array
-    if (!array) {
-        array = @[];
-    }
-    
-    // Add entry to history
-    NSMutableArray *newHistory = [array mutableCopy];
-    [newHistory insertObject:entry atIndex:0];
-    
-    // Limit length of history to 25 entries
-    if ([newHistory count] > 25) {
-        [newHistory removeLastObject];
-    }
-    
-    // Store new history
-    NSData *newData = [NSKeyedArchiver archivedDataWithRootObject:newHistory];
-    BOOL result = [newData writeToFile:filePath atomically:YES];
-    if (result) {
-        //NSLog(@"Successfully wrote %@ to %@. %lu items total.",entry.key, fileName, (unsigned long)[newHistory count]);
-    } else {
-        NSLog(@"Error writing the history to a file");
-    }
 }
 
 #pragma mark - Content Filtering
