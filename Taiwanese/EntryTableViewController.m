@@ -35,10 +35,58 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
+    // Store dictionary in plist
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    NSString *documentsDirectory = [paths objectAtIndex:0];
+//    NSString *filePath =  [documentsDirectory stringByAppendingPathComponent:@"dictionary.plist"];
+//    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:dictionaryArray];
+    //NSData *data = [NSKeyedArchiver archivedDataWithRootObject:@[lastDefinition, lastDefinition, lastDefinition]];
+    //BOOL result = [data writeToFile:filePath atomically:YES];
+    
     UINib *nib = [UINib nibWithNibName:@"DefinitionTableViewCell" bundle:nil];
     [[self tableView] registerNib:nib forCellReuseIdentifier:@"Definition"];
     
+    // Add BarButtonItem for adding an Entry to Favorites
+    UIBarButtonItem *addFavorite = [[UIBarButtonItem alloc]
+                                    initWithImage:[UIImage imageNamed:@"favorites"]
+                                    style:UIBarButtonItemStylePlain
+                                    target:self
+                                    action:@selector(addFavorite)];
+    self.navigationItem.rightBarButtonItem = addFavorite;
+    
+    self.navigationItem.title = self.entry.key;
+    //self.navigationItem.rightBarButtonItem.image = [UIImage imageNamed:@"history"];
 }
+
+-(void)addFavorite
+{
+    // Get existing favorites
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *fileName = @"favorites.plist";
+    NSString *filePath =  [documentsDirectory stringByAppendingPathComponent:fileName];
+    NSData *data = [NSData dataWithContentsOfFile:filePath];
+    NSArray *array = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    
+    // if array is nil, create an empty array
+    if (!array) {
+        array = @[];
+    }
+    
+    // Add entry to favorites
+    NSMutableArray *newFavorites = [array mutableCopy];
+    [newFavorites insertObject:self.entry atIndex:0];
+    
+    // Store new favorite
+    NSData *newData = [NSKeyedArchiver archivedDataWithRootObject:newFavorites];
+    BOOL result = [newData writeToFile:filePath atomically:YES];
+    if (result) {
+        //NSLog(@"Successfully wrote %@ to %@. %lu items total.",self.entry.key, fileName, (unsigned long)[newFavorites count]);
+    } else {
+        NSLog(@"Error writing the favorites to a file");
+    }
+}
+
 
 - (void)didReceiveMemoryWarning
 {

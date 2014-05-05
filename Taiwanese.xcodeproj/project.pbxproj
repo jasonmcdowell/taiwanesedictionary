@@ -18,6 +18,9 @@
 		B4759D2A1906156C00A75B12 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = B4759D241906156C00A75B12 /* Entry.m */; };
 		B4759D2B1906156C00A75B12 /* Example.m in Sources */ = {isa = PBXBuildFile; fileRef = B4759D261906156C00A75B12 /* Example.m */; };
 		B4759D2C1906156C00A75B12 /* NSString+Taiwanese.m in Sources */ = {isa = PBXBuildFile; fileRef = B4759D281906156C00A75B12 /* NSString+Taiwanese.m */; };
+		B4A0B37A1917021E00AEA0B6 /* FavoritesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A0B3791917021E00AEA0B6 /* FavoritesTableViewController.m */; };
+		B4A0B37D1917023900AEA0B6 /* RecentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A0B37C1917023900AEA0B6 /* RecentTableViewController.m */; };
+		B4A0B3801917057400AEA0B6 /* ListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A0B37F1917057400AEA0B6 /* ListTableViewController.m */; };
 		B4B09313190614A90077E556 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4B09309190614A90077E556 /* Main.storyboard */; };
 		B4B09314190614A90077E556 /* StartingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0930B190614A90077E556 /* StartingViewController.m */; };
 		B4B09316190614A90077E556 /* EntryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B0930F190614A90077E556 /* EntryTableViewController.m */; };
@@ -36,6 +39,7 @@
 		B4C4F60A190612F70001270F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C4F5EC190612F60001270F /* UIKit.framework */; };
 		B4C4F612190612F70001270F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B4C4F610190612F70001270F /* InfoPlist.strings */; };
 		B4C4F614190612F70001270F /* TaiwaneseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B4C4F613190612F70001270F /* TaiwaneseTests.m */; };
+		B4CF9CF31914DB7100F6F064 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4CF9CF21914DB7100F6F064 /* AboutViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +75,12 @@
 		B4759D261906156C00A75B12 /* Example.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Example.m; sourceTree = "<group>"; };
 		B4759D271906156C00A75B12 /* NSString+Taiwanese.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Taiwanese.h"; sourceTree = "<group>"; };
 		B4759D281906156C00A75B12 /* NSString+Taiwanese.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Taiwanese.m"; sourceTree = "<group>"; };
+		B4A0B3781917021E00AEA0B6 /* FavoritesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesTableViewController.h; sourceTree = "<group>"; };
+		B4A0B3791917021E00AEA0B6 /* FavoritesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesTableViewController.m; sourceTree = "<group>"; };
+		B4A0B37B1917023900AEA0B6 /* RecentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentTableViewController.h; sourceTree = "<group>"; };
+		B4A0B37C1917023900AEA0B6 /* RecentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentTableViewController.m; sourceTree = "<group>"; };
+		B4A0B37E1917057400AEA0B6 /* ListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTableViewController.h; sourceTree = "<group>"; };
+		B4A0B37F1917057400AEA0B6 /* ListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTableViewController.m; sourceTree = "<group>"; };
 		B4B09309190614A90077E556 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B4B0930A190614A90077E556 /* StartingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartingViewController.h; sourceTree = "<group>"; };
 		B4B0930B190614A90077E556 /* StartingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartingViewController.m; sourceTree = "<group>"; };
@@ -96,6 +106,8 @@
 		B4C4F60F190612F70001270F /* TaiwaneseTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TaiwaneseTests-Info.plist"; sourceTree = "<group>"; };
 		B4C4F611190612F70001270F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B4C4F613190612F70001270F /* TaiwaneseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaiwaneseTests.m; sourceTree = "<group>"; };
+		B4CF9CF11914DB7100F6F064 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		B4CF9CF21914DB7100F6F064 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,8 +204,16 @@
 			isa = PBXGroup;
 			children = (
 				B4B09309190614A90077E556 /* Main.storyboard */,
+				B4A0B37E1917057400AEA0B6 /* ListTableViewController.h */,
+				B4A0B37F1917057400AEA0B6 /* ListTableViewController.m */,
+				B4A0B37B1917023900AEA0B6 /* RecentTableViewController.h */,
+				B4A0B37C1917023900AEA0B6 /* RecentTableViewController.m */,
+				B4A0B3781917021E00AEA0B6 /* FavoritesTableViewController.h */,
+				B4A0B3791917021E00AEA0B6 /* FavoritesTableViewController.m */,
 				B4B0930A190614A90077E556 /* StartingViewController.h */,
 				B4B0930B190614A90077E556 /* StartingViewController.m */,
+				B4CF9CF11914DB7100F6F064 /* AboutViewController.h */,
+				B4CF9CF21914DB7100F6F064 /* AboutViewController.m */,
 				B4B0930E190614A90077E556 /* EntryTableViewController.h */,
 				B4B0930F190614A90077E556 /* EntryTableViewController.m */,
 				B4B09310190614A90077E556 /* DefinitionTableViewCell.h */,
@@ -342,16 +362,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4CF9CF31914DB7100F6F064 /* AboutViewController.m in Sources */,
 				B4759D2B1906156C00A75B12 /* Example.m in Sources */,
 				B4C4F5F9190612F70001270F /* TaiwaneseAppDelegate.m in Sources */,
 				B4759D2C1906156C00A75B12 /* NSString+Taiwanese.m in Sources */,
+				B4A0B37A1917021E00AEA0B6 /* FavoritesTableViewController.m in Sources */,
 				B439537B1906153B00E8CD81 /* FredViewController.m in Sources */,
+				B4A0B37D1917023900AEA0B6 /* RecentTableViewController.m in Sources */,
 				B439537A1906153B00E8CD81 /* FredView.m in Sources */,
 				B4B09314190614A90077E556 /* StartingViewController.m in Sources */,
 				B4B09316190614A90077E556 /* EntryTableViewController.m in Sources */,
 				B4759D2A1906156C00A75B12 /* Entry.m in Sources */,
 				B43953791906153B00E8CD81 /* FredNose.m in Sources */,
 				B43953751906153B00E8CD81 /* FredEye.m in Sources */,
+				B4A0B3801917057400AEA0B6 /* ListTableViewController.m in Sources */,
 				B43953761906153B00E8CD81 /* FredFace.m in Sources */,
 				B43953781906153B00E8CD81 /* FredMouth.m in Sources */,
 				B4759D291906156C00A75B12 /* Definition.m in Sources */,

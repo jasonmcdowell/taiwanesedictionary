@@ -54,7 +54,7 @@
     [self initializeFred];
 
     [self attachGestureHandlers];
-
+    
 }
 
 //- (BOOL)prefersStatusBarHidden {return YES;}

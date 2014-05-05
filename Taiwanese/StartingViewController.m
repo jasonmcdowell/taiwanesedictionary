@@ -16,7 +16,6 @@
 @interface StartingViewController ()
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSMutableDictionary *dictionary;
-@property (strong, nonatomic) NSArray *dictionaryArray;
 @property (strong, nonatomic) NSMutableArray *filteredArray;
 @property (strong, nonatomic) NSString *searchText;
 @end
@@ -50,6 +49,24 @@
     }
     
     return _filteredArray;
+}
+
+// lazy instantiation
+- (NSMutableArray *) history {
+    if (!_history) {
+        _history = [[NSMutableArray alloc] init];
+    }
+    
+    return _history;
+}
+
+// lazy instantiation
+- (NSMutableArray *) favorites {
+    if (!_favorites) {
+        _favorites= [[NSMutableArray alloc] init];
+    }
+    
+    return _favorites;
 }
 
 #pragma mark - Initialize Table View
@@ -96,8 +113,8 @@
     }
     self.filteredArray = [NSMutableArray arrayWithCapacity:[self.dictionaryArray count]];
     
-    NSLog(@"Loading dictionary from file.");
-    NSLog(@"The dictionary has %@ entries.", @([self.dictionaryArray count]));
+    //NSLog(@"Loading dictionary from file.");
+    //NSLog(@"The dictionary has %@ entries.", @([self.dictionaryArray count]));
     
 }
 
@@ -166,10 +183,45 @@
     Entry *entry;
     entry = self.filteredArray[indexPath.row];
     controller.entry = entry;
+    [self saveHistory:entry];
     [self.navigationController pushViewController:controller animated:YES];
 }
 
-#pragma mark Content Filtering
+- (void) saveHistory: (Entry *) entry
+{
+    // Get existing history
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *fileName = @"recent.plist";
+    NSString *filePath =  [documentsDirectory stringByAppendingPathComponent:fileName];
+    NSData *data = [NSData dataWithContentsOfFile:filePath];
+    NSArray *array = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    
+    // if history is nil, create an empty array
+    if (!array) {
+        array = @[];
+    }
+    
+    // Add entry to history
+    NSMutableArray *newHistory = [array mutableCopy];
+    [newHistory insertObject:entry atIndex:0];
+    
+    // Limit length of history to 25 entries
+    if ([newHistory count] > 25) {
+        [newHistory removeLastObject];
+    }
+    
+    // Store new history
+    NSData *newData = [NSKeyedArchiver archivedDataWithRootObject:newHistory];
+    BOOL result = [newData writeToFile:filePath atomically:YES];
+    if (result) {
+        //NSLog(@"Successfully wrote %@ to %@. %lu items total.",entry.key, fileName, (unsigned long)[newHistory count]);
+    } else {
+        NSLog(@"Error writing the history to a file");
+    }
+}
+
+#pragma mark - Content Filtering
 -(void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
     // Update the filtered array based on the search text and scope.
     // Remove all objects from the filtered search array
@@ -305,6 +357,142 @@
      [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
     // Return YES to cause the search result table view to be reloaded.
     return YES;
+}
+
+
+#pragma mark - Generate Dictionary
+
+- (void) generateDictionary
+{
+    #define COMPLETE_DICTIONARY @"Mkdictionary"
+    #define TEST_DATA @"testData"
+    
+    NSString *resource = COMPLETE_DICTIONARY;
+    
+    NSString *fullPath = [[NSBundle mainBundle] pathForResource:resource ofType:@"txt"];
+    NSError *error;
+    NSString *entireFileInString = [NSString stringWithContentsOfFile:fullPath encoding:NSUTF8StringEncoding error:&error];
+    
+    // try UTF-16 encoding in case UTF-8 doesn't work
+    if (!entireFileInString) {
+        entireFileInString = [NSString stringWithContentsOfFile:fullPath encoding:NSUTF16StringEncoding error:&error];
+    }
+    
+    if(entireFileInString == nil) {
+        NSLog(@"Error : %@", [error localizedDescription]);
+    }
+    
+    NSArray *lines = [entireFileInString componentsSeparatedByString:@"\n"];
+    NSLog(@"path:%@\n", fullPath);
+    
+    NSLog(@"Loaded %@ lines of data.", @([lines count]));
+    
+    NSString *line = [lines firstObject];
+    NSString *firstLineString = [line substringToIndex:[@"Sort" length]];
+    if ([firstLineString isEqualToString:@"Sort"]) {
+        lines = [lines subarrayWithRange:NSMakeRange(1, [lines count]-1)];
+        NSLog(@"Removed the first line of data: %@", line);
+        NSLog(@"We now have %@ lines of data.", @([lines count]));
+    }
+    
+    // parse lines and put into dictionary
+    Definition *lastDefinition = [[Definition alloc] init];
+    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+    float totalLines = (float) [lines count];
+    float progress = 0.0;
+    //self.progress.progress = progress;
+    for (NSString *line in lines) {
+        progress += 1.0 / totalLines;
+        //NSLog(@"progress: %f", progress);
+        //dispatch_async(dispatch_get_main_queue(), ^{[self.progress setProgress:progress animated:YES];});
+        
+        NSArray *parsedLine = [line componentsSeparatedByString:@"\t"];
+        if ([parsedLine count] == 4) {
+            NSString *search = parsedLine[1];
+            NSString *taiwanese = parsedLine[1];
+            NSString *chinese = parsedLine[2];
+            NSString *english = parsedLine[3];
+            
+            search = search;
+            taiwanese = [[taiwanese removeOuterQuotesDebug] convertSourceToPehoeji]; //NSLog(@"%@",taiwanese);
+            chinese = [chinese removeOuterQuotesDebug];
+            english = [english removeOuterQuotesDebug];
+            
+            //NSLog(@"English: %@", english);
+            
+            //check to see if this line contains an example
+            if ([taiwanese length] >= 1) {
+                if ([[taiwanese substringToIndex:1] isEqualToString:@":"]) {
+                    Example *example = [[Example alloc] initWithTaiwanese:[taiwanese removeColons]
+                                                                  Chinese:chinese
+                                                                  English:english];
+                    // add this example to the previous defintion, and add it back to the dictionary
+                    [lastDefinition addExample:example];
+                    continue;
+                }
+            }
+            
+            //NSLog(@"%@",taiwanese);
+            
+            Definition *defintion = [[Definition alloc] initWithTaiwanese:taiwanese
+                                                                  Chinese:chinese
+                                                                  English:english
+                                                                   Search:search
+                                                                 Examples:nil];
+            NSString *entryKey = taiwanese;
+            Entry *entry = [dictionary objectForKey:entryKey];
+            if (!entry) {
+                entry = [[Entry alloc] initWithKey:entryKey];
+            }
+            [entry addDefinition:defintion];
+            [dictionary setObject:entry forKey:entry.key];
+            //NSLog(@"Stored entry with key: %@", entryKey);
+            
+            lastDefinition = defintion;
+        } else {
+            NSLog(@"Unexpected format in source file for line:\n%@", line);
+        }
+    }
+    
+    NSArray *dictionaryArray = [[NSArray alloc] init];
+    
+    dictionaryArray = [[dictionary allValues] sortedArrayUsingComparator: ^NSComparisonResult(id a, id b) {
+        Entry *first = (Entry *) a;
+        Entry *second = (Entry *) b;
+        
+        NSString *firstString = [first.key removeSourceToneMarks];
+        NSString *secondString = [second.key removeSourceToneMarks];
+        
+        return [firstString compare:secondString options:NSCaseInsensitiveSearch | NSDiacriticInsensitiveSearch];
+        
+    }];
+    
+    // Store dictionary in plist
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filePath =  [documentsDirectory stringByAppendingPathComponent:@"dictionary.plist"];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:dictionaryArray];
+    //NSData *data = [NSKeyedArchiver archivedDataWithRootObject:@[lastDefinition, lastDefinition, lastDefinition]];
+    BOOL result = [data writeToFile:filePath atomically:YES];
+    
+    if (result) {
+        NSLog(@"Successfully wrote the dictionary to a file");
+    } else {
+        NSLog(@"Error writing the dictionary to a file");
+    }
+    
+}
+
+- (IBAction)regenerateDictionary:(id)sender
+{
+    NSLog(@"Regenerating dictionary.");
+    dispatch_queue_t queue = dispatch_queue_create("generateDictionary", NULL);
+    dispatch_async(queue, ^{
+        [self generateDictionary];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //[self.tableView reloadData];
+        });
+    });
 }
 
 @end

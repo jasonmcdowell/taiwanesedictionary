@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface StartingViewController : UIViewController <UISearchBarDelegate, UISearchDisplayDelegate>
-
+@property (strong, nonatomic) NSArray *dictionaryArray;
+@property (strong, nonatomic) NSMutableArray *history;
+@property (strong, nonatomic) NSMutableArray *favorites;
 @end
