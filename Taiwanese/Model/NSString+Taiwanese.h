@@ -16,6 +16,8 @@
 - (NSString *)removeOuterQuotesDebug;
 - (NSString *)removeColons;
 - (NSString *)removeDashes;
+- (NSString *)convertPehoejiToNumberedPehoeji;
+- (NSString *)convertSourceToNumberedPehoeji;
 
 #define PEHOEJI             @"Pe̍h-ōe-jī"
 #define IPA                 @"IPA"

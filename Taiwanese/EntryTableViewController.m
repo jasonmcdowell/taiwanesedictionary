@@ -9,6 +9,8 @@
 #import "EntryTableViewController.h"
 #import "Definition.h"
 #import "DefinitionTableViewCell.h"
+#import <ParseKit/ParseKit.h>
+#import "NSString+Taiwanese.h"
 
 @interface EntryTableViewController ()
 
@@ -58,6 +60,121 @@
     //self.navigationItem.rightBarButtonItem.image = [UIImage imageNamed:@"history"];
     
     [self saveHistory];
+    
+    // Set up a ParseKit tokenizer and add symbols for all sounds in Peh-oe-ji.
+    // http://en.wikipedia.org/wiki/Taiwanese_Hokkien
+    // http://210.240.194.97/giankiu/lunbun/Ungian/ch3.pdf
+    
+    // convert peh-oe-ji to numbered POJ. Maybe I should store the data as numbered peh-oe-ji? Is there an advantage for lookups? Ordering? similar syllables would group in tone order...
+    
+    [self.entry.key convertPehoejiToNumberedPehoeji];
+    
+    
+    
+    PKTokenizer *tokenizer = [PKTokenizer tokenizerWithString:self.entry.key];
+    [tokenizer setTokenizerState:tokenizer.symbolState from:0 to:255];
+    
+    NSArray *toneArray = @[@"", @"́", @"̀", @"̂", @"̄", @"̍"];
+    NSArray *toneArray48 = @[@"t", @"p", @"k", @"h", @"̍t", @"̍p", @"̍k", @"̍h"];
+    NSArray *simpleVowels = @[@"a", @"i", @"u", @"e", @"o", @"o͘", @"m"];
+    NSArray *compoundVowels = @[@"ai", @"au", @"ia", @"iu", @"io", @"iau", @"ui", @"oa", @"oe", @"oai", @"ng"];
+    
+    for (NSString *tone in toneArray) {
+        // Simple Vowels
+        for (NSString *vowel in simpleVowels) {
+            NSMutableString *newSymbol = [vowel mutableCopy];
+            [newSymbol insertString:tone atIndex:1];
+            [tokenizer.symbolState add:newSymbol];
+        }
+        for (NSString *vowel in compoundVowels) {
+            NSMutableString *newSymbol = [vowel mutableCopy];
+            [newSymbol insertString:tone atIndex:1];
+            [tokenizer.symbolState add:newSymbol];
+        }
+        for (NSString *vowel in compoundVowels) {
+            NSMutableString *newSymbol = [vowel mutableCopy];
+            [newSymbol insertString:tone atIndex:2];
+            [tokenizer.symbolState add:newSymbol];
+        }
+    }
+    
+    for (NSString *tone in toneArray48) {
+        for (NSString *vowel in simpleVowels) {
+            NSMutableString *newSymbol = [vowel mutableCopy];
+            [newSymbol insertString:tone atIndex:1];
+            [tokenizer.symbolState add:newSymbol];
+        }
+        for (NSString *vowel in compoundVowels) {
+            NSMutableString *newSymbol = [vowel mutableCopy];
+            [newSymbol insertString:tone atIndex:1];
+            [tokenizer.symbolState add:newSymbol];
+        }
+        for (NSString *vowel in compoundVowels) {
+            NSMutableString *newSymbol = [vowel mutableCopy];
+            [newSymbol insertString:tone atIndex:2];
+            [tokenizer.symbolState add:newSymbol];
+        }
+    }
+    
+    // Nasal Vowels
+    
+    
+    // Vowels with Suffixes
+//    [tokenizer.symbolState add:@"am"];
+//    [tokenizer.symbolState add:@"an"];
+//    [tokenizer.symbolState add:@"ang"];
+//    [tokenizer.symbolState add:@"m"];
+//    [tokenizer.symbolState add:@"om"];
+//    [tokenizer.symbolState add:@"ng"];
+//    [tokenizer.symbolState add:@"ian"];
+//    [tokenizer.symbolState add:@"eng"];
+//    [tokenizer.symbolState add:@"oan"];
+//    [tokenizer.symbolState add:@"ong"];
+    
+    // Nasal
+    [tokenizer.symbolState add:@"ⁿ"];
+    
+    // Syllable delimiter
+    [tokenizer.symbolState add:@"-"];
+
+    // Consonants
+    [tokenizer.symbolState add:@"p"];
+    [tokenizer.symbolState add:@"b"];
+    [tokenizer.symbolState add:@"ph"];
+    [tokenizer.symbolState add:@"m"];
+    [tokenizer.symbolState add:@"t"];
+    [tokenizer.symbolState add:@"th"];
+    [tokenizer.symbolState add:@"n"];
+    [tokenizer.symbolState add:@"ng"];
+    [tokenizer.symbolState add:@"l"];
+    [tokenizer.symbolState add:@"k"];
+    [tokenizer.symbolState add:@"g"];
+    [tokenizer.symbolState add:@"kh"];
+    [tokenizer.symbolState add:@"h"];
+    [tokenizer.symbolState add:@"chi"];
+    [tokenizer.symbolState add:@"ji"];
+    [tokenizer.symbolState add:@"chhi"];
+    [tokenizer.symbolState add:@"si"];
+    [tokenizer.symbolState add:@"ch"];
+    [tokenizer.symbolState add:@"j"];
+    [tokenizer.symbolState add:@"chh"];
+    [tokenizer.symbolState add:@"s"];
+    
+    // Tones
+    [tokenizer.symbolState add:@"́"]; // 2
+    [tokenizer.symbolState add:@"̀"]; // 3
+    [tokenizer.symbolState add:@"̂"]; // 5
+    [tokenizer.symbolState add:@"̄"]; // 7
+    [tokenizer.symbolState add:@"̍"]; // 8
+    [tokenizer.symbolState add:@"p"]; // 4, 8
+    [tokenizer.symbolState add:@"t"]; // 4, 8
+    [tokenizer.symbolState add:@"k"]; // 4, 8
+    [tokenizer.symbolState add:@"h"]; // 4, 8
+
+    [tokenizer enumerateTokensUsingBlock:^(PKToken *tok, BOOL *stop) {
+        //NSLog(@"Token: %@\tisWord: %d", (NSString *) tok.value, tok.isWord);
+    }];
+    
     
 }
 

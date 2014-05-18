@@ -14,6 +14,7 @@
 		B43953791906153B00E8CD81 /* FredNose.m in Sources */ = {isa = PBXBuildFile; fileRef = B43953701906153B00E8CD81 /* FredNose.m */; };
 		B439537A1906153B00E8CD81 /* FredView.m in Sources */ = {isa = PBXBuildFile; fileRef = B43953721906153B00E8CD81 /* FredView.m */; };
 		B439537B1906153B00E8CD81 /* FredViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B43953741906153B00E8CD81 /* FredViewController.m */; };
+		B464F5FC192062AB009C4FCA /* PodFile in Resources */ = {isa = PBXBuildFile; fileRef = B464F5FB192062AB009C4FCA /* PodFile */; };
 		B4759D291906156C00A75B12 /* Definition.m in Sources */ = {isa = PBXBuildFile; fileRef = B4759D221906156C00A75B12 /* Definition.m */; };
 		B4759D2A1906156C00A75B12 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = B4759D241906156C00A75B12 /* Entry.m */; };
 		B4759D2B1906156C00A75B12 /* Example.m in Sources */ = {isa = PBXBuildFile; fileRef = B4759D261906156C00A75B12 /* Example.m */; };
@@ -40,6 +41,8 @@
 		B4C4F612190612F70001270F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B4C4F610190612F70001270F /* InfoPlist.strings */; };
 		B4C4F614190612F70001270F /* TaiwaneseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B4C4F613190612F70001270F /* TaiwaneseTests.m */; };
 		B4CF9CF31914DB7100F6F064 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4CF9CF21914DB7100F6F064 /* AboutViewController.m */; };
+		B4D9A9D5192870E30054149D /* Mkdictionary.txt in Resources */ = {isa = PBXBuildFile; fileRef = B4D9A9D4192870E30054149D /* Mkdictionary.txt */; };
+		B549935256794040905F1B0F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE22CD26EACF497CBAD2D71E /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		99251C56A6B54DFDA0749835 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		B43953671906153B00E8CD81 /* FredEye.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FredEye.h; sourceTree = "<group>"; };
 		B43953681906153B00E8CD81 /* FredEye.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FredEye.m; sourceTree = "<group>"; };
 		B43953691906153B00E8CD81 /* FredFace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FredFace.h; sourceTree = "<group>"; };
@@ -67,6 +71,7 @@
 		B43953721906153B00E8CD81 /* FredView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FredView.m; sourceTree = "<group>"; };
 		B43953731906153B00E8CD81 /* FredViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FredViewController.h; sourceTree = "<group>"; };
 		B43953741906153B00E8CD81 /* FredViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FredViewController.m; sourceTree = "<group>"; };
+		B464F5FB192062AB009C4FCA /* PodFile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PodFile; path = ../PodFile; sourceTree = "<group>"; };
 		B4759D211906156C00A75B12 /* Definition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Definition.h; sourceTree = "<group>"; };
 		B4759D221906156C00A75B12 /* Definition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Definition.m; sourceTree = "<group>"; };
 		B4759D231906156C00A75B12 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
@@ -108,6 +113,8 @@
 		B4C4F613190612F70001270F /* TaiwaneseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaiwaneseTests.m; sourceTree = "<group>"; };
 		B4CF9CF11914DB7100F6F064 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		B4CF9CF21914DB7100F6F064 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		B4D9A9D4192870E30054149D /* Mkdictionary.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Mkdictionary.txt; sourceTree = "<group>"; };
+		BE22CD26EACF497CBAD2D71E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +125,7 @@
 				B4C4F5EB190612F60001270F /* CoreGraphics.framework in Frameworks */,
 				B4C4F5ED190612F60001270F /* UIKit.framework in Frameworks */,
 				B4C4F5E9190612F60001270F /* Foundation.framework in Frameworks */,
+				B549935256794040905F1B0F /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +185,7 @@
 				B4C4F60D190612F70001270F /* TaiwaneseTests */,
 				B4C4F5E7190612F60001270F /* Frameworks */,
 				B4C4F5E6190612F60001270F /* Products */,
+				99251C56A6B54DFDA0749835 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -196,6 +205,7 @@
 				B4C4F5EA190612F60001270F /* CoreGraphics.framework */,
 				B4C4F5EC190612F60001270F /* UIKit.framework */,
 				B4C4F607190612F70001270F /* XCTest.framework */,
+				BE22CD26EACF497CBAD2D71E /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -230,6 +240,8 @@
 		B4C4F5EF190612F60001270F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B464F5FB192062AB009C4FCA /* PodFile */,
+				B4D9A9D4192870E30054149D /* Mkdictionary.txt */,
 				B4C4F5F7190612F70001270F /* TaiwaneseAppDelegate.h */,
 				B4C4F5F8190612F70001270F /* TaiwaneseAppDelegate.m */,
 				B4C4F5F0190612F60001270F /* Taiwanese-Info.plist */,
@@ -266,9 +278,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B4C4F617190612F70001270F /* Build configuration list for PBXNativeTarget "Taiwanese" */;
 			buildPhases = (
+				662F7AC061AD4C55B5FE3647 /* Check Pods Manifest.lock */,
 				B4C4F5E1190612F60001270F /* Sources */,
 				B4C4F5E2190612F60001270F /* Frameworks */,
 				B4C4F5E3190612F60001270F /* Resources */,
+				03AD6F104AFB4B5CAC0DA77A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -339,7 +353,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B464F5FC192062AB009C4FCA /* PodFile in Resources */,
 				B4B09318190614A90077E556 /* DefinitionTableViewCell.xib in Resources */,
+				B4D9A9D5192870E30054149D /* Mkdictionary.txt in Resources */,
 				B4B09313190614A90077E556 /* Main.storyboard in Resources */,
 				B4B0931A190614D50077E556 /* dictionary.plist in Resources */,
 				B4C4F601190612F70001270F /* Images.xcassets in Resources */,
@@ -356,6 +372,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		03AD6F104AFB4B5CAC0DA77A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		662F7AC061AD4C55B5FE3647 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B4C4F5E1190612F60001270F /* Sources */ = {
@@ -495,6 +544,7 @@
 		};
 		B4C4F618190612F70001270F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99251C56A6B54DFDA0749835 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -510,6 +560,7 @@
 		};
 		B4C4F619190612F70001270F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99251C56A6B54DFDA0749835 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

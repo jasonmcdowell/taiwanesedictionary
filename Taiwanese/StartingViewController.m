@@ -329,11 +329,20 @@
 
 - (void) generateDictionary
 {
+    /*
+     Instructions for generating a dictionary file from Mkdictionary.xls
+     
+     1. Open Mkdictionary.xls in Excel. Export the data as Mkdictionary.txt with UTF-16 text.
+     2. Move the file Mkdictionary.txt to the supporting files
+     3. Run this generateDictionary method via the regenerateDictionary method.
+     
+     We should probably get rid of the 'search' field in a Definition
+     
+     */
+    
+    
     #define COMPLETE_DICTIONARY @"Mkdictionary"
-    #define TEST_DATA @"testData"
-    
     NSString *resource = COMPLETE_DICTIONARY;
-    
     NSString *fullPath = [[NSBundle mainBundle] pathForResource:resource ofType:@"txt"];
     NSError *error;
     NSString *entireFileInString = [NSString stringWithContentsOfFile:fullPath encoding:NSUTF8StringEncoding error:&error];
@@ -349,9 +358,9 @@
     
     NSArray *lines = [entireFileInString componentsSeparatedByString:@"\n"];
     NSLog(@"path:%@\n", fullPath);
-    
     NSLog(@"Loaded %@ lines of data.", @([lines count]));
     
+    // Remove first line of data, if the header is there.
     NSString *line = [lines firstObject];
     NSString *firstLineString = [line substringToIndex:[@"Sort" length]];
     if ([firstLineString isEqualToString:@"Sort"]) {
@@ -378,8 +387,10 @@
             NSString *chinese = parsedLine[2];
             NSString *english = parsedLine[3];
             
+            // Format the taiwanese, chinese, and english strings.
             search = search;
             taiwanese = [[taiwanese removeOuterQuotesDebug] convertSourceToPehoeji]; //NSLog(@"%@",taiwanese);
+            //taiwanese = [[taiwanese removeOuterQuotesDebug] convertSourceToNumberedPehoeji]; //NSLog(@"%@",taiwanese);
             chinese = [chinese removeOuterQuotesDebug];
             english = [english removeOuterQuotesDebug];
             
@@ -404,15 +415,19 @@
                                                                   English:english
                                                                    Search:search
                                                                  Examples:nil];
+            // Check to see if we have already stored this Definition as an Entry.
             NSString *entryKey = taiwanese;
             Entry *entry = [dictionary objectForKey:entryKey];
             if (!entry) {
                 entry = [[Entry alloc] initWithKey:entryKey];
             }
+            
+            // Add the Definition to the Entry.
             [entry addDefinition:defintion];
             [dictionary setObject:entry forKey:entry.key];
             //NSLog(@"Stored entry with key: %@", entryKey);
             
+            // Remember this Definition.
             lastDefinition = defintion;
         } else {
             NSLog(@"Unexpected format in source file for line:\n%@", line);
@@ -442,6 +457,7 @@
     
     if (result) {
         NSLog(@"Successfully wrote the dictionary to a file");
+        NSLog(@"path:%@\n", filePath);
     } else {
         NSLog(@"Error writing the dictionary to a file");
     }
