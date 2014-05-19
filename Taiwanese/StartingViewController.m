@@ -333,10 +333,10 @@
      Instructions for generating a dictionary file from Mkdictionary.xls
      
      1. Open Mkdictionary.xls in Excel. Export the data as Mkdictionary.txt with UTF-16 text.
-     2. Move the file Mkdictionary.txt to the supporting files
+     2. Move the file Mkdictionary.txt to the app bundle (supporting files).
      3. Run this generateDictionary method via the regenerateDictionary method.
-     
-     We should probably get rid of the 'search' field in a Definition
+     4. Copy the generated dictionary.plist from the Document directory to the app bundle.
+     4. Remove Mkdictionary.txt from from the app bundle.
      
      */
     
@@ -382,15 +382,13 @@
         
         NSArray *parsedLine = [line componentsSeparatedByString:@"\t"];
         if ([parsedLine count] == 4) {
-            NSString *search = parsedLine[1];
             NSString *taiwanese = parsedLine[1];
             NSString *chinese = parsedLine[2];
             NSString *english = parsedLine[3];
             
             // Format the taiwanese, chinese, and english strings.
-            search = search;
-            taiwanese = [[taiwanese removeOuterQuotesDebug] convertSourceToPehoeji]; //NSLog(@"%@",taiwanese);
-            //taiwanese = [[taiwanese removeOuterQuotesDebug] convertSourceToNumberedPehoeji]; //NSLog(@"%@",taiwanese);
+            //taiwanese = [[taiwanese removeOuterQuotesDebug] convertSourceToPehoeji]; //NSLog(@"%@",taiwanese);
+            taiwanese = [[[taiwanese removeOuterQuotesDebug] convertSourceToNumberedPehoeji] removedDoubledNumbers]; //NSLog(@"%@",taiwanese);
             chinese = [chinese removeOuterQuotesDebug];
             english = [english removeOuterQuotesDebug];
             
@@ -413,7 +411,6 @@
             Definition *defintion = [[Definition alloc] initWithTaiwanese:taiwanese
                                                                   Chinese:chinese
                                                                   English:english
-                                                                   Search:search
                                                                  Examples:nil];
             // Check to see if we have already stored this Definition as an Entry.
             NSString *entryKey = taiwanese;
@@ -440,12 +437,19 @@
         Entry *first = (Entry *) a;
         Entry *second = (Entry *) b;
         
-        NSString *firstString = [first.key removeSourceToneMarks];
-        NSString *secondString = [second.key removeSourceToneMarks];
+        NSString *firstString = first.key;
+        NSString *secondString = second.key;
         
-        return [firstString compare:secondString options:NSCaseInsensitiveSearch | NSDiacriticInsensitiveSearch];
-        
+        return [firstString compare:secondString options:NSCaseInsensitiveSearch];
+
+//        NSString *firstString = [first.key removeSourceToneMarks];
+//        NSString *secondString = [second.key removeSourceToneMarks];
+//        return [firstString compare:secondString options:NSCaseInsensitiveSearch | NSDiacriticInsensitiveSearch];
     }];
+//    
+//    for (Entry *entry in dictionaryArray) {
+//        NSLog(@"%@", entry.key);
+//    }
     
     // Store dictionary in plist
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);

@@ -13,7 +13,6 @@
 - initWithTaiwanese: (NSString *) taiwanese
             Chinese: (NSString *) chinese
             English: (NSString *) english
-            Search: (NSString *) search
            Examples: (NSMutableArray *) examples
 {
     self = [super init];
@@ -22,7 +21,6 @@
         self.taiwanese = taiwanese;
         self.chinese = chinese;
         self.english = english;
-        self.search = search;
         self.examples = examples;
     }
     
@@ -85,7 +83,6 @@
         self.taiwanese = [decoder decodeObjectForKey:@"taiwanese"];
         self.chinese = [decoder decodeObjectForKey:@"chinese"];
         self.english = [decoder decodeObjectForKey:@"english"];
-        self.search = [decoder decodeObjectForKey:@"search"];
         self.examples = [decoder decodeObjectForKey:@"examples"];
     }
     return self;
@@ -95,7 +92,6 @@
     [encoder encodeObject:self.taiwanese forKey:@"taiwanese"];
     [encoder encodeObject:self.chinese forKey:@"chinese"];
     [encoder encodeObject:self.english forKey:@"english"];
-    [encoder encodeObject:self.search forKey:@"search"];
     [encoder encodeObject:self.examples forKey:@"examples"];
 }
 

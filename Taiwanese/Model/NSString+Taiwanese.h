@@ -18,6 +18,9 @@
 - (NSString *)removeDashes;
 - (NSString *)convertPehoejiToNumberedPehoeji;
 - (NSString *)convertSourceToNumberedPehoeji;
+- (NSString *)removedDoubledNumbers;
+- (NSString *)convertNumberedPehoejiToPehoeji;
+- (NSString *)convertNumberedPehoejiToDT;
 
 #define PEHOEJI             @"Pe̍h-ōe-jī"
 #define IPA                 @"IPA"

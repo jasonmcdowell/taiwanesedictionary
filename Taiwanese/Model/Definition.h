@@ -14,13 +14,11 @@
 @property (strong, nonatomic) NSString *taiwanese;
 @property (strong, nonatomic) NSString *chinese;
 @property (strong, nonatomic) NSString *english;
-@property (strong, nonatomic) NSString *search;
 @property (strong, nonatomic) NSMutableArray *examples;
 
 - (Definition *) initWithTaiwanese: (NSString *) taiwanese
                            Chinese: (NSString *) chinese
                            English: (NSString *) english
-                           Search: (NSString *) search
                           Examples: (NSMutableArray *) examples;
 
 - (void) addExample: (Example *) example;

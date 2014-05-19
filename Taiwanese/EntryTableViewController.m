@@ -69,8 +69,6 @@
     
     [self.entry.key convertPehoejiToNumberedPehoeji];
     
-    
-    
     PKTokenizer *tokenizer = [PKTokenizer tokenizerWithString:self.entry.key];
     [tokenizer setTokenizerState:tokenizer.symbolState from:0 to:255];
     
@@ -275,14 +273,18 @@
     // Configure the cell...
     
     Definition *definition = self.entry.definitions[indexPath.row];
-    cell.taiwaneseLabel.text = [NSString stringWithFormat:@"%@. %@",@(indexPath.row + 1),definition.taiwanese];
+    //NSString *formattedTaiwanese = [definition.taiwanese convertNumberedPehoejiToPehoeji];
+    NSString *formattedTaiwanese = [definition.taiwanese convertNumberedPehoejiToDT];
+    cell.taiwaneseLabel.text = [NSString stringWithFormat:@"%@. %@",@(indexPath.row + 1),formattedTaiwanese];
     cell.chineseLabel.text = definition.chinese;
     cell.englishLabel.text = definition.english;
 
     if ([definition.examples count]) {
         NSString *examplesString = @"";
         for (Example *example in definition.examples) {
-            examplesString = [examplesString stringByAppendingString:[NSString stringWithFormat:@"%@\n%@\n%@\n\n",example.taiwanese, example.chinese, example.english]];
+            //NSString *formattedTaiwanese = [example.taiwanese convertNumberedPehoejiToPehoeji];
+            NSString *formattedTaiwanese = [example.taiwanese convertNumberedPehoejiToDT];
+            examplesString = [examplesString stringByAppendingString:[NSString stringWithFormat:@"%@\n%@\n%@\n\n", formattedTaiwanese, example.chinese, example.english]];
         }
         cell.examplesLabel.text = [examplesString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     } else {
@@ -300,7 +302,9 @@
     DefinitionTableViewCell *cell = [topLevelObjects objectAtIndex:0];
     
     Definition *definition = self.entry.definitions[indexPath.row];
-    cell.taiwaneseLabel.text = [NSString stringWithFormat:@"%@. %@",@(indexPath.row + 1),definition.taiwanese];
+    //NSString *formattedTaiwanese = [definition.taiwanese convertNumberedPehoejiToPehoeji];
+    NSString *formattedTaiwanese = [definition.taiwanese convertNumberedPehoejiToDT];
+    cell.taiwaneseLabel.text = [NSString stringWithFormat:@"%@. %@",@(indexPath.row + 1),formattedTaiwanese];
     cell.chineseLabel.text = definition.chinese;
     cell.englishLabel.text = definition.english;
     
@@ -338,7 +342,8 @@
     NSString *examplesString = @"";
     for (Example *example in definition.examples) {
         //NSLog(@"Number of examples: %d", [definition.examples count]);
-        examplesString = [examplesString stringByAppendingString:[NSString stringWithFormat:@"%@\n%@\n%@\n\n",example.taiwanese, example.chinese, example.english]];
+        NSString *formattedTaiwanese = [example.taiwanese convertNumberedPehoejiToDT];
+        examplesString = [examplesString stringByAppendingString:[NSString stringWithFormat:@"%@\n%@\n%@\n\n", formattedTaiwanese, example.chinese, example.english]];
     }
     cell.examplesLabel.text = [examplesString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     

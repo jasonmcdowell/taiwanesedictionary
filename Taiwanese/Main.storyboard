@@ -92,6 +92,25 @@ Search in Chinese using Traditional characters.</string>
             </objects>
             <point key="canvasLocation" x="1841" y="520"/>
         </scene>
+        <!--View Controller - Settings-->
+        <scene sceneID="6lX-3W-jhI">
+            <objects>
+                <viewController id="Ev7-Yr-TZW" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="v5d-1t-xVh"/>
+                        <viewControllerLayoutGuide type="bottom" id="tIw-DU-b5V"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IbV-WZ-uwW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="mm4-p1-pGE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e5l-WC-nFr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1847" y="3205"/>
+        </scene>
         <!--About View Controller - About-->
         <scene sceneID="YsC-Ah-K70">
             <objects>
@@ -121,16 +140,25 @@ Jason McDowell
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPW-Rz-pKX">
-                                <rect key="frame" x="20" y="128" width="280" height="307"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPW-Rz-pKX">
+                                <rect key="frame" x="20" y="128" width="280" height="403"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">_____________________________________
+                                <mutableString key="text">_____________________________________
 
 Taiwanese-English Dictionary
 (book &amp; electronic file, Mkdictionary.xls) 
 by Maryknoll Taiwan is licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 United States License.
-http://www.taiwanesedictionary.org/US_License.html</string>
+http://www.taiwanesedictionary.org/US_License.html
+
+_____________________________________
+
+Thank you to Iûnn Ún-giân, whose doctoral dissertation, "Processing Techniques for Written Taiwanese -- Tone Sandhi and POS Tagging" was a helpful inspiration.
+
+
+
+
+</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
@@ -487,6 +515,7 @@ http://www.taiwanesedictionary.org/US_License.html</string>
                         <segue destination="9jw-Eh-yKq" kind="relationship" relationship="viewControllers" id="zh2-ZR-a3t"/>
                         <segue destination="PW4-jJ-E0r" kind="relationship" relationship="viewControllers" id="6ga-dv-zYx"/>
                         <segue destination="QNX-4C-202" kind="relationship" relationship="viewControllers" id="Gpn-dT-eoA"/>
+                        <segue destination="JBy-Gu-V9e" kind="relationship" relationship="viewControllers" id="E1H-Hu-Jcx"/>
                         <segue destination="0yW-7I-NQm" kind="relationship" relationship="viewControllers" id="Iwf-WC-nVM"/>
                     </connections>
                 </tabBarController>
@@ -551,6 +580,25 @@ http://www.taiwanesedictionary.org/US_License.html</string>
             </objects>
             <point key="canvasLocation" x="1321" y="2536"/>
         </scene>
+        <!--Navigation Controller - Settings-->
+        <scene sceneID="q5z-V5-xdR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JBy-Gu-V9e" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="9S6-37-3Jd"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="knX-2c-tDN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ev7-Yr-TZW" kind="relationship" relationship="rootViewController" id="cR1-bf-jkR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="afe-PA-QLO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1321" y="3205"/>
+        </scene>
     </scenes>
     <resources>
         <image name="favorites" width="30" height="28"/>
@@ -558,6 +606,7 @@ http://www.taiwanesedictionary.org/US_License.html</string>
         <image name="fredIcon" width="14" height="30"/>
         <image name="history" width="30" height="30"/>
         <image name="search" width="30" height="29"/>
+        <image name="settings" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
