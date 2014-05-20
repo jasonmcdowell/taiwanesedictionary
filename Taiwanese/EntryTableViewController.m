@@ -56,7 +56,9 @@
                                     action:@selector(addFavorite)];
     self.navigationItem.rightBarButtonItem = addFavorite;
     
-    self.navigationItem.title = self.entry.key;
+    
+    NSString *formattedTaiwanese = [self.entry.key convertToTaiwaneseOrthography];
+    self.navigationItem.title = formattedTaiwanese;
     //self.navigationItem.rightBarButtonItem.image = [UIImage imageNamed:@"history"];
     
     [self saveHistory];
@@ -273,8 +275,7 @@
     // Configure the cell...
     
     Definition *definition = self.entry.definitions[indexPath.row];
-    //NSString *formattedTaiwanese = [definition.taiwanese convertNumberedPehoejiToPehoeji];
-    NSString *formattedTaiwanese = [definition.taiwanese convertNumberedPehoejiToDT];
+    NSString *formattedTaiwanese = [definition.taiwanese convertToTaiwaneseOrthography];
     cell.taiwaneseLabel.text = [NSString stringWithFormat:@"%@. %@",@(indexPath.row + 1),formattedTaiwanese];
     cell.chineseLabel.text = definition.chinese;
     cell.englishLabel.text = definition.english;
@@ -282,8 +283,7 @@
     if ([definition.examples count]) {
         NSString *examplesString = @"";
         for (Example *example in definition.examples) {
-            //NSString *formattedTaiwanese = [example.taiwanese convertNumberedPehoejiToPehoeji];
-            NSString *formattedTaiwanese = [example.taiwanese convertNumberedPehoejiToDT];
+            NSString *formattedTaiwanese = [example.taiwanese convertToTaiwaneseOrthography];
             examplesString = [examplesString stringByAppendingString:[NSString stringWithFormat:@"%@\n%@\n%@\n\n", formattedTaiwanese, example.chinese, example.english]];
         }
         cell.examplesLabel.text = [examplesString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
@@ -302,8 +302,7 @@
     DefinitionTableViewCell *cell = [topLevelObjects objectAtIndex:0];
     
     Definition *definition = self.entry.definitions[indexPath.row];
-    //NSString *formattedTaiwanese = [definition.taiwanese convertNumberedPehoejiToPehoeji];
-    NSString *formattedTaiwanese = [definition.taiwanese convertNumberedPehoejiToDT];
+    NSString *formattedTaiwanese = [definition.taiwanese convertToTaiwaneseOrthography];
     cell.taiwaneseLabel.text = [NSString stringWithFormat:@"%@. %@",@(indexPath.row + 1),formattedTaiwanese];
     cell.chineseLabel.text = definition.chinese;
     cell.englishLabel.text = definition.english;
@@ -342,7 +341,7 @@
     NSString *examplesString = @"";
     for (Example *example in definition.examples) {
         //NSLog(@"Number of examples: %d", [definition.examples count]);
-        NSString *formattedTaiwanese = [example.taiwanese convertNumberedPehoejiToDT];
+        NSString *formattedTaiwanese = [example.taiwanese convertToTaiwaneseOrthography];
         examplesString = [examplesString stringByAppendingString:[NSString stringWithFormat:@"%@\n%@\n%@\n\n", formattedTaiwanese, example.chinese, example.english]];
     }
     cell.examplesLabel.text = [examplesString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];

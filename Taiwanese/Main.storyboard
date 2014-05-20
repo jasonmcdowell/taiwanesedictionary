@@ -8,7 +8,7 @@
         <!--Starting View Controller - Taiwanese Dictionary-->
         <scene sceneID="ftM-Xz-aSf">
             <objects>
-                <viewController id="vSX-hs-Q6j" customClass="StartingViewController" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="vSX-hs-Q6j" customClass="StartingViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UnJ-Y2-ZOU"/>
                         <viewControllerLayoutGuide type="bottom" id="oe0-jf-Ufp"/>
@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="Search in English, Chinese, or Taiwanese" translatesAutoresizingMaskIntoConstraints="NO" id="ZG4-0w-Vev">
+                            <searchBar contentMode="redraw" text="" placeholder="Search in Taiwanese, English, or Chinese" translatesAutoresizingMaskIntoConstraints="NO" id="ZG4-0w-Vev">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
@@ -33,37 +33,71 @@
                                 <rect key="frame" x="0.0" y="44" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mbT-Qz-C6v">
-                                        <rect key="frame" x="20" y="20" width="280" height="420"/>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5wI-hK-VdI">
+                                        <rect key="frame" x="20" y="126" width="280" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <string key="text">Search in English using words and phrases.
-
-Search in Taiwanese using simplified Pe̍h-ōe-jī.
-
-Search in Chinese using Traditional characters.</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
+                                        <segments>
+                                            <segment title="POJ"/>
+                                            <segment title="Tâi-Lô"/>
+                                            <segment title="DT"/>
+                                            <segment title="Zhuyin"/>
+                                            <segment title="IPA"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="taiwaneseOrthography:" destination="vSX-hs-Q6j" eventType="valueChanged" id="VI5-bc-zCy"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tsg-Pq-J2F">
+                                        <rect key="frame" x="20" y="49" width="280" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <segments>
+                                            <segment title="Taiwanese"/>
+                                            <segment title="Chinese"/>
+                                            <segment title="English"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="sortOrder:" destination="vSX-hs-Q6j" eventType="valueChanged" id="7Ya-mS-XXv"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Taiwanese Orthography" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fj8-AV-4F1">
+                                        <rect key="frame" x="20" y="97" width="181" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort order" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="61R-Sx-Aq1">
+                                        <rect key="frame" x="20" y="20" width="78" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="mbT-Qz-C6v" firstAttribute="top" secondItem="xh3-d2-Rau" secondAttribute="top" constant="20" symbolic="YES" id="5ub-le-7LP"/>
-                                    <constraint firstItem="mbT-Qz-C6v" firstAttribute="leading" secondItem="xh3-d2-Rau" secondAttribute="leading" constant="20" symbolic="YES" id="ZYt-TU-yvh"/>
-                                    <constraint firstAttribute="trailing" secondItem="mbT-Qz-C6v" secondAttribute="trailing" constant="20" symbolic="YES" id="lzA-9Z-YSX"/>
-                                    <constraint firstAttribute="bottom" secondItem="mbT-Qz-C6v" secondAttribute="bottom" constant="20" symbolic="YES" id="vLE-Iv-Sg2"/>
+                                    <constraint firstItem="tsg-Pq-J2F" firstAttribute="top" secondItem="61R-Sx-Aq1" secondAttribute="bottom" constant="8" symbolic="YES" id="3FI-xX-DEm"/>
+                                    <constraint firstItem="fj8-AV-4F1" firstAttribute="leading" secondItem="5wI-hK-VdI" secondAttribute="leading" id="6bL-MZ-OfO"/>
+                                    <constraint firstItem="61R-Sx-Aq1" firstAttribute="leading" secondItem="xh3-d2-Rau" secondAttribute="leading" constant="20" symbolic="YES" id="GJ6-Ey-ovf"/>
+                                    <constraint firstItem="5wI-hK-VdI" firstAttribute="top" secondItem="fj8-AV-4F1" secondAttribute="bottom" constant="8" symbolic="YES" id="HTC-F1-gGT"/>
+                                    <constraint firstAttribute="trailing" secondItem="tsg-Pq-J2F" secondAttribute="trailing" constant="20" symbolic="YES" id="SMV-Ku-D0G"/>
+                                    <constraint firstItem="fj8-AV-4F1" firstAttribute="leading" secondItem="tsg-Pq-J2F" secondAttribute="leading" id="UiZ-B4-eTP"/>
+                                    <constraint firstItem="61R-Sx-Aq1" firstAttribute="top" secondItem="xh3-d2-Rau" secondAttribute="top" constant="20" symbolic="YES" id="hMr-UG-y4L"/>
+                                    <constraint firstItem="fj8-AV-4F1" firstAttribute="top" secondItem="tsg-Pq-J2F" secondAttribute="bottom" constant="20" id="hXb-8h-m1k"/>
+                                    <constraint firstItem="5wI-hK-VdI" firstAttribute="trailing" secondItem="tsg-Pq-J2F" secondAttribute="trailing" id="tH7-F4-DJW"/>
+                                    <constraint firstItem="tsg-Pq-J2F" firstAttribute="leading" secondItem="61R-Sx-Aq1" secondAttribute="leading" id="tr5-Ul-uDb"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ZG4-0w-Vev" firstAttribute="leading" secondItem="xh3-d2-Rau" secondAttribute="leading" id="8ag-OC-JTK"/>
-                            <constraint firstItem="xh3-d2-Rau" firstAttribute="top" secondItem="ZG4-0w-Vev" secondAttribute="bottom" id="D1T-9i-tZl"/>
-                            <constraint firstItem="ZG4-0w-Vev" firstAttribute="leading" secondItem="Tq4-dc-uIi" secondAttribute="leading" id="InX-T6-cVL"/>
-                            <constraint firstItem="ZG4-0w-Vev" firstAttribute="trailing" secondItem="xh3-d2-Rau" secondAttribute="trailing" id="Mw1-rK-OOi"/>
-                            <constraint firstAttribute="bottom" secondItem="xh3-d2-Rau" secondAttribute="bottom" id="aol-Rw-geg"/>
-                            <constraint firstAttribute="trailing" secondItem="ZG4-0w-Vev" secondAttribute="trailing" id="d9K-5d-WiR"/>
-                            <constraint firstItem="ZG4-0w-Vev" firstAttribute="top" secondItem="Tq4-dc-uIi" secondAttribute="top" id="y09-zC-W5U"/>
+                            <constraint firstItem="xh3-d2-Rau" firstAttribute="trailing" secondItem="ZG4-0w-Vev" secondAttribute="trailing" id="9Ia-3Y-26c"/>
+                            <constraint firstAttribute="bottom" secondItem="xh3-d2-Rau" secondAttribute="bottom" id="CFm-WZ-fyQ"/>
+                            <constraint firstItem="xh3-d2-Rau" firstAttribute="leading" secondItem="Tq4-dc-uIi" secondAttribute="leading" id="L0V-il-pHm"/>
+                            <constraint firstItem="xh3-d2-Rau" firstAttribute="leading" secondItem="ZG4-0w-Vev" secondAttribute="leading" id="RiI-Hw-Ad3"/>
+                            <constraint firstAttribute="trailing" secondItem="xh3-d2-Rau" secondAttribute="trailing" id="TPL-Oi-dMO"/>
+                            <constraint firstItem="ZG4-0w-Vev" firstAttribute="top" secondItem="Tq4-dc-uIi" secondAttribute="top" id="XDt-PI-Nlm"/>
+                            <constraint firstItem="xh3-d2-Rau" firstAttribute="top" secondItem="ZG4-0w-Vev" secondAttribute="bottom" id="cn3-fg-Sff"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
@@ -77,6 +111,8 @@ Search in Chinese using Traditional characters.</string>
                     <connections>
                         <outlet property="searchBar" destination="ZG4-0w-Vev" id="Hdb-dc-vlv"/>
                         <outlet property="searchDisplayController" destination="TQ5-Rb-jKf" id="G5P-EQ-bsK"/>
+                        <outlet property="sortOrder" destination="tsg-Pq-J2F" id="XF9-E6-tgj"/>
+                        <outlet property="taiwaneseOrthography" destination="5wI-hK-VdI" id="YJv-LO-L97"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rGO-51-xyj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -90,11 +126,12 @@ Search in Chinese using Traditional characters.</string>
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1841" y="520"/>
+            <point key="canvasLocation" x="1847" y="476"/>
         </scene>
         <!--View Controller - Settings-->
         <scene sceneID="6lX-3W-jhI">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e5l-WC-nFr" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Ev7-Yr-TZW" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="v5d-1t-xVh"/>
@@ -107,7 +144,6 @@ Search in Chinese using Traditional characters.</string>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="mm4-p1-pGE"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="e5l-WC-nFr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1847" y="3205"/>
         </scene>
@@ -120,7 +156,7 @@ Search in Chinese using Traditional characters.</string>
                         <viewControllerLayoutGuide type="bottom" id="GTG-Na-lMc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="sAq-Vb-Wb3">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="t3i-Gs-aPJ">
@@ -128,7 +164,7 @@ Search in Chinese using Traditional characters.</string>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Taiwanese Dictionary
-Version 1.0
+Version 1.1
 
 Copyright © 2014 
 Jason McDowell
@@ -140,8 +176,8 @@ Jason McDowell
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPW-Rz-pKX">
-                                <rect key="frame" x="20" y="128" width="280" height="403"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPW-Rz-pKX">
+                                <rect key="frame" x="20" y="128" width="280" height="376"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <mutableString key="text">_____________________________________
@@ -180,19 +216,19 @@ Thank you to Iûnn Ún-giân, whose doctoral dissertation, "Processing Techni
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="t3i-Gs-aPJ" secondAttribute="trailing" constant="20" symbolic="YES" id="4Gp-Yw-JMp"/>
-                            <constraint firstItem="ZNh-xh-0cL" firstAttribute="top" secondItem="t3i-Gs-aPJ" secondAttribute="top" id="I2c-Qo-jNK"/>
+                            <constraint firstAttribute="trailing" secondItem="t3i-Gs-aPJ" secondAttribute="trailing" constant="20" symbolic="YES" id="0gn-ue-6u4"/>
                             <constraint firstItem="ZNh-xh-0cL" firstAttribute="top" secondItem="sAq-Vb-Wb3" secondAttribute="top" constant="20" symbolic="YES" id="KPJ-tK-AP6"/>
-                            <constraint firstItem="t3i-Gs-aPJ" firstAttribute="leading" secondItem="ZNh-xh-0cL" secondAttribute="trailing" constant="8" symbolic="YES" id="RV0-45-ehM"/>
+                            <constraint firstItem="t3i-Gs-aPJ" firstAttribute="trailing" secondItem="YPW-Rz-pKX" secondAttribute="trailing" id="LIO-RY-PW3"/>
+                            <constraint firstItem="YPW-Rz-pKX" firstAttribute="leading" secondItem="ZNh-xh-0cL" secondAttribute="leading" id="QJD-ae-1UT"/>
+                            <constraint firstItem="YPW-Rz-pKX" firstAttribute="top" secondItem="ZNh-xh-0cL" secondAttribute="bottom" constant="8" symbolic="YES" id="Sy4-IU-2x9"/>
+                            <constraint firstItem="YPW-Rz-pKX" firstAttribute="top" secondItem="t3i-Gs-aPJ" secondAttribute="bottom" constant="8" symbolic="YES" id="WTl-o6-T1Q"/>
                             <constraint firstItem="ZNh-xh-0cL" firstAttribute="leading" secondItem="sAq-Vb-Wb3" secondAttribute="leading" constant="20" symbolic="YES" id="bur-Xg-dOL"/>
-                            <constraint firstItem="YPW-Rz-pKX" firstAttribute="top" secondItem="ZNh-xh-0cL" secondAttribute="bottom" constant="8" symbolic="YES" id="jG3-OH-Yrn"/>
-                            <constraint firstItem="YPW-Rz-pKX" firstAttribute="trailing" secondItem="t3i-Gs-aPJ" secondAttribute="trailing" id="jWv-jv-L9Y"/>
-                            <constraint firstAttribute="bottom" secondItem="YPW-Rz-pKX" secondAttribute="bottom" constant="20" symbolic="YES" id="oQx-kS-5qv"/>
-                            <constraint firstItem="YPW-Rz-pKX" firstAttribute="top" secondItem="t3i-Gs-aPJ" secondAttribute="bottom" constant="8" symbolic="YES" id="y1V-9p-7rT"/>
-                            <constraint firstItem="ZNh-xh-0cL" firstAttribute="leading" secondItem="YPW-Rz-pKX" secondAttribute="leading" id="yjN-nc-J3B"/>
+                            <constraint firstItem="t3i-Gs-aPJ" firstAttribute="leading" secondItem="ZNh-xh-0cL" secondAttribute="trailing" constant="8" symbolic="YES" id="cEz-Wx-hNe"/>
+                            <constraint firstAttribute="bottom" secondItem="YPW-Rz-pKX" secondAttribute="bottom" id="d6b-AL-YTH"/>
+                            <constraint firstItem="t3i-Gs-aPJ" firstAttribute="top" secondItem="ZNh-xh-0cL" secondAttribute="top" id="las-4G-PMS"/>
                         </constraints>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="About" id="TU1-SP-Dxf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ac7-DM-OtU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -236,7 +272,7 @@ Thank you to Iûnn Ún-giân, whose doctoral dissertation, "Processing Techni
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ftb-0J-HBY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1315" y="520"/>
+            <point key="canvasLocation" x="1315" y="476"/>
         </scene>
         <!--Recent Table View Controller - Recent-->
         <scene sceneID="8kw-8f-fwj">
@@ -515,7 +551,6 @@ Thank you to Iûnn Ún-giân, whose doctoral dissertation, "Processing Techni
                         <segue destination="9jw-Eh-yKq" kind="relationship" relationship="viewControllers" id="zh2-ZR-a3t"/>
                         <segue destination="PW4-jJ-E0r" kind="relationship" relationship="viewControllers" id="6ga-dv-zYx"/>
                         <segue destination="QNX-4C-202" kind="relationship" relationship="viewControllers" id="Gpn-dT-eoA"/>
-                        <segue destination="JBy-Gu-V9e" kind="relationship" relationship="viewControllers" id="E1H-Hu-Jcx"/>
                         <segue destination="0yW-7I-NQm" kind="relationship" relationship="viewControllers" id="Iwf-WC-nVM"/>
                     </connections>
                 </tabBarController>
@@ -583,6 +618,7 @@ Thank you to Iûnn Ún-giân, whose doctoral dissertation, "Processing Techni
         <!--Navigation Controller - Settings-->
         <scene sceneID="q5z-V5-xdR">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="afe-PA-QLO" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JBy-Gu-V9e" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Settings" image="settings" id="9S6-37-3Jd"/>
                     <toolbarItems/>
@@ -595,7 +631,6 @@ Thank you to Iûnn Ún-giân, whose doctoral dissertation, "Processing Techni
                         <segue destination="Ev7-Yr-TZW" kind="relationship" relationship="rootViewController" id="cR1-bf-jkR"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="afe-PA-QLO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1321" y="3205"/>
         </scene>

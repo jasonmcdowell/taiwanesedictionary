@@ -10,28 +10,31 @@
 
 @implementation NSString (Taiwanese)
 
-- (NSString *)convertSourceToPehoeji
-{
-    NSString *changedString = [self copy];
-    
-    changedString = [changedString stringByReplacingOccurrencesOfString:@"o2+" withString:@"o+2"];
-    changedString = [changedString stringByReplacingOccurrencesOfString:@"o3+" withString:@"o+3"];
-    changedString = [changedString stringByReplacingOccurrencesOfString:@"o5+" withString:@"o+5"];
-    changedString = [changedString stringByReplacingOccurrencesOfString:@"o7+" withString:@"o+7"];
-    changedString = [changedString stringByReplacingOccurrencesOfString:@"o8+" withString:@"o+8"];
-    
-    changedString = [changedString stringByReplacingOccurrencesOfString:@"+" withString:@"͘"];
-    changedString = [changedString stringByReplacingOccurrencesOfString:@"2" withString:@"́"];
-    changedString = [changedString stringByReplacingOccurrencesOfString:@"3" withString:@"̀"];
-    changedString = [changedString stringByReplacingOccurrencesOfString:@"5" withString:@"̂"];
-    changedString = [changedString stringByReplacingOccurrencesOfString:@"7" withString:@"̄"];
-    changedString = [changedString stringByReplacingOccurrencesOfString:@"8" withString:@"̍"];
-    changedString = [changedString stringByReplacingOccurrencesOfString:@"*" withString:@"ⁿ"];
-    
-    //NSLog(@"%@",changedString);
-    return changedString;
-}
+//- (NSString *)convertSourceToPehoeji
+//{
+//    NSString *changedString = [self copy];
+//    
+//    changedString = [changedString stringByReplacingOccurrencesOfString:@"o2+" withString:@"o+2"];
+//    changedString = [changedString stringByReplacingOccurrencesOfString:@"o3+" withString:@"o+3"];
+//    changedString = [changedString stringByReplacingOccurrencesOfString:@"o5+" withString:@"o+5"];
+//    changedString = [changedString stringByReplacingOccurrencesOfString:@"o7+" withString:@"o+7"];
+//    changedString = [changedString stringByReplacingOccurrencesOfString:@"o8+" withString:@"o+8"];
+//    
+//    changedString = [changedString stringByReplacingOccurrencesOfString:@"+" withString:@"͘"];
+//    changedString = [changedString stringByReplacingOccurrencesOfString:@"2" withString:@"́"];
+//    changedString = [changedString stringByReplacingOccurrencesOfString:@"3" withString:@"̀"];
+//    changedString = [changedString stringByReplacingOccurrencesOfString:@"5" withString:@"̂"];
+//    changedString = [changedString stringByReplacingOccurrencesOfString:@"7" withString:@"̄"];
+//    changedString = [changedString stringByReplacingOccurrencesOfString:@"8" withString:@"̍"];
+//    changedString = [changedString stringByReplacingOccurrencesOfString:@"*" withString:@"ⁿ"];
+//    
+//    //NSLog(@"%@",changedString);
+//    return changedString;
+//}
 
+// This method converts to a string from the "Source" format to the "Numbered Pehoeji" format
+// Source: the format of taiwanese words in Mkdictionary.xls. It has some typos.
+// Numbered Pehoeji: more or less as described in the dissertation.
 - (NSString *)convertSourceToNumberedPehoeji
 {
     NSString *changedString = [self copy];
@@ -69,6 +72,85 @@
     return changedString;
 }
 
+- (NSString *)convertPehoejiToNumberedPehoeji
+{
+    NSString *string = [self copy];
+    
+    string = [string replaceSpecialPehoejiCharacters];
+    string = [string pushNumbersToEndOfSyllable];
+    //string = [string insertTones1And4];
+    
+    return string;
+}
+
+- (NSString *)moveToneNumbersToPehoeji
+{
+    NSString *changedString = [self copy];
+    NSMutableString *newString = [@"" mutableCopy];
+    
+    //NSLog(@"start: %@", changedString);
+    //NSLog(@" ");
+    
+    NSCharacterSet *toneNumbers = [NSCharacterSet characterSetWithCharactersInString:@"1234578"];
+    NSCharacterSet *letterCharacters = [NSCharacterSet characterSetWithCharactersInString:@":abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"];
+    NSMutableCharacterSet *lettersAndTones = [toneNumbers mutableCopy];
+    [lettersAndTones formUnionWithCharacterSet:letterCharacters];
+    
+    NSScanner *scanner = [NSScanner scannerWithString:changedString];
+    [scanner setCharactersToBeSkipped:nil];
+    
+    while (![scanner isAtEnd]) {
+        NSString *upToNextToneNumber = nil;
+        NSString *currentToneNumber = nil;
+        NSMutableString *temp;
+        
+        // scan up to the next tone number
+        [scanner scanUpToCharactersFromSet:toneNumbers intoString:&upToNextToneNumber];
+        temp = [NSMutableString stringWithString:upToNextToneNumber];
+        //NSLog(@"upToNextToneNumber:\t%@\t\t'%@'", newString, upToNextToneNumber);
+        
+        // identify the next tone number.
+        [scanner scanCharactersFromSet:toneNumbers intoString:&currentToneNumber];
+        //NSLog(@"currentToneNumber:\t\t%@\t\t'%@'", newString, currentToneNumber);
+        
+        // we should be at the end of the syllable.
+        
+        if (temp) {
+            if (currentToneNumber) {
+                // insert the tone number after the main vowel, with priority o,a,e,u,i,n,m
+                NSArray *vowels = @[@"o", @"a", @"e", @"u", @"i", @"n", @"m"];
+                
+                for (NSString *vowel in vowels) {
+                    NSRange range;
+                    if ([vowel isEqualToString:@"n"]) {
+                        range = [temp rangeOfString:vowel options:NSBackwardsSearch];
+                    } else {
+                        range = [temp rangeOfString:vowel];
+                    }
+                    if (range.location != NSNotFound) {
+                        // found a main vowel, so insert tone number after this vowel
+                        [temp insertString:currentToneNumber atIndex:range.location + 1];
+                        break;
+                    } else {
+                        // check for other vowels
+                    }
+                }
+            }
+            [newString appendString:temp];
+        }
+        
+        //NSLog(@"endOfSyllable:\t\t\t%@\t\t'%@'", newString, endOfSyllable);
+        
+        // push the tone number to the end of the syllable
+        
+        //NSLog(@"currentToneNumber:\t\t%@", newString);
+        //NSLog(@" ");
+    }
+    
+    return newString;
+    
+}
+
 - (NSString *)convertNumberedPehoejiToDT
 {
     NSString *changedString = [self copy];
@@ -78,7 +160,7 @@
     NSDictionary *pehoejiSymbols4 = @{
                                       @"chhi": @"_CHHI",
                                       @"iann": @"_IANN",
-                                      @"oan": @"_OANN"
+                                      @"oann": @"_OANN"
                                       };
     
     NSDictionary *pehoejiSymbols3 = @{
@@ -136,25 +218,6 @@
                                       @"j": @"_J",
                                       @"s": @"_S"
                                       };
-
-    NSLog(@"%@", changedString);
-    
-    // 4 character symbols
-    for (NSString *key in [pehoejiSymbols4 allKeys]) {
-        changedString = [changedString stringByReplacingOccurrencesOfString:key withString:pehoejiSymbols4[key]];
-    }
-    // 3 character symbols
-    for (NSString *key in [pehoejiSymbols3 allKeys]) {
-        changedString = [changedString stringByReplacingOccurrencesOfString:key withString:pehoejiSymbols3[key]];
-    }
-    // 2 character symbols
-    for (NSString *key in [pehoejiSymbols2 allKeys]) {
-        changedString = [changedString stringByReplacingOccurrencesOfString:key withString:pehoejiSymbols2[key]];
-    }
-    // 1 character symbols
-    for (NSString *key in [pehoejiSymbols1 allKeys]) {
-        changedString = [changedString stringByReplacingOccurrencesOfString:key withString:pehoejiSymbols1[key]];
-    }
     
     NSDictionary *DTSymbols4 = @{
                                  @"_CHHI": @"ci",
@@ -218,7 +281,27 @@
                                  @"_S": @"s"
                                  };
     
-    NSLog(@"%@", changedString);
+
+    // Tokenize string
+    
+    // 4 character symbols
+    for (NSString *key in [pehoejiSymbols4 allKeys]) {
+        changedString = [changedString stringByReplacingOccurrencesOfString:key withString:pehoejiSymbols4[key]];
+    }
+    // 3 character symbols
+    for (NSString *key in [pehoejiSymbols3 allKeys]) {
+        changedString = [changedString stringByReplacingOccurrencesOfString:key withString:pehoejiSymbols3[key]];
+    }
+    // 2 character symbols
+    for (NSString *key in [pehoejiSymbols2 allKeys]) {
+        changedString = [changedString stringByReplacingOccurrencesOfString:key withString:pehoejiSymbols2[key]];
+    }
+    // 1 character symbols
+    for (NSString *key in [pehoejiSymbols1 allKeys]) {
+        changedString = [changedString stringByReplacingOccurrencesOfString:key withString:pehoejiSymbols1[key]];
+    }
+    
+    // Replace tokens with converted symbols
     
     // 4 character symbols
     for (NSString *key in [DTSymbols4 allKeys]) {
@@ -237,12 +320,11 @@
         changedString = [changedString stringByReplacingOccurrencesOfString:key withString:DTSymbols1[key]];
     }
     
-    NSLog(@"%@", changedString);
-
+    //NSLog(@"%@", changedString);
     
     changedString = [changedString moveToneNumbersToDT];
     
-    NSLog(@"%@", changedString);
+    //NSLog(@"%@", changedString);
     
     changedString = [changedString stringByReplacingOccurrencesOfString:@"1" withString:@""];       //
     changedString = [changedString stringByReplacingOccurrencesOfString:@"2" withString:@"\u0300"]; //  ̀
@@ -255,77 +337,204 @@
     changedString = [changedString stringByReplacingOccurrencesOfString:@"9" withString:@"\u0301"]; //  ́
     //changedString = [changedString stringByReplacingOccurrencesOfString:@"10" withString:@"\u02da"];// ˚
     
-    NSLog(@"%@", changedString);
-    NSLog(@" ");
+    //NSLog(@"%@", changedString);
+    //NSLog(@" ");
     return changedString;
 }
 
-- (NSString *)moveToneNumbersToPehoeji
+- (NSString *)convertDTToNumberedPehoeji
 {
     NSString *changedString = [self copy];
-    NSMutableString *newString = [@"" mutableCopy];
+ 
+    // change diacritics to numbers
+    // move numbers
     
-    //NSLog(@"start: %@", changedString);
-    //NSLog(@" ");
     
-    NSCharacterSet *toneNumbers = [NSCharacterSet characterSetWithCharactersInString:@"1234578"];
-    NSCharacterSet *letterCharacters = [NSCharacterSet characterSetWithCharactersInString:@":abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"];
-    NSMutableCharacterSet *lettersAndTones = [toneNumbers mutableCopy];
-    [lettersAndTones formUnionWithCharacterSet:letterCharacters];
+    // save multicharacter symbols that overlap with other symbols. This is a very inefficient version of tokenization.
     
-    NSScanner *scanner = [NSScanner scannerWithString:changedString];
-    [scanner setCharactersToBeSkipped:nil];
+    NSDictionary *pehoejiSymbols4 = @{
+                                      @"chhi": @"_CHHI",
+                                      @"iann": @"_IANN",
+                                      @"oann": @"_OANN"
+                                      };
     
-    while (![scanner isAtEnd]) {
-        NSString *upToNextToneNumber = nil;
-        NSString *currentToneNumber = nil;
-        NSMutableString *temp;
-        
-        // scan up to the next tone number
-        [scanner scanUpToCharactersFromSet:toneNumbers intoString:&upToNextToneNumber];
-        temp = [NSMutableString stringWithString:upToNextToneNumber];
-        //NSLog(@"upToNextToneNumber:\t%@\t\t'%@'", newString, upToNextToneNumber);
-        
-        // identify the next tone number.
-        [scanner scanCharactersFromSet:toneNumbers intoString:&currentToneNumber];
-        //NSLog(@"currentToneNumber:\t\t%@\t\t'%@'", newString, currentToneNumber);
-        
-        // we should be at the end of the syllable.
-        
-        if (temp) {
-            if (currentToneNumber) {
-                // insert the tone number after the main vowel, with priority o,a,e,u,i,n,m
-                NSArray *vowels = @[@"o", @"a", @"e", @"u", @"i", @"n", @"m"];
-
-                for (NSString *vowel in vowels) {
-                    NSRange range;
-                    if ([vowel isEqualToString:@"n"]) {
-                        range = [temp rangeOfString:vowel options:NSBackwardsSearch];
-                    } else {
-                        range = [temp rangeOfString:vowel];
-                    }
-                    if (range.location != NSNotFound) {
-                        // found a main vowel, so insert tone number after this vowel
-                        [temp insertString:currentToneNumber atIndex:range.location + 1];
-                        break;
-                    } else {
-                        // check for other vowels
-                    }
-                }
-            }
-            [newString appendString:temp];
-        }
-        
-        //NSLog(@"endOfSyllable:\t\t\t%@\t\t'%@'", newString, endOfSyllable);
-        
-        // push the tone number to the end of the syllable
-        
-        //NSLog(@"currentToneNumber:\t\t%@", newString);
-        //NSLog(@" ");
+    NSDictionary *pehoejiSymbols3 = @{
+                                      @"ian": @"_IAN",
+                                      @"eng": @"_ENG",
+                                      @"ong": @"_ONG",
+                                      @"oai": @"_OAI",
+                                      @"oan": @"_OAN",
+                                      @"nng": @"_NNG",
+                                      @"chi": @"_CHI",
+                                      @"chh": @"_CHH",
+                                      @"onn": @"_ONN"
+                                      };
+    
+    NSDictionary *pehoejiSymbols2 = @{
+                                      @"ap": @"_AP",
+                                      @"at": @"_AT",
+                                      @"ak": @"_AK",
+                                      @"ah": @"_AH",
+                                      @"ou": @"_OU",
+                                      @"ok": @"_OK",
+                                      @"ek": @"_EK",
+                                      @"ai": @"_AI",
+                                      @"au": @"_AU",
+                                      @"am": @"_AM",
+                                      @"om": @"_OM",
+                                      @"ng": @"_NG",
+                                      @"oa": @"_OA",
+                                      @"oe": @"_OE",
+                                      @"iu": @"_IU",
+                                      @"ph": @"_PH",
+                                      @"th": @"_TH",
+                                      @"kh": @"_KH",
+                                      @"ji": @"_JI",
+                                      @"si": @"_SI",
+                                      @"ch": @"_CH",
+                                      @"nn": @"_NN"
+                                      };
+    
+    NSDictionary *pehoejiSymbols1 = @{
+                                      @"a": @"_A",
+                                      @"o": @"_O",
+                                      @"e": @"_E",
+                                      @"i": @"_I",
+                                      @"m": @"_M",
+                                      @"u": @"_U",
+                                      @"p": @"_P",
+                                      @"b": @"_B",
+                                      @"t": @"_T",
+                                      @"n": @"_N",
+                                      @"l": @"_L",
+                                      @"k": @"_K",
+                                      @"g": @"_G",
+                                      @"h": @"_H",
+                                      @"j": @"_J",
+                                      @"s": @"_S"
+                                      };
+    
+    NSDictionary *DTSymbols4 = @{
+                                 @"_CHHI": @"ci",
+                                 @"_IANN": @"iaⁿ",
+                                 @"_OANN": @"uaⁿ"
+                                 };
+    
+    NSDictionary *DTSymbols3 = @{
+                                 @"_IAN": @"ian",
+                                 @"_ENG": @"ing",
+                                 @"_ONG": @"ong",
+                                 @"_OAI": @"uai",
+                                 @"_OAN": @"uan",
+                                 @"_NNG": @"nng",
+                                 @"_CHI": @"zi",
+                                 @"_CHH": @"c",
+                                 @"_ONN": @"oⁿ"
+                                 };
+    
+    NSDictionary *DTSymbols2 = @{
+                                 @"_AP": @"ap",
+                                 @"_AT": @"at",
+                                 @"_AK": @"ak",
+                                 @"_AH": @"ah",
+                                 @"_OU": @"o",
+                                 @"_OK": @"ok",
+                                 @"_EK": @"ik",
+                                 @"_AI": @"ai",
+                                 @"_AU": @"au",
+                                 @"_AM": @"am",
+                                 @"_OM": @"om",
+                                 @"_NG": @"ng",
+                                 @"_OA": @"ua",
+                                 @"_OE": @"ue",
+                                 @"_IU": @"iu",
+                                 @"_PH": @"p",
+                                 @"_TH": @"t",
+                                 @"_KH": @"k",
+                                 @"_JI": @"r",
+                                 @"_SI": @"si",
+                                 @"_CH": @"z",
+                                 @"_NN": @"ⁿ"
+                                 };
+    
+    NSDictionary *DTSymbols1 = @{
+                                 @"_A": @"a",
+                                 @"_O": @"or",
+                                 @"_E": @"e",
+                                 @"_I": @"i",
+                                 @"_M": @"m",
+                                 @"_U": @"u",
+                                 @"_P": @"b",
+                                 @"_B": @"bh",
+                                 @"_T": @"d",
+                                 @"_N": @"n",
+                                 @"_L": @"l",
+                                 @"_K": @"g",
+                                 @"_G": @"gh",
+                                 @"_H": @"h",
+                                 @"_J": @"r",
+                                 @"_S": @"s"
+                                 };
+    
+    
+    // Tokenize string
+    
+    // 4 character symbols
+    for (NSString *key in [pehoejiSymbols4 allKeys]) {
+        changedString = [changedString stringByReplacingOccurrencesOfString:key withString:pehoejiSymbols4[key]];
+    }
+    // 3 character symbols
+    for (NSString *key in [pehoejiSymbols3 allKeys]) {
+        changedString = [changedString stringByReplacingOccurrencesOfString:key withString:pehoejiSymbols3[key]];
+    }
+    // 2 character symbols
+    for (NSString *key in [pehoejiSymbols2 allKeys]) {
+        changedString = [changedString stringByReplacingOccurrencesOfString:key withString:pehoejiSymbols2[key]];
+    }
+    // 1 character symbols
+    for (NSString *key in [pehoejiSymbols1 allKeys]) {
+        changedString = [changedString stringByReplacingOccurrencesOfString:key withString:pehoejiSymbols1[key]];
     }
     
-    return newString;
+    // Replace tokens with converted symbols
     
+    // 4 character symbols
+    for (NSString *key in [DTSymbols4 allKeys]) {
+        changedString = [changedString stringByReplacingOccurrencesOfString:key withString:DTSymbols4[key]];
+    }
+    // 3 character symbols
+    for (NSString *key in [DTSymbols3 allKeys]) {
+        changedString = [changedString stringByReplacingOccurrencesOfString:key withString:DTSymbols3[key]];
+    }
+    // 2 character symbols
+    for (NSString *key in [DTSymbols2 allKeys]) {
+        changedString = [changedString stringByReplacingOccurrencesOfString:key withString:DTSymbols2[key]];
+    }
+    // 1 character symbols
+    for (NSString *key in [DTSymbols1 allKeys]) {
+        changedString = [changedString stringByReplacingOccurrencesOfString:key withString:DTSymbols1[key]];
+    }
+    
+    //NSLog(@"%@", changedString);
+    
+    changedString = [changedString moveToneNumbersToDT];
+    
+    //NSLog(@"%@", changedString);
+    
+    changedString = [changedString stringByReplacingOccurrencesOfString:@"1" withString:@""];       //
+    changedString = [changedString stringByReplacingOccurrencesOfString:@"2" withString:@"\u0300"]; //  ̀
+    changedString = [changedString stringByReplacingOccurrencesOfString:@"3" withString:@"\u0302"]; //  ̂
+    changedString = [changedString stringByReplacingOccurrencesOfString:@"4" withString:@"\u0304"]; //  ̄
+    changedString = [changedString stringByReplacingOccurrencesOfString:@"5" withString:@"\u0306"]; //  ̆
+    changedString = [changedString stringByReplacingOccurrencesOfString:@"6" withString:@"\u0308"]; //  ̈
+    changedString = [changedString stringByReplacingOccurrencesOfString:@"7" withString:@"\u0304"]; //  ̄
+    changedString = [changedString stringByReplacingOccurrencesOfString:@"8" withString:@""];       //
+    changedString = [changedString stringByReplacingOccurrencesOfString:@"9" withString:@"\u0301"]; //  ́
+    //changedString = [changedString stringByReplacingOccurrencesOfString:@"10" withString:@"\u02da"];// ˚
+    
+    //NSLog(@"%@", changedString);
+    //NSLog(@" ");
+    return changedString;
 }
 
 - (NSString *)moveToneNumbersToDT
@@ -418,7 +627,56 @@
 {
     NSString * changedString = [self copy];
 
-    NSCharacterSet *invalidSet = [NSCharacterSet characterSetWithCharactersInString:@"[]0123456789 +*"];
+    changedString = [changedString removeNumbers];
+    changedString = [changedString removeSourceSpecialCharacters];
+    
+    return changedString;
+}
+
+- (NSString *)removeNumbers
+{
+    NSString * changedString = [self copy];
+    
+    NSCharacterSet *invalidSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
+    return [[changedString componentsSeparatedByCharactersInSet:invalidSet] componentsJoinedByString:@""];
+}
+
+- (BOOL)containsNumbers
+{
+    NSString * changedString = [self copy];
+    
+    NSCharacterSet *numbers = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
+    
+    return [changedString rangeOfCharacterFromSet:numbers].location != NSNotFound;
+}
+
+- (BOOL)containsDiacritics
+{
+    NSString * changedString = [self copy];
+    
+    //    @"\u0300" //  ̀
+    //    @"\u0301" //  ́
+    //    @"\u0302" //  ̂
+    //    @"\u0304" //  ̄
+    //    @"\u0306" //  ̆
+    //    @"\u0308" //  ̈
+    //    @"\u030D" //  ̍
+    //    @"\u0358" //  ͘
+    //    @"\u207F" // ⁿ
+    
+    //                                ̀      ́      ̂      ̄      ̆      ̈      ̍      ͘     ⁿ
+    NSString *diacriticString = @"\u0300\u0301\u0302\u0304\u0306\u0308\u030D\u0358\u207F";
+    
+    NSCharacterSet *diacriticCharacters = [NSCharacterSet characterSetWithCharactersInString:diacriticString];
+    
+    return [changedString rangeOfCharacterFromSet:diacriticCharacters].location != NSNotFound;
+}
+
+- (NSString *)removeSourceSpecialCharacters
+{
+    NSString * changedString = [self copy];
+    
+    NSCharacterSet *invalidSet = [NSCharacterSet characterSetWithCharactersInString:@"[] +*"];
     return [[changedString componentsSeparatedByCharactersInSet:invalidSet] componentsJoinedByString:@""];
 }
 
@@ -469,35 +727,69 @@
     return changedString;
 }
 
-- (NSString *)convertOrthography
+- (NSString *)convertToTaiwaneseOrthography
 {
     NSString *changedString = [self copy];
     NSString *orthography = [[NSUserDefaults standardUserDefaults] objectForKey:@"orthography"];
     
     if ([orthography isEqualToString:PEHOEJI]) {
-        return changedString;
-        
+        return [changedString convertNumberedPehoejiToPehoeji];
     } else if ([orthography isEqualToString:IPA]) {
         return changedString;
-        
     } else if ([orthography isEqualToString:REVISED_TLPA]) {
         return changedString;
-        
     } else if ([orthography isEqualToString:BP]) {
         return changedString;
-        
     } else if ([orthography isEqualToString:MLT]) {
         return changedString;
-        
     } else if ([orthography isEqualToString:DT]) {
-        return changedString;
-        
+        return [changedString convertNumberedPehoejiToDT];
     } else if ([orthography isEqualToString:TAIWANESE_KANA]) {
         return changedString;
-        
     } else if ([orthography isEqualToString:EXTENDED_BOPOMOFO]) {
         return changedString;
-        
+    } else if ([orthography isEqualToString:TAILO]) {
+        return changedString;
+    } else {
+        return changedString;
+    }
+    
+    return changedString;
+}
+
+- (NSString *)convertToSearchOrthography
+{
+    NSString *changedString = [self copy];
+    
+    changedString = [changedString convertToNumberedPehoeji];
+    
+    // strip numbers
+    changedString = [changedString removeNumbers];
+    
+    return changedString;
+}
+
+- (NSString *)convertToNumberedPehoeji
+{
+    NSString *changedString = [self copy];
+    NSString *orthography = [[NSUserDefaults standardUserDefaults] objectForKey:@"orthography"];
+
+    if ([orthography isEqualToString:PEHOEJI]) {
+        return [changedString convertPehoejiToNumberedPehoeji];
+    } else if ([orthography isEqualToString:IPA]) {
+        return changedString;
+    } else if ([orthography isEqualToString:REVISED_TLPA]) {
+        return changedString;
+    } else if ([orthography isEqualToString:BP]) {
+        return changedString;
+    } else if ([orthography isEqualToString:MLT]) {
+        return changedString;
+    } else if ([orthography isEqualToString:DT]) {
+        return [changedString convertDTToNumberedPehoeji];
+    } else if ([orthography isEqualToString:TAIWANESE_KANA]) {
+        return changedString;
+    } else if ([orthography isEqualToString:EXTENDED_BOPOMOFO]) {
+        return changedString;
     } else if ([orthography isEqualToString:TAILO]) {
         return changedString;
     } else {
@@ -636,17 +928,5 @@
     return filteredString;
     
 }
-
-- (NSString *)convertPehoejiToNumberedPehoeji
-{
-    NSString *string = [self copy];
-    
-    string = [string replaceSpecialPehoejiCharacters];
-    string = [string pushNumbersToEndOfSyllable];
-    string = [string insertTones1And4];
-    
-    return string;
-}
-
 
 @end

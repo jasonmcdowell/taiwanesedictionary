@@ -9,18 +9,24 @@
 #import <Foundation/Foundation.h>
 
 @interface NSString (Taiwanese)
-- (NSString *)convertSourceToPehoeji;
-- (NSString *)convertOrthography;
+- (NSString *)convertToTaiwaneseOrthography;
 - (NSString *)removeSourceToneMarks;
 - (NSString *)removeOuterQuotes;
 - (NSString *)removeOuterQuotesDebug;
 - (NSString *)removeColons;
 - (NSString *)removeDashes;
+- (NSString *)removeNumbers;
 - (NSString *)convertPehoejiToNumberedPehoeji;
 - (NSString *)convertSourceToNumberedPehoeji;
 - (NSString *)removedDoubledNumbers;
 - (NSString *)convertNumberedPehoejiToPehoeji;
 - (NSString *)convertNumberedPehoejiToDT;
+- (NSString *)convertToSearchOrthography;
+- (NSString *)convertToNumberedPehoeji;
+
+- (BOOL)containsNumbers;
+- (BOOL)containsDiacritics;
+
 
 #define PEHOEJI             @"Pe̍h-ōe-jī"
 #define IPA                 @"IPA"

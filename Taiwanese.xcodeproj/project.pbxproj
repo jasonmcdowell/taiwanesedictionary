@@ -14,6 +14,7 @@
 		B43953791906153B00E8CD81 /* FredNose.m in Sources */ = {isa = PBXBuildFile; fileRef = B43953701906153B00E8CD81 /* FredNose.m */; };
 		B439537A1906153B00E8CD81 /* FredView.m in Sources */ = {isa = PBXBuildFile; fileRef = B43953721906153B00E8CD81 /* FredView.m */; };
 		B439537B1906153B00E8CD81 /* FredViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B43953741906153B00E8CD81 /* FredViewController.m */; };
+		B45D113B192B429C004EAB23 /* RMEIdeasPullDownControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B45D113A192B429C004EAB23 /* RMEIdeasPullDownControl.m */; };
 		B464F5FC192062AB009C4FCA /* PodFile in Resources */ = {isa = PBXBuildFile; fileRef = B464F5FB192062AB009C4FCA /* PodFile */; };
 		B4759D291906156C00A75B12 /* Definition.m in Sources */ = {isa = PBXBuildFile; fileRef = B4759D221906156C00A75B12 /* Definition.m */; };
 		B4759D2A1906156C00A75B12 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = B4759D241906156C00A75B12 /* Entry.m */; };
@@ -71,6 +72,8 @@
 		B43953721906153B00E8CD81 /* FredView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FredView.m; sourceTree = "<group>"; };
 		B43953731906153B00E8CD81 /* FredViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FredViewController.h; sourceTree = "<group>"; };
 		B43953741906153B00E8CD81 /* FredViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FredViewController.m; sourceTree = "<group>"; };
+		B45D1139192B429C004EAB23 /* RMEIdeasPullDownControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMEIdeasPullDownControl.h; sourceTree = "<group>"; };
+		B45D113A192B429C004EAB23 /* RMEIdeasPullDownControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMEIdeasPullDownControl.m; sourceTree = "<group>"; };
 		B464F5FB192062AB009C4FCA /* PodFile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PodFile; path = ../PodFile; sourceTree = "<group>"; };
 		B4759D211906156C00A75B12 /* Definition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Definition.h; sourceTree = "<group>"; };
 		B4759D221906156C00A75B12 /* Definition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Definition.m; sourceTree = "<group>"; };
@@ -229,6 +232,8 @@
 				B4B09310190614A90077E556 /* DefinitionTableViewCell.h */,
 				B4B09311190614A90077E556 /* DefinitionTableViewCell.m */,
 				B4B09312190614A90077E556 /* DefinitionTableViewCell.xib */,
+				B45D1139192B429C004EAB23 /* RMEIdeasPullDownControl.h */,
+				B45D113A192B429C004EAB23 /* RMEIdeasPullDownControl.m */,
 				B4C4F600190612F70001270F /* Images.xcassets */,
 				B4759D201906156C00A75B12 /* Model */,
 				B43953661906153B00E8CD81 /* Fred */,
@@ -420,6 +425,7 @@
 				B4A0B37D1917023900AEA0B6 /* RecentTableViewController.m in Sources */,
 				B439537A1906153B00E8CD81 /* FredView.m in Sources */,
 				B4B09314190614A90077E556 /* StartingViewController.m in Sources */,
+				B45D113B192B429C004EAB23 /* RMEIdeasPullDownControl.m in Sources */,
 				B4B09316190614A90077E556 /* EntryTableViewController.m in Sources */,
 				B4759D2A1906156C00A75B12 /* Entry.m in Sources */,
 				B43953791906153B00E8CD81 /* FredNose.m in Sources */,

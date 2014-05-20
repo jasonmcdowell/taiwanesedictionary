@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RMEIdeasPullDownControl.h"
 
-@interface StartingViewController : UIViewController <UISearchBarDelegate, UISearchDisplayDelegate>
+@interface StartingViewController : UIViewController <UISearchBarDelegate, UISearchDisplayDelegate, RMEIdeasPullDownControlProtocol, RMEIdeasPullDownControlDataSource>
 @property (strong, nonatomic) NSArray *dictionaryArray;
 @property (strong, nonatomic) NSMutableArray *history;
 @property (strong, nonatomic) NSMutableArray *favorites;
