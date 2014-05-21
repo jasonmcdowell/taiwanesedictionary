@@ -18,109 +18,12 @@
 @property (strong, nonatomic) NSMutableDictionary *dictionary;
 @property (strong, nonatomic) NSMutableArray *filteredArray;
 @property (strong, nonatomic) NSString *searchText;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *sortOrder;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *taiwaneseOrthography;
 @property (strong, nonatomic) RMEIdeasPullDownControl *rmeideasPullDownControl;
 @end
 
 @implementation StartingViewController
 
 #pragma mark - Lazy Instantiation
-
-- (IBAction)taiwaneseOrthography:(UISegmentedControl *)sender
-{
-    // if the control changes, save the new setting
-    NSInteger selectedSegmentIndex = sender.selectedSegmentIndex;
-    NSString *orthography = PEHOEJI;
-    
-    if (selectedSegmentIndex == 0) {
-        orthography = PEHOEJI;
-    } else if (selectedSegmentIndex == 1) {
-        orthography = TAILO;
-    } else if (selectedSegmentIndex == 2) {
-        orthography = DT;
-    } else if (selectedSegmentIndex == 3) {
-        orthography = EXTENDED_BOPOMOFO;
-    } else if (selectedSegmentIndex == 4) {
-        orthography = IPA;
-    } else {
-        orthography = PEHOEJI;
-        NSLog(@"Unknown orthography selected. Defaulting to Peh-oe-ji");
-    }
-    
-    [[NSUserDefaults standardUserDefaults] setObject:orthography forKey:@"orthography"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    //NSLog(@"Saving orthography: %@", orthography);
-
-}
-
-- (void) initializetaiwaneseOrthographyControl
-{
-    NSInteger selectedSegmentIndex = 0;
-    NSString *orthography = [[NSUserDefaults standardUserDefaults] objectForKey:@"orthography"];
-    //NSLog(@"Loading orthography: %@", orthography);
-    
-    if ([orthography isEqualToString:PEHOEJI]) {
-        selectedSegmentIndex = 0;
-    } else if ([orthography isEqualToString:TAILO]) {
-        selectedSegmentIndex = 1;
-    } else if ([orthography isEqualToString:DT]) {
-        selectedSegmentIndex = 2;
-    } else if ([orthography isEqualToString:EXTENDED_BOPOMOFO]) {
-        selectedSegmentIndex = 3;
-    } else if ([orthography isEqualToString:IPA]) {
-        selectedSegmentIndex = 4;
-    } else {
-        selectedSegmentIndex = 0;
-        NSLog(@"Unknown orthography selected. Defaulting to Peh-oe-ji");
-    }
-
-    self.taiwaneseOrthography.selectedSegmentIndex = selectedSegmentIndex;
-}
-
-- (void) initializeSortOrderControl
-{
-    NSInteger selectedSegmentIndex = 0;
-    NSString *sortOrderField = [[NSUserDefaults standardUserDefaults] objectForKey:@"sortOrder"];
-    //NSLog(@"Loading sort order: %@", sortOrderField);
-
-    if ([sortOrderField isEqualToString:@"taiwanese"]) {
-        selectedSegmentIndex = 0;
-    } else if ([sortOrderField isEqualToString:@"chinese"]) {
-        selectedSegmentIndex = 1;
-    } else if ([sortOrderField isEqualToString:@"english"]) {
-        selectedSegmentIndex = 2;
-    } else {
-        selectedSegmentIndex = 0;
-        NSLog(@"Unknown orthography selected. Defaulting to Taiwanese");
-    }
-    
-    self.sortOrder.selectedSegmentIndex = selectedSegmentIndex;
-}
-
-- (IBAction)sortOrder:(UISegmentedControl *)sender
-{
-    // if the control changes, save the new setting
-    NSInteger selectedSegmentIndex = sender.selectedSegmentIndex;
-    NSString *sortOrderField = @"";
-    
-    if (selectedSegmentIndex == 0) {
-        sortOrderField = @"taiwanese";
-    } else if (selectedSegmentIndex == 1) {
-        sortOrderField = @"chinese";
-    } else if (selectedSegmentIndex == 2) {
-        sortOrderField = @"english";
-    } else {
-        sortOrderField = @"taiwanese";
-        NSLog(@"Unknown sortOrderField selected. Defaulting to Taiwanese");
-    }
-    
-    [[NSUserDefaults standardUserDefaults] setObject:sortOrderField forKey:@"sortOrder"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-
-    //NSLog(@"Saving sort order: %@", sortOrderField);
-
-}
 
 // lazy instantiation
 - (NSMutableDictionary *) dictionary {
@@ -181,11 +84,6 @@
 {
     [super viewDidLoad];
     
-    // load settings
-    [self initializetaiwaneseOrthographyControl];
-    [self initializeSortOrderControl];
-    
-    
     // Retrieve stored dictionary
     dispatch_queue_t queue = dispatch_queue_create("loadDictionary", NULL);
     dispatch_async(queue, ^{
@@ -195,7 +93,33 @@
         });
     });
     
+    self.rmeideasPullDownControl.layer.borderColor = [UIColor clearColor].CGColor;
+    
     //[self loadDictionary];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.searchDisplayController.searchResultsTableView reloadData];
+    
+    
+    NSString *sortOrderField = [[NSUserDefaults standardUserDefaults] objectForKey:@"sortOrder"];
+    NSUInteger  controlIndex = 0;
+    if ([sortOrderField isEqualToString:@"taiwanese"]) {
+        controlIndex = 0;
+    } else if ([sortOrderField isEqualToString:@"english"]) {
+        controlIndex = 1;
+    } else if ([sortOrderField isEqualToString:@"chinese"]) {
+        controlIndex = 2;
+    } else {
+        controlIndex = 0;
+        NSLog(@"Unknown sort order chosen. Defaulting to Taiwanese");
+    }
+    
+    [self.rmeideasPullDownControl selectControlAtIndex:controlIndex];
+    
 }
 
 - (void) loadDictionary
@@ -350,7 +274,8 @@
         } else {
             formattedSearchText = [[[searchText removeDashes] convertToNumberedPehoeji] removeNumbers];
         }
-        
+        NSLog( @"Search: %d %d %@",containsDiacritics,containsNumbers, searchText);
+
         NSLog( @"Search: %@", formattedSearchText);
         
         for (Entry *entry in self.dictionaryArray) {
@@ -426,34 +351,34 @@
         }
         
         // sort filtered data here
-        NSString *sortOrderField = [[NSUserDefaults standardUserDefaults] objectForKey:@"sortOrder"];
-        //NSLog(@"Loading sort order: %@", sortOrderField);
-        
-        if (![sortOrderField isEqualToString:@"taiwanese"] && ![sortOrderField isEqualToString:@"chinese"] && ![sortOrderField isEqualToString:@"english"]) {
-            NSLog(@"Unknown orthography selected. Defaulting to Taiwanese");
-            sortOrderField = @"taiwanese";
-        }
-        
-        
-        tempArray = [[tempArray sortedArrayUsingComparator: ^NSComparisonResult(id a, id b) {
-            Entry *first = (Entry *) a;
-            Entry *second = (Entry *) b;
-            
-            Definition *firstDefinition =  first.definitions[0];
-            Definition *secondDefinition =  second.definitions[0];
-            
-            NSString *firstString = [firstDefinition performSelector:NSSelectorFromString(sortOrderField)];
-            NSString *secondString = [secondDefinition performSelector:NSSelectorFromString(sortOrderField)];
-            
-            //NSLog(@"%@, %@", firstString, secondString);
-            //NSLog(@"%d", [firstString compare:secondString options:NSCaseInsensitiveSearch]);
-            
-            return [firstString compare:secondString options:NSCaseInsensitiveSearch];
-            
-            //        NSString *firstString = [first.key removeSourceToneMarks];
-            //        NSString *secondString = [second.key removeSourceToneMarks];
-            //        return [firstString compare:secondString options:NSCaseInsensitiveSearch | NSDiacriticInsensitiveSearch];
-        }] mutableCopy];
+//        NSString *sortOrderField = [[NSUserDefaults standardUserDefaults] objectForKey:@"sortOrder"];
+//        //NSLog(@"Loading sort order: %@", sortOrderField);
+//        
+//        if (![sortOrderField isEqualToString:@"taiwanese"] && ![sortOrderField isEqualToString:@"chinese"] && ![sortOrderField isEqualToString:@"english"]) {
+//            NSLog(@"Unknown orthography selected. Defaulting to Taiwanese");
+//            sortOrderField = @"taiwanese";
+//        }
+//        
+//        
+//        tempArray = [[tempArray sortedArrayUsingComparator: ^NSComparisonResult(id a, id b) {
+//            Entry *first = (Entry *) a;
+//            Entry *second = (Entry *) b;
+//            
+//            Definition *firstDefinition =  first.definitions[0];
+//            Definition *secondDefinition =  second.definitions[0];
+//            
+//            NSString *firstString = [firstDefinition performSelector:NSSelectorFromString(sortOrderField)];
+//            NSString *secondString = [secondDefinition performSelector:NSSelectorFromString(sortOrderField)];
+//            
+//            //NSLog(@"%@, %@", firstString, secondString);
+//            //NSLog(@"%d", [firstString compare:secondString options:NSCaseInsensitiveSearch]);
+//            
+//            return [firstString compare:secondString options:NSCaseInsensitiveSearch];
+//            
+//            //        NSString *firstString = [first.key removeSourceToneMarks];
+//            //        NSString *secondString = [second.key removeSourceToneMarks];
+//            //        return [firstString compare:secondString options:NSCaseInsensitiveSearch | NSDiacriticInsensitiveSearch];
+//        }] mutableCopy];
         
         // if the search is still valid, set the filtered array to the search results
         if ([self.searchText isEqualToString:searchText]) {
@@ -470,14 +395,26 @@
                 CGRect originalFrame = self.rmeideasPullDownControl.frame;
                 self.rmeideasPullDownControl.frame = CGRectMake(0.0, self.searchBar.frame.size.height, originalFrame.size.width, originalFrame.size.height);
                 
-                //self.rmeideasPullDownControl.backgroundColor = [UIColor clearColor];
-                //self.searchDisplayController.searchResultsTableView.backgroundColor = [UIColor clearColor];
-                
                 //It is recommended that the control is placed behind the client scrollView. Remember to make its background transparent.
                 [self.view insertSubview:self.rmeideasPullDownControl belowSubview:self.searchDisplayController.searchResultsTableView];
-                
+
                 self.rmeideasPullDownControl.userInteractionEnabled = NO;
+                self.rmeideasPullDownControl.layer.borderColor = [UIColor clearColor].CGColor;
                 
+                NSString *sortOrderField = [[NSUserDefaults standardUserDefaults] objectForKey:@"sortOrder"];
+                NSUInteger  controlIndex = 0;
+                if ([sortOrderField isEqualToString:@"taiwanese"]) {
+                    controlIndex = 0;
+                } else if ([sortOrderField isEqualToString:@"english"]) {
+                    controlIndex = 1;
+                } else if ([sortOrderField isEqualToString:@"chinese"]) {
+                    controlIndex = 2;
+                } else {
+                    controlIndex = 0;
+                    NSLog(@"Unknown sort order chosen. Defaulting to Taiwanese");
+                }
+                
+                [self.rmeideasPullDownControl selectControlAtIndex:controlIndex];
                 
             });
         }
@@ -506,8 +443,10 @@
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
-    [self.rmeideasPullDownControl removeFromSuperview];
-    self.rmeideasPullDownControl = nil;
+//    self.searchDisplayController.searchResultsTableView.hidden  = YES;
+//    self.rmeideasPullDownControl.layer.backgroundColor = [UIColor clearColor].CGColor;
+//    [self.rmeideasPullDownControl removeFromSuperview];
+//    self.rmeideasPullDownControl = nil;
 }
 
 
@@ -670,9 +609,9 @@
 
 - (UIImage*) rmeIdeasPullDownControl:(RMEIdeasPullDownControl*)rmeIdeasPullDownControl imageForControlAtIndex:(NSUInteger)controlIndex
 {
-    UIImage *image0 = [UIImage imageNamed:@"SortAZ.png"];
-    UIImage *image1 = [UIImage imageNamed:@"SortZA.png"];
-    UIImage *image2 = [UIImage imageNamed:@"HighLow.png"];
+    UIImage *image0 = [UIImage imageNamed:@"sortTaiwanese.png"];
+    UIImage *image1 = [UIImage imageNamed:@"sortEnglish.png"];
+    UIImage *image2 = [UIImage imageNamed:@"sortChinese.png"];
     
     NSArray *imagesArray = @[image0, image1, image2];
     
@@ -680,9 +619,9 @@
 }
 - (UIImage*) rmeIdeasPullDownControl:(RMEIdeasPullDownControl*)rmeIdeasPullDownControl selectedImageForControlAtIndex:(NSUInteger)controlIndex
 {
-    UIImage *image0 = [UIImage imageNamed:@"SortAZ.png"];
-    UIImage *image1 = [UIImage imageNamed:@"SortZA.png"];
-    UIImage *image2 = [UIImage imageNamed:@"HighLow.png"];
+    UIImage *image0 = [UIImage imageNamed:@"sortTaiwaneseSelected.png"];
+    UIImage *image1 = [UIImage imageNamed:@"sortEnglishSelected.png"];
+    UIImage *image2 = [UIImage imageNamed:@"sortChineseSelected.png"];
     
     NSArray *imagesArray = @[image0, image1, image2];
     
@@ -725,8 +664,19 @@
         Definition *firstDefinition =  first.definitions[0];
         Definition *secondDefinition =  second.definitions[0];
         
-        NSString *firstString = [firstDefinition performSelector:NSSelectorFromString(sortOrderField)];
-        NSString *secondString = [secondDefinition performSelector:NSSelectorFromString(sortOrderField)];
+        NSString *firstString = @"";
+        NSString *secondString = @"";
+        
+        if ([sortOrderField isEqualToString:@"taiwanese"]) {
+            firstString = firstDefinition.taiwanese;
+            secondString = secondDefinition.taiwanese;
+        } else if ([sortOrderField isEqualToString:@"english"]) {
+            firstString = firstDefinition.english;
+            secondString = secondDefinition.english;
+        } else if ([sortOrderField isEqualToString:@"chinese"]) {
+            firstString = [firstDefinition.chinese pinyin];
+            secondString = [secondDefinition.chinese pinyin];
+        }
         
         //NSLog(@"%@, %@", firstString, secondString);
         //NSLog(@"%d", [firstString compare:secondString options:NSCaseInsensitiveSearch]);

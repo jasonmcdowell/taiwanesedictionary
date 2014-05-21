@@ -161,7 +161,7 @@
     
     
     Definition *definition = [entry.definitions firstObject];
-    cell.textLabel.text = definition.taiwanese;
+    cell.textLabel.text = [definition.taiwanese convertToTaiwaneseOrthography];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, %@",definition.chinese, definition.english];
     
     return cell;

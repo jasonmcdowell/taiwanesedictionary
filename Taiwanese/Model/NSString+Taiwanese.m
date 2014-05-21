@@ -641,6 +641,14 @@
     return [[changedString componentsSeparatedByCharactersInSet:invalidSet] componentsJoinedByString:@""];
 }
 
+- (NSString *)remove1and4
+{
+    NSString * changedString = [self copy];
+    
+    NSCharacterSet *invalidSet = [NSCharacterSet characterSetWithCharactersInString:@"14"];
+    return [[changedString componentsSeparatedByCharactersInSet:invalidSet] componentsJoinedByString:@""];
+}
+
 - (BOOL)containsNumbers
 {
     NSString * changedString = [self copy];
@@ -653,6 +661,8 @@
 - (BOOL)containsDiacritics
 {
     NSString * changedString = [self copy];
+    
+    changedString = [changedString decomposedStringWithCanonicalMapping];
     
     //    @"\u0300" //  ̀
     //    @"\u0301" //  ́
@@ -727,9 +737,19 @@
     return changedString;
 }
 
+- (NSString*)pinyin
+{
+    NSMutableString *pinyin = [NSMutableString stringWithString:self];
+    CFStringTransform((__bridge CFMutableStringRef)(pinyin), NULL, kCFStringTransformMandarinLatin, NO);
+    return pinyin;
+}
+
 - (NSString *)convertToTaiwaneseOrthography
 {
     NSString *changedString = [self copy];
+    
+    changedString = [changedString decomposedStringWithCanonicalMapping];
+    
     NSString *orthography = [[NSUserDefaults standardUserDefaults] objectForKey:@"orthography"];
     
     if ([orthography isEqualToString:PEHOEJI]) {
@@ -772,6 +792,9 @@
 - (NSString *)convertToNumberedPehoeji
 {
     NSString *changedString = [self copy];
+    
+    changedString = [changedString decomposedStringWithCanonicalMapping];
+
     NSString *orthography = [[NSUserDefaults standardUserDefaults] objectForKey:@"orthography"];
 
     if ([orthography isEqualToString:PEHOEJI]) {

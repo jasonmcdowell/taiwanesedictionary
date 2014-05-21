@@ -32,61 +32,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xh3-d2-Rau">
                                 <rect key="frame" x="0.0" y="44" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5wI-hK-VdI">
-                                        <rect key="frame" x="20" y="126" width="280" height="29"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <segments>
-                                            <segment title="POJ"/>
-                                            <segment title="Tâi-Lô"/>
-                                            <segment title="DT"/>
-                                            <segment title="Zhuyin"/>
-                                            <segment title="IPA"/>
-                                        </segments>
-                                        <connections>
-                                            <action selector="taiwaneseOrthography:" destination="vSX-hs-Q6j" eventType="valueChanged" id="VI5-bc-zCy"/>
-                                        </connections>
-                                    </segmentedControl>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tsg-Pq-J2F">
-                                        <rect key="frame" x="20" y="49" width="280" height="29"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <segments>
-                                            <segment title="Taiwanese"/>
-                                            <segment title="Chinese"/>
-                                            <segment title="English"/>
-                                        </segments>
-                                        <connections>
-                                            <action selector="sortOrder:" destination="vSX-hs-Q6j" eventType="valueChanged" id="7Ya-mS-XXv"/>
-                                        </connections>
-                                    </segmentedControl>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Taiwanese Orthography" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fj8-AV-4F1">
-                                        <rect key="frame" x="20" y="97" width="181" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort order" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="61R-Sx-Aq1">
-                                        <rect key="frame" x="20" y="20" width="78" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="tsg-Pq-J2F" firstAttribute="top" secondItem="61R-Sx-Aq1" secondAttribute="bottom" constant="8" symbolic="YES" id="3FI-xX-DEm"/>
-                                    <constraint firstItem="fj8-AV-4F1" firstAttribute="leading" secondItem="5wI-hK-VdI" secondAttribute="leading" id="6bL-MZ-OfO"/>
-                                    <constraint firstItem="61R-Sx-Aq1" firstAttribute="leading" secondItem="xh3-d2-Rau" secondAttribute="leading" constant="20" symbolic="YES" id="GJ6-Ey-ovf"/>
-                                    <constraint firstItem="5wI-hK-VdI" firstAttribute="top" secondItem="fj8-AV-4F1" secondAttribute="bottom" constant="8" symbolic="YES" id="HTC-F1-gGT"/>
-                                    <constraint firstAttribute="trailing" secondItem="tsg-Pq-J2F" secondAttribute="trailing" constant="20" symbolic="YES" id="SMV-Ku-D0G"/>
-                                    <constraint firstItem="fj8-AV-4F1" firstAttribute="leading" secondItem="tsg-Pq-J2F" secondAttribute="leading" id="UiZ-B4-eTP"/>
-                                    <constraint firstItem="61R-Sx-Aq1" firstAttribute="top" secondItem="xh3-d2-Rau" secondAttribute="top" constant="20" symbolic="YES" id="hMr-UG-y4L"/>
-                                    <constraint firstItem="fj8-AV-4F1" firstAttribute="top" secondItem="tsg-Pq-J2F" secondAttribute="bottom" constant="20" id="hXb-8h-m1k"/>
-                                    <constraint firstItem="5wI-hK-VdI" firstAttribute="trailing" secondItem="tsg-Pq-J2F" secondAttribute="trailing" id="tH7-F4-DJW"/>
-                                    <constraint firstItem="tsg-Pq-J2F" firstAttribute="leading" secondItem="61R-Sx-Aq1" secondAttribute="leading" id="tr5-Ul-uDb"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -102,17 +48,15 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Taiwanese Dictionary" id="LiI-7k-9Go">
-                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="tJB-Ci-VpP">
+                        <barButtonItem key="rightBarButtonItem" title="Help" id="W7l-PM-5Jz">
                             <connections>
-                                <action selector="regenerateDictionary:" destination="vSX-hs-Q6j" id="MmB-Dk-6Pe"/>
+                                <segue destination="VR8-B0-Rfp" kind="push" id="3zO-Z5-wBT"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="ZG4-0w-Vev" id="Hdb-dc-vlv"/>
                         <outlet property="searchDisplayController" destination="TQ5-Rb-jKf" id="G5P-EQ-bsK"/>
-                        <outlet property="sortOrder" destination="tsg-Pq-J2F" id="XF9-E6-tgj"/>
-                        <outlet property="taiwaneseOrthography" destination="5wI-hK-VdI" id="YJv-LO-L97"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rGO-51-xyj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -128,21 +72,320 @@
             </objects>
             <point key="canvasLocation" x="1847" y="476"/>
         </scene>
-        <!--View Controller - Settings-->
+        <!--View Controller - Instructions-->
+        <scene sceneID="O9l-U7-L3V">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="VR8-B0-Rfp" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lfj-6L-Gj8"/>
+                        <viewControllerLayoutGuide type="bottom" id="bEd-uZ-cx1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="m9j-M4-dEW">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vTC-2V-ftg">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Romanization system:">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+	Choose a Taiwanese orthography in the Settings tab.
+- Pe̍h-ōe-jī
+- Tâi-lô
+- DT (Daī-ghî tōng-iōng pīng-im)
+- Extended Zhuyin
+- IPA (International Phonetic Alphabet)</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="50" name="Helvetica"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Searching using Taiwanese:">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> 	You can search using Taiwanese, English or Chinese by typing in the search box. 
+	You can search with or without tones marks and other special characters. If you do not indicate tone, words with any tone will be matched. If you indicate at least one tone, you must indicate them for every syllable. Searching using tones will usually only match words with whole syllables
+
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Tones:">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+	You can indicate tones using either numbers or diacritics. Tone numbers should be written at the end of a syllable.
+
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Syllables:">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+	Syllables can be separated by dashes or spaces.
+
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Sort Order:">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+	You can sort search results alphabetically by the Taiwanese, English or Chinese (pinyin) words in a dictionary entry. You can select search order in the Settings tab, or you can pull down on the search results to cycle through possible sort orders. Sort order is remembered for future searches.
+
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">Links to helpful information:
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">Taiwanese language:
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="12" name="HelveticaNeue-Bold"/>
+                                            <font key="NSOriginalFont" size="12" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> - http://en.wikipedia.org/wiki/Taiwanese_Hokkien
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="12" name="HelveticaNeue"/>
+                                            <font key="NSOriginalFont" size="12" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Writing Systems:">
+                                        <attributes>
+                                            <font key="NSFont" size="12" name="HelveticaNeue-Bold"/>
+                                            <font key="NSOriginalFont" size="12" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+- http://en.wikipedia.org/wiki/Peh-oe-ji
+- http://en.wikipedia.org/wiki/Taiwanese_Romanization_System
+- http://en.wikipedia.org/wiki/Daighi_tongiong_pingim
+- http://en.wikipedia.org/wiki/Taiwanese_Phonetic_Symbols
+- http://en.wikipedia.org/wiki/IPA
+
+
+
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="12" name="HelveticaNeue"/>
+                                            <font key="NSOriginalFont" size="12" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="vTC-2V-ftg" secondAttribute="bottom" id="LXy-Lj-cc5"/>
+                            <constraint firstItem="vTC-2V-ftg" firstAttribute="top" secondItem="m9j-M4-dEW" secondAttribute="top" id="cqb-3T-a2d"/>
+                            <constraint firstItem="vTC-2V-ftg" firstAttribute="leading" secondItem="m9j-M4-dEW" secondAttribute="leading" id="jbF-5a-JKt"/>
+                            <constraint firstAttribute="trailing" secondItem="vTC-2V-ftg" secondAttribute="trailing" id="yKK-cm-9qz"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" title="Instructions" id="oiV-0r-jEa"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pWu-KE-oe4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2267" y="476"/>
+        </scene>
+        <!--Settings View Controller - Settings-->
         <scene sceneID="6lX-3W-jhI">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e5l-WC-nFr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="Ev7-Yr-TZW" sceneMemberID="viewController">
+                <viewController id="Ev7-Yr-TZW" customClass="SettingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="v5d-1t-xVh"/>
                         <viewControllerLayoutGuide type="bottom" id="tIw-DU-b5V"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="IbV-WZ-uwW">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nFa-2J-xEj">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ib5-Gn-3yM">
+                                        <rect key="frame" x="20" y="162" width="280" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <segments>
+                                            <segment title="POJ"/>
+                                            <segment title="Tâi-Lô"/>
+                                            <segment title="DT"/>
+                                            <segment title="Zhuyin"/>
+                                            <segment title="IPA"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="taiwaneseOrthography:" destination="Ev7-Yr-TZW" eventType="valueChanged" id="7et-rq-NMe"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="eFL-BK-8Xx">
+                                        <rect key="frame" x="20" y="49" width="280" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <segments>
+                                            <segment title="Taiwanese"/>
+                                            <segment title="Chinese"/>
+                                            <segment title="English"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="sortOrder:" destination="Ev7-Yr-TZW" eventType="valueChanged" id="GT9-8B-HdZ"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Taiwanese Orthography" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3k6-Hd-Iav">
+                                        <rect key="frame" x="20" y="133" width="181" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Maximum Recent Entries" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRR-qw-vc9">
+                                        <rect key="frame" x="20" y="228" width="193" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort order" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pjy-4J-Yxi">
+                                        <rect key="frame" x="20" y="20" width="78" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* You can also pull down to sort search results" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1v6-fs-T19">
+                                        <rect key="frame" x="20" y="85" width="280" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="w6r-r5-iTh"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gUi-1X-GNA">
+                                        <rect key="frame" x="20" y="257" width="280" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <segments>
+                                            <segment title="10"/>
+                                            <segment title="25"/>
+                                            <segment title="50"/>
+                                            <segment title="100"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="maximumRecentEntries:" destination="Ev7-Yr-TZW" eventType="valueChanged" id="1nm-t0-HzX"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="1v6-fs-T19" firstAttribute="leading" secondItem="3k6-Hd-Iav" secondAttribute="leading" id="1Aa-WD-BbG"/>
+                                    <constraint firstItem="1v6-fs-T19" firstAttribute="trailing" secondItem="eFL-BK-8Xx" secondAttribute="trailing" id="3l1-iG-5ZL"/>
+                                    <constraint firstItem="eFL-BK-8Xx" firstAttribute="top" secondItem="Pjy-4J-Yxi" secondAttribute="bottom" constant="8" symbolic="YES" id="8lN-Ud-SpN"/>
+                                    <constraint firstItem="Pjy-4J-Yxi" firstAttribute="top" secondItem="nFa-2J-xEj" secondAttribute="top" constant="20" symbolic="YES" id="LDU-Nm-nhh"/>
+                                    <constraint firstItem="1v6-fs-T19" firstAttribute="top" secondItem="eFL-BK-8Xx" secondAttribute="bottom" constant="8" symbolic="YES" id="OSM-aW-L2R"/>
+                                    <constraint firstItem="3k6-Hd-Iav" firstAttribute="top" secondItem="1v6-fs-T19" secondAttribute="bottom" constant="27" id="UoY-gP-YU9"/>
+                                    <constraint firstItem="3k6-Hd-Iav" firstAttribute="leading" secondItem="Ib5-Gn-3yM" secondAttribute="leading" id="alS-fe-H9r"/>
+                                    <constraint firstItem="eFL-BK-8Xx" firstAttribute="leading" secondItem="Pjy-4J-Yxi" secondAttribute="leading" id="cep-Yo-zUd"/>
+                                    <constraint firstItem="eFL-BK-8Xx" firstAttribute="leading" secondItem="1v6-fs-T19" secondAttribute="leading" id="ecm-UY-KHc"/>
+                                    <constraint firstAttribute="trailing" secondItem="eFL-BK-8Xx" secondAttribute="trailing" constant="20" symbolic="YES" id="lqn-id-uId"/>
+                                    <constraint firstItem="Pjy-4J-Yxi" firstAttribute="leading" secondItem="nFa-2J-xEj" secondAttribute="leading" constant="20" symbolic="YES" id="ulZ-34-KIA"/>
+                                    <constraint firstItem="Ib5-Gn-3yM" firstAttribute="top" secondItem="3k6-Hd-Iav" secondAttribute="bottom" constant="8" symbolic="YES" id="yc5-18-6sm"/>
+                                    <constraint firstItem="Ib5-Gn-3yM" firstAttribute="trailing" secondItem="1v6-fs-T19" secondAttribute="trailing" id="zgx-iU-XmW"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nFa-2J-xEj" firstAttribute="top" secondItem="IbV-WZ-uwW" secondAttribute="top" id="JRe-IF-VAo"/>
+                            <constraint firstItem="nFa-2J-xEj" firstAttribute="leading" secondItem="IbV-WZ-uwW" secondAttribute="leading" id="aIh-Z8-QSh"/>
+                            <constraint firstAttribute="trailing" secondItem="nFa-2J-xEj" secondAttribute="trailing" id="lEz-PL-vjI"/>
+                            <constraint firstAttribute="bottom" secondItem="nFa-2J-xEj" secondAttribute="bottom" id="sHo-pM-zVG"/>
+                        </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Settings" id="mm4-p1-pGE"/>
+                    <connections>
+                        <outlet property="maximumRecentEntries" destination="gUi-1X-GNA" id="nn3-I4-ulr"/>
+                        <outlet property="sortOrder" destination="eFL-BK-8Xx" id="sfX-cN-9s3"/>
+                        <outlet property="taiwaneseOrthography" destination="Ib5-Gn-3yM" id="Wwj-E5-FxJ"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1847" y="3205"/>
@@ -186,11 +429,10 @@ Taiwanese-English Dictionary
 (book &amp; electronic file, Mkdictionary.xls) 
 by Maryknoll Taiwan is licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 United States License.
 http://www.taiwanesedictionary.org/US_License.html
-
 _____________________________________
 
 Thank you to Iûnn Ún-giân, whose doctoral dissertation, "Processing Techniques for Written Taiwanese -- Tone Sandhi and POS Tagging" was a helpful inspiration.
-
+_____________________________________
 
 
 
@@ -203,8 +445,8 @@ Thank you to Iûnn Ún-giân, whose doctoral dissertation, "Processing Techni
                                 <rect key="frame" x="20" y="20" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="QSP-An-Wa5"/>
-                                    <constraint firstAttribute="height" constant="100" id="vCD-0X-bRu"/>
+                                    <constraint firstAttribute="width" constant="100" id="f9L-3X-IYt"/>
+                                    <constraint firstAttribute="height" constant="100" id="zMB-ug-OUo"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="fred">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -216,16 +458,16 @@ Thank you to Iûnn Ún-giân, whose doctoral dissertation, "Processing Techni
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="t3i-Gs-aPJ" secondAttribute="trailing" constant="20" symbolic="YES" id="0gn-ue-6u4"/>
-                            <constraint firstItem="ZNh-xh-0cL" firstAttribute="top" secondItem="sAq-Vb-Wb3" secondAttribute="top" constant="20" symbolic="YES" id="KPJ-tK-AP6"/>
-                            <constraint firstItem="t3i-Gs-aPJ" firstAttribute="trailing" secondItem="YPW-Rz-pKX" secondAttribute="trailing" id="LIO-RY-PW3"/>
-                            <constraint firstItem="YPW-Rz-pKX" firstAttribute="leading" secondItem="ZNh-xh-0cL" secondAttribute="leading" id="QJD-ae-1UT"/>
-                            <constraint firstItem="YPW-Rz-pKX" firstAttribute="top" secondItem="ZNh-xh-0cL" secondAttribute="bottom" constant="8" symbolic="YES" id="Sy4-IU-2x9"/>
-                            <constraint firstItem="YPW-Rz-pKX" firstAttribute="top" secondItem="t3i-Gs-aPJ" secondAttribute="bottom" constant="8" symbolic="YES" id="WTl-o6-T1Q"/>
-                            <constraint firstItem="ZNh-xh-0cL" firstAttribute="leading" secondItem="sAq-Vb-Wb3" secondAttribute="leading" constant="20" symbolic="YES" id="bur-Xg-dOL"/>
-                            <constraint firstItem="t3i-Gs-aPJ" firstAttribute="leading" secondItem="ZNh-xh-0cL" secondAttribute="trailing" constant="8" symbolic="YES" id="cEz-Wx-hNe"/>
-                            <constraint firstAttribute="bottom" secondItem="YPW-Rz-pKX" secondAttribute="bottom" id="d6b-AL-YTH"/>
-                            <constraint firstItem="t3i-Gs-aPJ" firstAttribute="top" secondItem="ZNh-xh-0cL" secondAttribute="top" id="las-4G-PMS"/>
+                            <constraint firstItem="ZNh-xh-0cL" firstAttribute="leading" secondItem="sAq-Vb-Wb3" secondAttribute="leading" constant="20" symbolic="YES" id="0CZ-OA-JNW"/>
+                            <constraint firstItem="ZNh-xh-0cL" firstAttribute="top" secondItem="sAq-Vb-Wb3" secondAttribute="top" constant="20" symbolic="YES" id="GUR-pY-Y8T"/>
+                            <constraint firstAttribute="bottom" secondItem="YPW-Rz-pKX" secondAttribute="bottom" id="K8D-Nu-dMK"/>
+                            <constraint firstItem="YPW-Rz-pKX" firstAttribute="trailing" secondItem="t3i-Gs-aPJ" secondAttribute="trailing" id="MJc-Ps-ddf"/>
+                            <constraint firstItem="ZNh-xh-0cL" firstAttribute="top" secondItem="t3i-Gs-aPJ" secondAttribute="top" id="Oc4-yU-CrF"/>
+                            <constraint firstItem="YPW-Rz-pKX" firstAttribute="top" secondItem="ZNh-xh-0cL" secondAttribute="bottom" constant="8" symbolic="YES" id="POr-8U-Z86"/>
+                            <constraint firstItem="t3i-Gs-aPJ" firstAttribute="leading" secondItem="ZNh-xh-0cL" secondAttribute="trailing" constant="8" symbolic="YES" id="cYt-Dd-9Qc"/>
+                            <constraint firstItem="YPW-Rz-pKX" firstAttribute="top" secondItem="t3i-Gs-aPJ" secondAttribute="bottom" constant="8" symbolic="YES" id="jcw-C6-94z"/>
+                            <constraint firstItem="YPW-Rz-pKX" firstAttribute="leading" secondItem="ZNh-xh-0cL" secondAttribute="leading" id="kbW-PC-Wb7"/>
+                            <constraint firstAttribute="trailing" secondItem="t3i-Gs-aPJ" secondAttribute="trailing" constant="20" symbolic="YES" id="mYX-oW-kA7"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
@@ -552,6 +794,7 @@ Thank you to Iûnn Ún-giân, whose doctoral dissertation, "Processing Techni
                         <segue destination="PW4-jJ-E0r" kind="relationship" relationship="viewControllers" id="6ga-dv-zYx"/>
                         <segue destination="QNX-4C-202" kind="relationship" relationship="viewControllers" id="Gpn-dT-eoA"/>
                         <segue destination="0yW-7I-NQm" kind="relationship" relationship="viewControllers" id="Iwf-WC-nVM"/>
+                        <segue destination="JBy-Gu-V9e" kind="relationship" relationship="viewControllers" id="ZTB-hd-jrH"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fKl-eP-Y9z" userLabel="First Responder" sceneMemberID="firstResponder"/>

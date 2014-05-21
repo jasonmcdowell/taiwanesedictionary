@@ -16,6 +16,7 @@
 - (NSString *)removeColons;
 - (NSString *)removeDashes;
 - (NSString *)removeNumbers;
+- (NSString *)remove1and4;
 - (NSString *)convertPehoejiToNumberedPehoeji;
 - (NSString *)convertSourceToNumberedPehoeji;
 - (NSString *)removedDoubledNumbers;
@@ -23,6 +24,7 @@
 - (NSString *)convertNumberedPehoejiToDT;
 - (NSString *)convertToSearchOrthography;
 - (NSString *)convertToNumberedPehoeji;
+- (NSString *)pinyin;
 
 - (BOOL)containsNumbers;
 - (BOOL)containsDiacritics;

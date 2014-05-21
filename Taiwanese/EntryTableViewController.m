@@ -202,9 +202,11 @@
         }
     }
     
-    // Limit length of history to 25 entries
-    if ([newHistory count] > 25) {
-        [newHistory removeLastObject];
+    // Limit length of history to the maximum number of entries in settings
+    NSNumber *maximumRecentEntries = [[NSUserDefaults standardUserDefaults] objectForKey:@"maximumRecentEntries"];
+
+    if ([newHistory count] > [maximumRecentEntries intValue]) {
+        newHistory = [NSMutableArray arrayWithArray:[newHistory subarrayWithRange:NSMakeRange(0, [maximumRecentEntries intValue])]];
     }
     
     // Store new history
