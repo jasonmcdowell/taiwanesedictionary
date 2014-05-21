@@ -84,8 +84,8 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vTC-2V-ftg">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vTC-2V-ftg">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="959"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <attributedString key="attributedText">
@@ -102,7 +102,7 @@
 - Pe̍h-ōe-jī
 - Tâi-lô
 - DT (Daī-ghî tōng-iōng pīng-im)
-- Extended Zhuyin
+- Zhuyin (Extended Bopomofo)
 - IPA (International Phonetic Alphabet)</string>
                                         <attributes>
                                             <font key="NSFont" size="14" name="HelveticaNeue"/>
@@ -197,6 +197,7 @@ Cg
                                     </fragment>
                                     <fragment>
                                         <string key="content">Links to helpful information:
+
 </string>
                                         <attributes>
                                             <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
@@ -214,7 +215,17 @@ Cg
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <string key="content"> - http://en.wikipedia.org/wiki/Taiwanese_Hokkien
+                                        <string key="content">- http://en.wikipedia.org/wiki/Taiwanese_Hokkien
+- http://en.wikipedia.org/wiki/Hokkien_dialect</string>
+                                        <attributes>
+                                            <font key="NSFont" size="9" name="HelveticaNeue"/>
+                                            <font key="NSOriginalFont" size="9" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cgo
 </string>
                                         <attributes>
                                             <font key="NSFont" size="12" name="HelveticaNeue"/>
@@ -222,7 +233,7 @@ Cg
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                         </attributes>
                                     </fragment>
-                                    <fragment content="Writing Systems:">
+                                    <fragment content="Pe̍h-ōe-jī">
                                         <attributes>
                                             <font key="NSFont" size="12" name="HelveticaNeue-Bold"/>
                                             <font key="NSOriginalFont" size="12" name="HelveticaNeue-Bold"/>
@@ -230,15 +241,99 @@ Cg
                                         </attributes>
                                     </fragment>
                                     <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="12" name="HelveticaNeue"/>
+                                            <font key="NSOriginalFont" size="12" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">- http://en.wikipedia.org/wiki/Peh-oe-ji
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="9" name="HelveticaNeue"/>
+                                            <font key="NSOriginalFont" size="9" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
                                         <string key="content">
-- http://en.wikipedia.org/wiki/Peh-oe-ji
-- http://en.wikipedia.org/wiki/Taiwanese_Romanization_System
-- http://en.wikipedia.org/wiki/Daighi_tongiong_pingim
-- http://en.wikipedia.org/wiki/Taiwanese_Phonetic_Symbols
-- http://en.wikipedia.org/wiki/IPA
-
-
-
+Tâi-lô
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="12" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">- http://en.wikipedia.org/wiki/Taiwanese_Romanization_System
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="9" name="HelveticaNeue"/>
+                                            <font key="NSOriginalFont" size="9" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+DT (Daī-ghî tōng-iōng pīng-im)
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="12" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">- http://en.wikipedia.org/wiki/Daighi_tongiong_pingim
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="9" name="HelveticaNeue"/>
+                                            <font key="NSOriginalFont" size="9" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+Zhuyin (Extended Bopomofo)
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="12" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">- http://en.wikipedia.org/wiki/Taiwanese_Phonetic_Symbols
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="9" name="HelveticaNeue"/>
+                                            <font key="NSOriginalFont" size="9" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+IPA (International Phonetic Alphabet)
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="12" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">- http://en.wikipedia.org/wiki/IPA
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="9" name="HelveticaNeue"/>
+                                            <font key="NSOriginalFont" size="9" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+CgoKA
 </string>
                                         <attributes>
                                             <font key="NSFont" size="12" name="HelveticaNeue"/>

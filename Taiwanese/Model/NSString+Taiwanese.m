@@ -351,153 +351,136 @@
     
     
     // save multicharacter symbols that overlap with other symbols. This is a very inefficient version of tokenization.
+
+    NSDictionary *DTSymbols4 = @{
+                                 @"iann": @"_IANN",
+                                 @"uann": @"_OANN"
+                                 };
     
-    NSDictionary *pehoejiSymbols4 = @{
-                                      @"chhi": @"_CHHI",
-                                      @"iann": @"_IANN",
-                                      @"oann": @"_OANN"
-                                      };
-    
-    NSDictionary *pehoejiSymbols3 = @{
+    NSDictionary *DTSymbols3 = @{
                                       @"ian": @"_IAN",
-                                      @"eng": @"_ENG",
+                                      @"ing": @"_ENG",
                                       @"ong": @"_ONG",
-                                      @"oai": @"_OAI",
-                                      @"oan": @"_OAN",
+                                      @"uai": @"_OAI",
+                                      @"uan": @"_OAN",
                                       @"nng": @"_NNG",
-                                      @"chi": @"_CHI",
-                                      @"chh": @"_CHH",
                                       @"onn": @"_ONN"
                                       };
     
-    NSDictionary *pehoejiSymbols2 = @{
+    NSDictionary *DTSymbols2 = @{
                                       @"ap": @"_AP",
                                       @"at": @"_AT",
                                       @"ak": @"_AK",
                                       @"ah": @"_AH",
-                                      @"ou": @"_OU",
                                       @"ok": @"_OK",
-                                      @"ek": @"_EK",
+                                      @"ik": @"_EK",
                                       @"ai": @"_AI",
                                       @"au": @"_AU",
                                       @"am": @"_AM",
                                       @"om": @"_OM",
                                       @"ng": @"_NG",
-                                      @"oa": @"_OA",
-                                      @"oe": @"_OE",
+                                      @"ua": @"_OA",
+                                      @"ue": @"_OE",
                                       @"iu": @"_IU",
-                                      @"ph": @"_PH",
-                                      @"th": @"_TH",
-                                      @"kh": @"_KH",
-                                      @"ji": @"_JI",
+                                      @"zi": @"_CHI",
                                       @"si": @"_SI",
-                                      @"ch": @"_CH",
+                                      @"gh": @"_G",
+                                      @"bh": @"_B",
+                                      @"or": @"_O",
+                                      @"ci": @"_CHHI",
                                       @"nn": @"_NN"
                                       };
     
-    NSDictionary *pehoejiSymbols1 = @{
+    NSDictionary *DTSymbols1 = @{
                                       @"a": @"_A",
-                                      @"o": @"_O",
                                       @"e": @"_E",
                                       @"i": @"_I",
                                       @"m": @"_M",
                                       @"u": @"_U",
-                                      @"p": @"_P",
-                                      @"b": @"_B",
-                                      @"t": @"_T",
+                                      @"b": @"_P",
+                                      @"d": @"_T",
                                       @"n": @"_N",
                                       @"l": @"_L",
-                                      @"k": @"_K",
-                                      @"g": @"_G",
+                                      @"g": @"_K",
                                       @"h": @"_H",
-                                      @"j": @"_J",
-                                      @"s": @"_S"
+                                      @"r": @"_J",
+                                      @"s": @"_S",
+                                      @"c": @"_CHH",
+                                      @"p": @"_PH",
+                                      @"t": @"_TH",
+                                      @"k": @"_KH",
+                                      @"r": @"_JI",
+                                      @"o": @"_OU",
+                                      @"z": @"_CH"
                                       };
     
-    NSDictionary *DTSymbols4 = @{
-                                 @"_CHHI": @"ci",
-                                 @"_IANN": @"iaⁿ",
-                                 @"_OANN": @"uaⁿ"
-                                 };
     
-    NSDictionary *DTSymbols3 = @{
-                                 @"_IAN": @"ian",
-                                 @"_ENG": @"ing",
-                                 @"_ONG": @"ong",
-                                 @"_OAI": @"uai",
-                                 @"_OAN": @"uan",
-                                 @"_NNG": @"nng",
-                                 @"_CHI": @"zi",
-                                 @"_CHH": @"c",
-                                 @"_ONN": @"oⁿ"
-                                 };
+    NSDictionary *pehoejiSymbols4 = @{
+                                      @"_CHHI": @"chhi",
+                                      @"_IANN": @"iann",
+                                      @"_OANN": @"oann"
+                                      };
     
-    NSDictionary *DTSymbols2 = @{
-                                 @"_AP": @"ap",
-                                 @"_AT": @"at",
-                                 @"_AK": @"ak",
-                                 @"_AH": @"ah",
-                                 @"_OU": @"o",
-                                 @"_OK": @"ok",
-                                 @"_EK": @"ik",
-                                 @"_AI": @"ai",
-                                 @"_AU": @"au",
-                                 @"_AM": @"am",
-                                 @"_OM": @"om",
-                                 @"_NG": @"ng",
-                                 @"_OA": @"ua",
-                                 @"_OE": @"ue",
-                                 @"_IU": @"iu",
-                                 @"_PH": @"p",
-                                 @"_TH": @"t",
-                                 @"_KH": @"k",
-                                 @"_JI": @"r",
-                                 @"_SI": @"si",
-                                 @"_CH": @"z",
-                                 @"_NN": @"ⁿ"
-                                 };
+    NSDictionary *pehoejiSymbols3 = @{
+                                      @"_IAN": @"ian",
+                                      @"_ENG": @"eng",
+                                      @"_ONG": @"ong",
+                                      @"_OAI": @"oai",
+                                      @"_OAN": @"oan",
+                                      @"_NNG": @"nng",
+                                      @"_CHI": @"chi",
+                                      @"_CHH": @"chh",
+                                      @"_ONN": @"onn"
+                                      };
     
-    NSDictionary *DTSymbols1 = @{
+    NSDictionary *pehoejiSymbols2 = @{
+                                      @"_AP": @"ap",
+                                      @"_AT": @"at",
+                                      @"_AK": @"ak",
+                                      @"_AH": @"ah",
+                                      @"_OU": @"ou",
+                                      @"_OK": @"ok",
+                                      @"_EK": @"ek",
+                                      @"_AI": @"ai",
+                                      @"_AU": @"au",
+                                      @"_AM": @"am",
+                                      @"_OM": @"om",
+                                      @"_NG": @"ng",
+                                      @"_OA": @"oa",
+                                      @"_OE": @"oe",
+                                      @"_IU": @"iu",
+                                      @"_PH": @"ph",
+                                      @"_TH": @"th",
+                                      @"_KH": @"kh",
+                                      @"_JI": @"ji",
+                                      @"_SI": @"si",
+                                      @"_CH": @"ch",
+                                      @"_NN": @"ⁿ"
+                                      };
+    
+    NSDictionary *pehoejiSymbols1 = @{
                                  @"_A": @"a",
-                                 @"_O": @"or",
+                                 @"_O": @"o",
                                  @"_E": @"e",
                                  @"_I": @"i",
                                  @"_M": @"m",
                                  @"_U": @"u",
-                                 @"_P": @"b",
-                                 @"_B": @"bh",
-                                 @"_T": @"d",
+                                 @"_P": @"p",
+                                 @"_B": @"b",
+                                 @"_T": @"t",
                                  @"_N": @"n",
                                  @"_L": @"l",
-                                 @"_K": @"g",
-                                 @"_G": @"gh",
+                                 @"_K": @"k",
+                                 @"_G": @"g",
                                  @"_H": @"h",
-                                 @"_J": @"r",
+                                 @"_J": @"j",
                                  @"_S": @"s"
                                  };
     
+    changedString = [changedString replaceSpecialDTCharacters];
+    changedString = [changedString pushNumbersToEndOfSyllable];
     
     // Tokenize string
-    
-    // 4 character symbols
-    for (NSString *key in [pehoejiSymbols4 allKeys]) {
-        changedString = [changedString stringByReplacingOccurrencesOfString:key withString:pehoejiSymbols4[key]];
-    }
-    // 3 character symbols
-    for (NSString *key in [pehoejiSymbols3 allKeys]) {
-        changedString = [changedString stringByReplacingOccurrencesOfString:key withString:pehoejiSymbols3[key]];
-    }
-    // 2 character symbols
-    for (NSString *key in [pehoejiSymbols2 allKeys]) {
-        changedString = [changedString stringByReplacingOccurrencesOfString:key withString:pehoejiSymbols2[key]];
-    }
-    // 1 character symbols
-    for (NSString *key in [pehoejiSymbols1 allKeys]) {
-        changedString = [changedString stringByReplacingOccurrencesOfString:key withString:pehoejiSymbols1[key]];
-    }
-    
-    // Replace tokens with converted symbols
-    
     // 4 character symbols
     for (NSString *key in [DTSymbols4 allKeys]) {
         changedString = [changedString stringByReplacingOccurrencesOfString:key withString:DTSymbols4[key]];
@@ -515,22 +498,24 @@
         changedString = [changedString stringByReplacingOccurrencesOfString:key withString:DTSymbols1[key]];
     }
     
-    //NSLog(@"%@", changedString);
+    // Replace tokens with converted symbols
+    // 4 character symbols
+    for (NSString *key in [pehoejiSymbols4 allKeys]) {
+        changedString = [changedString stringByReplacingOccurrencesOfString:key withString:pehoejiSymbols4[key]];
+    }
+    // 3 character symbols
+    for (NSString *key in [pehoejiSymbols3 allKeys]) {
+        changedString = [changedString stringByReplacingOccurrencesOfString:key withString:pehoejiSymbols3[key]];
+    }
+    // 2 character symbols
+    for (NSString *key in [pehoejiSymbols2 allKeys]) {
+        changedString = [changedString stringByReplacingOccurrencesOfString:key withString:pehoejiSymbols2[key]];
+    }
+    // 1 character symbols
+    for (NSString *key in [pehoejiSymbols1 allKeys]) {
+        changedString = [changedString stringByReplacingOccurrencesOfString:key withString:pehoejiSymbols1[key]];
+    }
     
-    changedString = [changedString moveToneNumbersToDT];
-    
-    //NSLog(@"%@", changedString);
-    
-    changedString = [changedString stringByReplacingOccurrencesOfString:@"1" withString:@""];       //
-    changedString = [changedString stringByReplacingOccurrencesOfString:@"2" withString:@"\u0300"]; //  ̀
-    changedString = [changedString stringByReplacingOccurrencesOfString:@"3" withString:@"\u0302"]; //  ̂
-    changedString = [changedString stringByReplacingOccurrencesOfString:@"4" withString:@"\u0304"]; //  ̄
-    changedString = [changedString stringByReplacingOccurrencesOfString:@"5" withString:@"\u0306"]; //  ̆
-    changedString = [changedString stringByReplacingOccurrencesOfString:@"6" withString:@"\u0308"]; //  ̈
-    changedString = [changedString stringByReplacingOccurrencesOfString:@"7" withString:@"\u0304"]; //  ̄
-    changedString = [changedString stringByReplacingOccurrencesOfString:@"8" withString:@""];       //
-    changedString = [changedString stringByReplacingOccurrencesOfString:@"9" withString:@"\u0301"]; //  ́
-    //changedString = [changedString stringByReplacingOccurrencesOfString:@"10" withString:@"\u02da"];// ˚
     
     //NSLog(@"%@", changedString);
     //NSLog(@" ");
@@ -844,6 +829,29 @@
         changedString = [changedString stringByReplacingOccurrencesOfString:key withString:specialCharacters[key]];
     }
     
+    return changedString;
+}
+
+- (NSString *)replaceSpecialDTCharacters {
+    NSString *changedString = [self copy];
+    
+    //[changedString precomposedStringWithCanonicalMapping];
+    [changedString decomposedStringWithCanonicalMapping];
+    
+    NSDictionary *specialCharacters = @{@"\u0300": @"2",
+                                        @"\u0302": @"3",
+                                        @"t\u0304": @"t4",
+                                        @"k\u0304": @"k4",
+                                        @"p\u0304": @"p4",
+                                        @"h\u0304": @"h4",
+                                        @"\u0306": @"5",
+                                        @"\u0304": @"7",
+                                        @"ⁿ":  @"nn"};
+    
+    for (NSString *key in [specialCharacters allKeys]) {
+        changedString = [changedString stringByReplacingOccurrencesOfString:key withString:specialCharacters[key]];
+    }
+
     return changedString;
 }
 
