@@ -16,6 +16,14 @@
 		B439537B1906153B00E8CD81 /* FredViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B43953741906153B00E8CD81 /* FredViewController.m */; };
 		B45D113B192B429C004EAB23 /* RMEIdeasPullDownControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B45D113A192B429C004EAB23 /* RMEIdeasPullDownControl.m */; };
 		B45D113E192BD9CC004EAB23 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B45D113D192BD9CC004EAB23 /* SettingsViewController.m */; };
+		B45D1141192D7E30004EAB23 /* NSString+Tai_Lo.m in Sources */ = {isa = PBXBuildFile; fileRef = B45D1140192D7E30004EAB23 /* NSString+Tai_Lo.m */; };
+		B45D1144192D7E63004EAB23 /* NSString+DaiTong.m in Sources */ = {isa = PBXBuildFile; fileRef = B45D1143192D7E63004EAB23 /* NSString+DaiTong.m */; };
+		B45D1147192D7E76004EAB23 /* NSString+Pehoeji.m in Sources */ = {isa = PBXBuildFile; fileRef = B45D1146192D7E76004EAB23 /* NSString+Pehoeji.m */; };
+		B45D114A192D7F7B004EAB23 /* NSString+Maryknoll.m in Sources */ = {isa = PBXBuildFile; fileRef = B45D1149192D7F7B004EAB23 /* NSString+Maryknoll.m */; };
+		B45D114D192D8124004EAB23 /* NSString+TaiwaneseHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = B45D114C192D8124004EAB23 /* NSString+TaiwaneseHelpers.m */; };
+		B45D1150192DF99B004EAB23 /* NSString+IPA.m in Sources */ = {isa = PBXBuildFile; fileRef = B45D114F192DF99B004EAB23 /* NSString+IPA.m */; };
+		B45D1153192DFA04004EAB23 /* NSString+Zhuyin.m in Sources */ = {isa = PBXBuildFile; fileRef = B45D1152192DFA04004EAB23 /* NSString+Zhuyin.m */; };
+		B45D1155192F1E18004EAB23 /* BabelStoneHan.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B45D1154192F1E18004EAB23 /* BabelStoneHan.ttf */; };
 		B464F5FC192062AB009C4FCA /* PodFile in Resources */ = {isa = PBXBuildFile; fileRef = B464F5FB192062AB009C4FCA /* PodFile */; };
 		B4759D291906156C00A75B12 /* Definition.m in Sources */ = {isa = PBXBuildFile; fileRef = B4759D221906156C00A75B12 /* Definition.m */; };
 		B4759D2A1906156C00A75B12 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = B4759D241906156C00A75B12 /* Entry.m */; };
@@ -77,6 +85,21 @@
 		B45D113A192B429C004EAB23 /* RMEIdeasPullDownControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMEIdeasPullDownControl.m; sourceTree = "<group>"; };
 		B45D113C192BD9CC004EAB23 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		B45D113D192BD9CC004EAB23 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		B45D113F192D7E30004EAB23 /* NSString+Tai_Lo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Tai_Lo.h"; sourceTree = "<group>"; };
+		B45D1140192D7E30004EAB23 /* NSString+Tai_Lo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Tai_Lo.m"; sourceTree = "<group>"; };
+		B45D1142192D7E63004EAB23 /* NSString+DaiTong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DaiTong.h"; sourceTree = "<group>"; };
+		B45D1143192D7E63004EAB23 /* NSString+DaiTong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DaiTong.m"; sourceTree = "<group>"; };
+		B45D1145192D7E76004EAB23 /* NSString+Pehoeji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Pehoeji.h"; sourceTree = "<group>"; };
+		B45D1146192D7E76004EAB23 /* NSString+Pehoeji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Pehoeji.m"; sourceTree = "<group>"; };
+		B45D1148192D7F7B004EAB23 /* NSString+Maryknoll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Maryknoll.h"; sourceTree = "<group>"; };
+		B45D1149192D7F7B004EAB23 /* NSString+Maryknoll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Maryknoll.m"; sourceTree = "<group>"; };
+		B45D114B192D8124004EAB23 /* NSString+TaiwaneseHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TaiwaneseHelpers.h"; sourceTree = "<group>"; };
+		B45D114C192D8124004EAB23 /* NSString+TaiwaneseHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TaiwaneseHelpers.m"; sourceTree = "<group>"; };
+		B45D114E192DF99B004EAB23 /* NSString+IPA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+IPA.h"; sourceTree = "<group>"; };
+		B45D114F192DF99B004EAB23 /* NSString+IPA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+IPA.m"; sourceTree = "<group>"; };
+		B45D1151192DFA04004EAB23 /* NSString+Zhuyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Zhuyin.h"; sourceTree = "<group>"; };
+		B45D1152192DFA04004EAB23 /* NSString+Zhuyin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Zhuyin.m"; sourceTree = "<group>"; };
+		B45D1154192F1E18004EAB23 /* BabelStoneHan.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BabelStoneHan.ttf; sourceTree = "<group>"; };
 		B464F5FB192062AB009C4FCA /* PodFile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PodFile; path = ../PodFile; sourceTree = "<group>"; };
 		B4759D211906156C00A75B12 /* Definition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Definition.h; sourceTree = "<group>"; };
 		B4759D221906156C00A75B12 /* Definition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Definition.m; sourceTree = "<group>"; };
@@ -180,6 +203,20 @@
 				B4759D261906156C00A75B12 /* Example.m */,
 				B4759D271906156C00A75B12 /* NSString+Taiwanese.h */,
 				B4759D281906156C00A75B12 /* NSString+Taiwanese.m */,
+				B45D114B192D8124004EAB23 /* NSString+TaiwaneseHelpers.h */,
+				B45D114C192D8124004EAB23 /* NSString+TaiwaneseHelpers.m */,
+				B45D1148192D7F7B004EAB23 /* NSString+Maryknoll.h */,
+				B45D1149192D7F7B004EAB23 /* NSString+Maryknoll.m */,
+				B45D1145192D7E76004EAB23 /* NSString+Pehoeji.h */,
+				B45D1146192D7E76004EAB23 /* NSString+Pehoeji.m */,
+				B45D113F192D7E30004EAB23 /* NSString+Tai_Lo.h */,
+				B45D1140192D7E30004EAB23 /* NSString+Tai_Lo.m */,
+				B45D1142192D7E63004EAB23 /* NSString+DaiTong.h */,
+				B45D1143192D7E63004EAB23 /* NSString+DaiTong.m */,
+				B45D1151192DFA04004EAB23 /* NSString+Zhuyin.h */,
+				B45D1152192DFA04004EAB23 /* NSString+Zhuyin.m */,
+				B45D114E192DF99B004EAB23 /* NSString+IPA.h */,
+				B45D114F192DF99B004EAB23 /* NSString+IPA.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -252,6 +289,7 @@
 			children = (
 				B464F5FB192062AB009C4FCA /* PodFile */,
 				B4D9A9D4192870E30054149D /* Mkdictionary.txt */,
+				B45D1154192F1E18004EAB23 /* BabelStoneHan.ttf */,
 				B4C4F5F7190612F70001270F /* TaiwaneseAppDelegate.h */,
 				B4C4F5F8190612F70001270F /* TaiwaneseAppDelegate.m */,
 				B4C4F5F0190612F60001270F /* Taiwanese-Info.plist */,
@@ -366,6 +404,7 @@
 				B464F5FC192062AB009C4FCA /* PodFile in Resources */,
 				B4B09318190614A90077E556 /* DefinitionTableViewCell.xib in Resources */,
 				B4D9A9D5192870E30054149D /* Mkdictionary.txt in Resources */,
+				B45D1155192F1E18004EAB23 /* BabelStoneHan.ttf in Resources */,
 				B4B09313190614A90077E556 /* Main.storyboard in Resources */,
 				B4B0931A190614D50077E556 /* dictionary.plist in Resources */,
 				B4C4F601190612F70001270F /* Images.xcassets in Resources */,
@@ -422,12 +461,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4CF9CF31914DB7100F6F064 /* AboutViewController.m in Sources */,
+				B45D114A192D7F7B004EAB23 /* NSString+Maryknoll.m in Sources */,
 				B4759D2B1906156C00A75B12 /* Example.m in Sources */,
 				B4C4F5F9190612F70001270F /* TaiwaneseAppDelegate.m in Sources */,
 				B4759D2C1906156C00A75B12 /* NSString+Taiwanese.m in Sources */,
 				B4A0B37A1917021E00AEA0B6 /* FavoritesTableViewController.m in Sources */,
+				B45D1150192DF99B004EAB23 /* NSString+IPA.m in Sources */,
 				B439537B1906153B00E8CD81 /* FredViewController.m in Sources */,
 				B4A0B37D1917023900AEA0B6 /* RecentTableViewController.m in Sources */,
+				B45D114D192D8124004EAB23 /* NSString+TaiwaneseHelpers.m in Sources */,
 				B439537A1906153B00E8CD81 /* FredView.m in Sources */,
 				B4B09314190614A90077E556 /* StartingViewController.m in Sources */,
 				B45D113B192B429C004EAB23 /* RMEIdeasPullDownControl.m in Sources */,
@@ -437,11 +479,15 @@
 				B43953751906153B00E8CD81 /* FredEye.m in Sources */,
 				B4A0B3801917057400AEA0B6 /* ListTableViewController.m in Sources */,
 				B43953761906153B00E8CD81 /* FredFace.m in Sources */,
+				B45D1147192D7E76004EAB23 /* NSString+Pehoeji.m in Sources */,
 				B43953781906153B00E8CD81 /* FredMouth.m in Sources */,
 				B4759D291906156C00A75B12 /* Definition.m in Sources */,
 				B4B09317190614A90077E556 /* DefinitionTableViewCell.m in Sources */,
+				B45D1144192D7E63004EAB23 /* NSString+DaiTong.m in Sources */,
 				B45D113E192BD9CC004EAB23 /* SettingsViewController.m in Sources */,
 				B43953771906153B00E8CD81 /* FredHair.m in Sources */,
+				B45D1153192DFA04004EAB23 /* NSString+Zhuyin.m in Sources */,
+				B45D1141192D7E30004EAB23 /* NSString+Tai_Lo.m in Sources */,
 				B4C4F5F5190612F60001270F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

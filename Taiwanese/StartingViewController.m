@@ -12,6 +12,8 @@
 #import "Example.h"
 #import "EntryTableViewController.h"
 #import "NSString+Taiwanese.h"
+#import "NSString+TaiwaneseHelpers.h"
+#import "NSString+Maryknoll.h"
 
 @interface StartingViewController ()
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;

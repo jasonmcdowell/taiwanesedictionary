@@ -161,8 +161,17 @@
     
     
     Definition *definition = [entry.definitions firstObject];
-    cell.textLabel.text = [definition.taiwanese convertToTaiwaneseOrthography];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, %@",definition.chinese, definition.english];
+    
+    NSString *string = [definition.taiwanese convertToTaiwaneseOrthography];
+    
+    string = [NSString stringWithFormat:@"\U0001d11e \u31AA \U000031AA \u2b51 \u2605 "];
+    
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"Helvetica" size:20]};
+    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:NSLocalizedString(string, nil) attributes:attributes];
+    cell.textLabel.attributedText = attributedString;
+    
+    //cell.textLabel.text = [definition.taiwanese convertToTaiwaneseOrthography];
+    //cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, %@",definition.chinese, definition.english];
     
     return cell;
 }

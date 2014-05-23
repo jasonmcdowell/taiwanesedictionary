@@ -66,10 +66,10 @@
     // Set up a ParseKit tokenizer and add symbols for all sounds in Peh-oe-ji.
     // http://en.wikipedia.org/wiki/Taiwanese_Hokkien
     // http://210.240.194.97/giankiu/lunbun/Ungian/ch3.pdf
-    
+    // http://parsekit.com/tokenization.html
     // convert peh-oe-ji to numbered POJ. Maybe I should store the data as numbered peh-oe-ji? Is there an advantage for lookups? Ordering? similar syllables would group in tone order...
     
-    [self.entry.key convertPehoejiToNumberedPehoeji];
+    [self.entry.key convertToTaiwaneseOrthography];
     
     PKTokenizer *tokenizer = [PKTokenizer tokenizerWithString:self.entry.key];
     [tokenizer setTokenizerState:tokenizer.symbolState from:0 to:255];
@@ -283,6 +283,7 @@
     
     Definition *definition = self.entry.definitions[indexPath.row];
     NSString *formattedTaiwanese = [definition.taiwanese convertToTaiwaneseOrthography];
+    NSLog(@"%@", formattedTaiwanese);
     cell.taiwaneseLabel.text = [NSString stringWithFormat:@"%@. %@",@(indexPath.row + 1),formattedTaiwanese];
     cell.chineseLabel.text = definition.chinese;
     cell.englishLabel.text = definition.english;
