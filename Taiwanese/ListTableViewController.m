@@ -82,8 +82,13 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+ 
     [self.tableView reloadData];
     //NSLog(@"Currently have %d items in %@", [self.tableData count], self.listTitle);
+    
+    NSDictionary *attributes = @{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue-Bold" size:16]};
+    [self.navigationController.navigationBar setTitleTextAttributes:attributes];
 
 }
 
@@ -162,16 +167,19 @@
     
     Definition *definition = [entry.definitions firstObject];
     
-    NSString *string = [definition.taiwanese convertToTaiwaneseOrthography];
+    NSString *formattedTaiwanese = [definition.taiwanese convertToTaiwaneseOrthography];
     
-    string = [NSString stringWithFormat:@"\U0001d11e \u31AA \U000031AA \u2b51 \u2605 "];
+    NSDictionary *attributes = @{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue" size:16]};
+    NSString *orthography = [[NSUserDefaults standardUserDefaults] objectForKey:@"orthography"];
+    if ([orthography isEqualToString:EXTENDED_BOPOMOFO]) {
+        attributes = @{NSFontAttributeName:[UIFont fontWithName:@"BabelStoneHan" size:16]};
+    }
     
-    NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"Helvetica" size:20]};
-    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:NSLocalizedString(string, nil) attributes:attributes];
-    cell.textLabel.attributedText = attributedString;
+    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:formattedTaiwanese attributes:attributes];
     
     //cell.textLabel.text = [definition.taiwanese convertToTaiwaneseOrthography];
-    //cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, %@",definition.chinese, definition.english];
+    cell.textLabel.attributedText = attributedString;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, %@",definition.chinese, definition.english];
     
     return cell;
 }

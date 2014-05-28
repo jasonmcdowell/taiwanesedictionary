@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface NSString (TaiwaneseHelpers)
-- (NSString *)removeSourceToneMarks;
 - (NSString *)removeOuterQuotes;
 - (NSString *)removeOuterQuotesDebug;
 - (NSString *)removeColons;

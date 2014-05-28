@@ -122,6 +122,9 @@
     
     [self.rmeideasPullDownControl selectControlAtIndex:controlIndex];
     
+    NSDictionary *attributes = @{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue-Bold" size:16]};
+    [self.navigationController.navigationBar setTitleTextAttributes:attributes];
+    
 }
 
 - (void) loadDictionary
@@ -202,7 +205,15 @@
     
     Definition *definition = [entry.definitions firstObject];
     NSString *formattedTaiwanese = [definition.taiwanese convertToTaiwaneseOrthography];
-    cell.textLabel.text = formattedTaiwanese;
+    
+    NSDictionary *attributes = @{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue" size:16]};
+    NSString *orthography = [[NSUserDefaults standardUserDefaults] objectForKey:@"orthography"];
+    if ([orthography isEqualToString:EXTENDED_BOPOMOFO]) {
+        attributes = @{NSFontAttributeName:[UIFont fontWithName:@"BabelStoneHan" size:16]};
+    }
+    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:formattedTaiwanese attributes:attributes];
+    
+    cell.textLabel.attributedText = attributedString;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, %@",definition.chinese, definition.english];
     
     return cell;

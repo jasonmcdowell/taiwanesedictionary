@@ -56,9 +56,7 @@
                                     action:@selector(addFavorite)];
     self.navigationItem.rightBarButtonItem = addFavorite;
     
-    
-    NSString *formattedTaiwanese = [self.entry.key convertToTaiwaneseOrthography];
-    self.navigationItem.title = formattedTaiwanese;
+
     //self.navigationItem.rightBarButtonItem.image = [UIImage imageNamed:@"history"];
     
     [self saveHistory];
@@ -178,6 +176,20 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    NSString *formattedTaiwanese = [self.entry.key convertToTaiwaneseOrthography];
+    NSDictionary *attributes = @{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue-Bold" size:16]};
+    NSString *orthography = [[NSUserDefaults standardUserDefaults] objectForKey:@"orthography"];
+    if ([orthography isEqualToString:EXTENDED_BOPOMOFO]) {
+        attributes = @{NSFontAttributeName:[UIFont fontWithName:@"BabelStoneHan" size:16]};
+    }
+    [self.navigationController.navigationBar setTitleTextAttributes:attributes];
+    self.navigationItem.title = formattedTaiwanese;
+}
+
 - (void) saveHistory
 {
     // Get existing history
@@ -283,8 +295,18 @@
     
     Definition *definition = self.entry.definitions[indexPath.row];
     NSString *formattedTaiwanese = [definition.taiwanese convertToTaiwaneseOrthography];
-    NSLog(@"%@", formattedTaiwanese);
-    cell.taiwaneseLabel.text = [NSString stringWithFormat:@"%@. %@",@(indexPath.row + 1),formattedTaiwanese];
+    //NSLog(@"%@", formattedTaiwanese);
+    
+    NSDictionary *attributes = @{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue-Bold" size:16]};
+    NSString *orthography = [[NSUserDefaults standardUserDefaults] objectForKey:@"orthography"];
+    if ([orthography isEqualToString:EXTENDED_BOPOMOFO]) {
+        attributes = @{NSFontAttributeName:[UIFont fontWithName:@"BabelStoneHan" size:16]};
+    }
+
+    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@. %@",@(indexPath.row + 1),formattedTaiwanese] attributes:attributes];
+    
+    //cell.taiwaneseLabel.text = [NSString stringWithFormat:@"%@. %@",@(indexPath.row + 1),formattedTaiwanese];
+    cell.taiwaneseLabel.attributedText = attributedString;
     cell.chineseLabel.text = definition.chinese;
     cell.englishLabel.text = definition.english;
 
@@ -294,7 +316,16 @@
             NSString *formattedTaiwanese = [example.taiwanese convertToTaiwaneseOrthography];
             examplesString = [examplesString stringByAppendingString:[NSString stringWithFormat:@"%@\n%@\n%@\n\n", formattedTaiwanese, example.chinese, example.english]];
         }
-        cell.examplesLabel.text = [examplesString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        
+        NSDictionary *attributes = @{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue" size:16]};
+        NSString *orthography = [[NSUserDefaults standardUserDefaults] objectForKey:@"orthography"];
+        if ([orthography isEqualToString:EXTENDED_BOPOMOFO]) {
+            attributes = @{NSFontAttributeName:[UIFont fontWithName:@"BabelStoneHan" size:16]};
+        }
+        NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:[examplesString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] attributes:attributes];
+        
+        cell.examplesLabel.attributedText = attributedString;
+        //cell.examplesLabel.text = [examplesString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     } else {
         [cell.examplesLabel removeFromSuperview];
     }
@@ -352,8 +383,20 @@
         NSString *formattedTaiwanese = [example.taiwanese convertToTaiwaneseOrthography];
         examplesString = [examplesString stringByAppendingString:[NSString stringWithFormat:@"%@\n%@\n%@\n\n", formattedTaiwanese, example.chinese, example.english]];
     }
-    cell.examplesLabel.text = [examplesString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
+    
+    
+    NSDictionary *attributes = @{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue" size:16]};
+    NSString *orthography = [[NSUserDefaults standardUserDefaults] objectForKey:@"orthography"];
+    if ([orthography isEqualToString:EXTENDED_BOPOMOFO]) {
+        attributes = @{NSFontAttributeName:[UIFont fontWithName:@"BabelStoneHan" size:16]};
+    }
+    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:[examplesString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] attributes:attributes];
+    
+    cell.examplesLabel.attributedText = attributedString;
+    //cell.examplesLabel.text = [examplesString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
+    //text = cell.examplesLabel.text;
     text = cell.examplesLabel.text;
     width = cell.examplesLabel.frame.size.width;
     font = cell.examplesLabel.font;

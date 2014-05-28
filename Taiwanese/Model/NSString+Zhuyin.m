@@ -71,8 +71,8 @@
                                  @"_O": @"ㄛ",
                                  @"_E": @"ㆤ",
                                  @"_I": @"ㄧ",
-                                 @"_M": @"ㆬ",
                                  @"_U": @"ㄨ",
+                                 @"_M": @"ㆬ",
                                  @"_P": @"ㄅ",
                                  @"_B": @"ㆠ",
                                  @"_T": @"ㄉ",
@@ -84,9 +84,6 @@
                                  @"_J": @"ㆡ",
                                  @"_S": @"ㄙ"
                                  };
-    
-    
-    
     
     // Replace tokens with converted symbols
     
@@ -113,16 +110,14 @@
     
     //NSLog(@"%@", changedString);
     
-    changedString = [changedString stringByReplacingOccurrencesOfString:@"1" withString:@""];       //
-    changedString = [changedString stringByReplacingOccurrencesOfString:@"2" withString:@"\u0300"]; //  ̀
-    changedString = [changedString stringByReplacingOccurrencesOfString:@"3" withString:@"\u0302"]; //  ̂
-    changedString = [changedString stringByReplacingOccurrencesOfString:@"4" withString:@"\u0304"]; //  ̄
-    changedString = [changedString stringByReplacingOccurrencesOfString:@"5" withString:@"\u0306"]; //  ̆
-    changedString = [changedString stringByReplacingOccurrencesOfString:@"6" withString:@"\u0308"]; //  ̈
-    changedString = [changedString stringByReplacingOccurrencesOfString:@"7" withString:@"\u0304"]; //  ̄
-    changedString = [changedString stringByReplacingOccurrencesOfString:@"8" withString:@""];       //
-    changedString = [changedString stringByReplacingOccurrencesOfString:@"9" withString:@"\u0301"]; //  ́
-    //changedString = [changedString stringByReplacingOccurrencesOfString:@"10" withString:@"\u02da"];// ˚
+    changedString = [changedString stringByReplacingOccurrencesOfString:@"1" withString:@""];
+    changedString = [changedString stringByReplacingOccurrencesOfString:@"2" withString:@"ˋ"];
+    changedString = [changedString stringByReplacingOccurrencesOfString:@"3" withString:@"˪"];
+    changedString = [changedString stringByReplacingOccurrencesOfString:@"4" withString:@""];
+    changedString = [changedString stringByReplacingOccurrencesOfString:@"5" withString:@"ˊ"];
+    changedString = [changedString stringByReplacingOccurrencesOfString:@"6" withString:@"ˋ"];
+    changedString = [changedString stringByReplacingOccurrencesOfString:@"7" withString:@"˫"];
+    changedString = [changedString stringByReplacingOccurrencesOfString:@"8" withString:@"˙"];
     
     //NSLog(@"%@", changedString);
     //NSLog(@" ");
@@ -162,11 +157,12 @@
                                  @"ㄚ": @"_A",
                                  @"ㆤ": @"_E",
                                  @"ㄧ": @"_I",
+                                 @"ㄛ": @"_O",
+                                 @"ㄋ": @"_N",
                                  @"ㆬ": @"_M",
                                  @"ㄨ": @"_U",
                                  @"ㄅ": @"_P",
                                  @"ㄉ": @"_T",
-                                 @"ㄋ": @"_N",
                                  @"ㄌ": @"_L",
                                  @"ㄍ": @"_K",
                                  @"ㄏ": @"_H",
@@ -174,7 +170,6 @@
                                  @"ㄙ": @"_S",
                                  @"ㆣ": @"_G",
                                  @"ㆠ": @"_B",
-                                 @"ㄛ": @"_O",
                                  @"ㄘ": @"_CHH",
                                  @"ㄆ": @"_PH",
                                  @"ㄊ": @"_TH",
@@ -256,7 +251,7 @@
         if (temp) {
             if (currentToneNumber) {
                 
-                NSRange range = [temp rangeOfString:@"au"];
+                NSRange range = [temp rangeOfString:@"ㄚㄨ"];
                 //NSLog(@"Temp: %@", temp);
                 
                 if (range.location != NSNotFound) {
@@ -266,15 +261,11 @@
                     //NSLog(@"Temp: %@", temp);
                 } else {
                     // insert the tone number after the main vowel, with priority o,a,e,u,i,n,m
-                    NSArray *vowels = @[@"o", @"u", @"a", @"e", @"i", @"n", @"m"];
+                    NSArray *vowels = @[@"ㄛ", @"ㄨ", @"ㄚ", @"ㆤ", @"ㄧ", @"ㄋ", @"ㆬ"];
                     
                     for (NSString *vowel in vowels) {
                         NSRange range;
-                        if ([vowel isEqualToString:@"n"]) {
-                            range = [temp rangeOfString:vowel options:NSBackwardsSearch];
-                        } else {
-                            range = [temp rangeOfString:vowel];
-                        }
+                        range = [temp rangeOfString:vowel];
                         if (range.location != NSNotFound) {
                             // found a main vowel, so insert tone number after this vowel
                             [temp insertString:currentToneNumber atIndex:range.location + 1];
@@ -304,15 +295,15 @@
     //[changedString precomposedStringWithCanonicalMapping];
     [changedString decomposedStringWithCanonicalMapping];
     
-    NSDictionary *specialCharacters = @{@"\u0300": @"2",
-                                        @"\u0302": @"3",
-                                        @"t\u0304": @"t4",
-                                        @"k\u0304": @"k4",
-                                        @"p\u0304": @"p4",
-                                        @"h\u0304": @"h4",
-                                        @"\u0306": @"5",
-                                        @"\u0304": @"7",
-                                        @"ⁿ":  @"nn"};
+    NSDictionary *specialCharacters = @{@"ˋ": @"2",
+                                        @"˪": @"3",
+                                        @"ㆴ": @"p4",
+                                        @"ㆵ": @"t4",
+                                        @"ㆶ": @"k4",
+                                        @"ㆷ": @"h4",
+                                        @"ˊ": @"5",
+                                        @"˫": @"7",
+                                        @"˙": @"8"};
     
     for (NSString *key in [specialCharacters allKeys]) {
         changedString = [changedString stringByReplacingOccurrencesOfString:key withString:specialCharacters[key]];
