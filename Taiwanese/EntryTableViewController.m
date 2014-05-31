@@ -66,6 +66,10 @@
     
     [self saveHistory];
     
+    // This will remove extra separators from tableview
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    
     // Set up a ParseKit tokenizer and add symbols for all sounds in Peh-oe-ji.
     // http://en.wikipedia.org/wiki/Taiwanese_Hokkien
     // http://210.240.194.97/giankiu/lunbun/Ungian/ch3.pdf

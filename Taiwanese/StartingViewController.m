@@ -439,6 +439,9 @@
                 //NSLog(@"results: %@",tempArray);
                 [controller.searchResultsTableView reloadData];
                 
+                // This will remove extra separators from tableview
+                controller.searchResultsTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+                
                 self.rmeideasPullDownControl = [[RMEIdeasPullDownControl alloc] initWithDataSource:self
                                                                                           delegate:self
                                                                                   clientScrollView:self.searchDisplayController.searchResultsTableView];
