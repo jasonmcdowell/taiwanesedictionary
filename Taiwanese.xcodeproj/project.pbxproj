@@ -25,6 +25,7 @@
 		B45D1153192DFA04004EAB23 /* NSString+Zhuyin.m in Sources */ = {isa = PBXBuildFile; fileRef = B45D1152192DFA04004EAB23 /* NSString+Zhuyin.m */; };
 		B45D1155192F1E18004EAB23 /* BabelStoneHan.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B45D1154192F1E18004EAB23 /* BabelStoneHan.ttf */; };
 		B464F5FC192062AB009C4FCA /* PodFile in Resources */ = {isa = PBXBuildFile; fileRef = B464F5FB192062AB009C4FCA /* PodFile */; };
+		B474D33F19366C2200CC535E /* DefinitionTableViewCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = B474D33E19366C2200CC535E /* DefinitionTableViewCell2.xib */; };
 		B4759D291906156C00A75B12 /* Definition.m in Sources */ = {isa = PBXBuildFile; fileRef = B4759D221906156C00A75B12 /* Definition.m */; };
 		B4759D2A1906156C00A75B12 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = B4759D241906156C00A75B12 /* Entry.m */; };
 		B4759D2B1906156C00A75B12 /* Example.m in Sources */ = {isa = PBXBuildFile; fileRef = B4759D261906156C00A75B12 /* Example.m */; };
@@ -51,7 +52,6 @@
 		B4C4F612190612F70001270F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B4C4F610190612F70001270F /* InfoPlist.strings */; };
 		B4C4F614190612F70001270F /* TaiwaneseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B4C4F613190612F70001270F /* TaiwaneseTests.m */; };
 		B4CF9CF31914DB7100F6F064 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4CF9CF21914DB7100F6F064 /* AboutViewController.m */; };
-		B4D9A9D5192870E30054149D /* Mkdictionary.txt in Resources */ = {isa = PBXBuildFile; fileRef = B4D9A9D4192870E30054149D /* Mkdictionary.txt */; };
 		B549935256794040905F1B0F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE22CD26EACF497CBAD2D71E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -100,7 +100,8 @@
 		B45D1151192DFA04004EAB23 /* NSString+Zhuyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Zhuyin.h"; sourceTree = "<group>"; };
 		B45D1152192DFA04004EAB23 /* NSString+Zhuyin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Zhuyin.m"; sourceTree = "<group>"; };
 		B45D1154192F1E18004EAB23 /* BabelStoneHan.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BabelStoneHan.ttf; sourceTree = "<group>"; };
-		B464F5FB192062AB009C4FCA /* PodFile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PodFile; path = ../PodFile; sourceTree = "<group>"; };
+		B464F5FB192062AB009C4FCA /* PodFile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PodFile; path = ../PodFile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		B474D33E19366C2200CC535E /* DefinitionTableViewCell2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DefinitionTableViewCell2.xib; sourceTree = "<group>"; };
 		B4759D211906156C00A75B12 /* Definition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Definition.h; sourceTree = "<group>"; };
 		B4759D221906156C00A75B12 /* Definition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Definition.m; sourceTree = "<group>"; };
 		B4759D231906156C00A75B12 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
@@ -109,6 +110,7 @@
 		B4759D261906156C00A75B12 /* Example.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Example.m; sourceTree = "<group>"; };
 		B4759D271906156C00A75B12 /* NSString+Taiwanese.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Taiwanese.h"; sourceTree = "<group>"; };
 		B4759D281906156C00A75B12 /* NSString+Taiwanese.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Taiwanese.m"; sourceTree = "<group>"; };
+		B493C62C19390E84001597E1 /* Todo */ = {isa = PBXFileReference; lastKnownFileType = text; name = Todo; path = Taiwanese/Todo; sourceTree = SOURCE_ROOT; };
 		B4A0B3781917021E00AEA0B6 /* FavoritesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesTableViewController.h; sourceTree = "<group>"; };
 		B4A0B3791917021E00AEA0B6 /* FavoritesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesTableViewController.m; sourceTree = "<group>"; };
 		B4A0B37B1917023900AEA0B6 /* RecentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentTableViewController.h; sourceTree = "<group>"; };
@@ -142,7 +144,6 @@
 		B4C4F613190612F70001270F /* TaiwaneseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaiwaneseTests.m; sourceTree = "<group>"; };
 		B4CF9CF11914DB7100F6F064 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		B4CF9CF21914DB7100F6F064 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
-		B4D9A9D4192870E30054149D /* Mkdictionary.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Mkdictionary.txt; sourceTree = "<group>"; };
 		BE22CD26EACF497CBAD2D71E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -272,6 +273,7 @@
 				B4B09310190614A90077E556 /* DefinitionTableViewCell.h */,
 				B4B09311190614A90077E556 /* DefinitionTableViewCell.m */,
 				B4B09312190614A90077E556 /* DefinitionTableViewCell.xib */,
+				B474D33E19366C2200CC535E /* DefinitionTableViewCell2.xib */,
 				B45D113C192BD9CC004EAB23 /* SettingsViewController.h */,
 				B45D113D192BD9CC004EAB23 /* SettingsViewController.m */,
 				B45D1139192B429C004EAB23 /* RMEIdeasPullDownControl.h */,
@@ -288,7 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				B464F5FB192062AB009C4FCA /* PodFile */,
-				B4D9A9D4192870E30054149D /* Mkdictionary.txt */,
+				B493C62C19390E84001597E1 /* Todo */,
 				B45D1154192F1E18004EAB23 /* BabelStoneHan.ttf */,
 				B4C4F5F7190612F70001270F /* TaiwaneseAppDelegate.h */,
 				B4C4F5F8190612F70001270F /* TaiwaneseAppDelegate.m */,
@@ -403,9 +405,9 @@
 			files = (
 				B464F5FC192062AB009C4FCA /* PodFile in Resources */,
 				B4B09318190614A90077E556 /* DefinitionTableViewCell.xib in Resources */,
-				B4D9A9D5192870E30054149D /* Mkdictionary.txt in Resources */,
 				B45D1155192F1E18004EAB23 /* BabelStoneHan.ttf in Resources */,
 				B4B09313190614A90077E556 /* Main.storyboard in Resources */,
+				B474D33F19366C2200CC535E /* DefinitionTableViewCell2.xib in Resources */,
 				B4B0931A190614D50077E556 /* dictionary.plist in Resources */,
 				B4C4F601190612F70001270F /* Images.xcassets in Resources */,
 				B4C4F5F3190612F60001270F /* InfoPlist.strings in Resources */,

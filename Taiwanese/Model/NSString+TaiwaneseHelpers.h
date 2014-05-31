@@ -12,6 +12,7 @@
 - (NSString *)removeOuterQuotes;
 - (NSString *)removeOuterQuotesDebug;
 - (NSString *)removeColons;
+- (NSString *)removeWhitespace;
 - (NSString *)removeDashes;
 - (NSString *)removeNumbers;
 - (NSString *)remove1and4;

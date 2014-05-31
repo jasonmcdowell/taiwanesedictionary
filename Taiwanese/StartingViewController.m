@@ -97,6 +97,10 @@
     
     self.rmeideasPullDownControl.layer.borderColor = [UIColor clearColor].CGColor;
     
+    
+//    NSDictionary *attributes = @{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue-Bold" size:16]};
+//    [self.navigationController.navigationBar setTitleTextAttributes:attributes];
+//    
     //[self loadDictionary];
 }
 
@@ -108,6 +112,12 @@
     
     
     NSString *sortOrderField = [[NSUserDefaults standardUserDefaults] objectForKey:@"sortOrder"];
+    
+    if (!sortOrderField) {
+        sortOrderField = @"taiwanese";
+        [[NSUserDefaults standardUserDefaults] setObject:sortOrderField forKey:@"sortOrder"];
+    }
+    
     NSUInteger  controlIndex = 0;
     if ([sortOrderField isEqualToString:@"taiwanese"]) {
         controlIndex = 0;
@@ -287,9 +297,9 @@
         } else {
             formattedSearchText = [[[searchText removeDashes] convertToNumberedPehoeji] removeNumbers];
         }
-        NSLog( @"Search: %d %d %@",containsDiacritics,containsNumbers, searchText);
-
-        NSLog( @"Search: %@", formattedSearchText);
+        
+        //NSLog( @"Search: %d %d %@",containsDiacritics,containsNumbers, searchText);
+        //NSLog( @"Search: %@", formattedSearchText);
         
         for (Entry *entry in self.dictionaryArray) {
 
@@ -310,12 +320,18 @@
             {
                 //NSLog(@"Searching chinese text.");
                 for (Definition *definition in entry.definitions) {
-                    NSString *defintionString = definition.chinese;
+                    NSString *defintionString = [definition.chinese removeWhitespace];
                     NSRange matchedRange = [defintionString rangeOfString:searchText];
                     BOOL foundEntry = matchedRange.length > 0;
                     if (foundEntry)
                     {
-                        if (([scope isEqualToString:@"begins"] && (matchedRange.location == 0)) || [scope isEqualToString:@"contains"]) {
+                        if (([scope isEqualToString:@"begins"] && (matchedRange.location == 0))) {
+                            [tempArray addObject:entry];
+                        }
+                        if ([scope isEqualToString:@"contains"]) {
+                            [tempArray addObject:entry];
+                        }
+                        if (([scope isEqualToString:@"exact"]) && (matchedRange.length == [defintionString length])) {
                             [tempArray addObject:entry];
                         }
                     }
@@ -327,9 +343,9 @@
                     
                     NSString *defintionString = @"";
                     if (containsDiacritics || containsNumbers) {
-                        defintionString = [definition.taiwanese removeDashes];
+                        defintionString = [[definition.taiwanese removeDashes] removeWhitespace];
                     } else {
-                        defintionString = [[definition.taiwanese removeDashes] removeNumbers];
+                        defintionString = [[[definition.taiwanese removeDashes] removeNumbers] removeWhitespace];
                     }
                     
                     //NSLog( @"\t%@", defintionString);
@@ -338,24 +354,46 @@
                     // search Taiwanese definitions
                     if (foundEntry)
                     {
+                        //NSLog(@"%d, %d", [searchText length], matchedRange.length);
+                        
                         // if the scope is "begins" and the string is matched at the beginning OR if the scope is "contains"
-                        if (([scope isEqualToString:@"begins"] && (matchedRange.location == 0)) || [scope isEqualToString:@"contains"]) {
+                        if (([scope isEqualToString:@"begins"] && (matchedRange.location == 0))) {
                             [tempArray addObject:entry];
                             break;
                         }
+                        if ([scope isEqualToString:@"contains"]) {
+                            [tempArray addObject:entry];
+                            break;
+                        }
+                        if (([scope isEqualToString:@"exact"]) && (matchedRange.length == [defintionString length])) {
+                            [tempArray addObject:entry];
+                            break;
+                        }
+                        
                     }
                     else
                     {
                         // search English definitions
-                        NSString *defintionString = definition.english;
+                        NSString *defintionString = [definition.english removeWhitespace];
                         NSRange matchedRange = [defintionString rangeOfString:searchText options:NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch];
                         BOOL foundEntry = matchedRange.length > 0;
                         if (foundEntry)
                         {
-                            if (([scope isEqualToString:@"begins"] && (matchedRange.location == 0)) || [scope isEqualToString:@"contains"]) {
+                            if (([scope isEqualToString:@"begins"] && (matchedRange.location == 0))) {
                                 [tempArray addObject:entry];
                                 break;
                             }
+                            if ([scope isEqualToString:@"contains"]) {
+                                //NSLog(@"\'%@\'", defintionString);
+                                [tempArray addObject:entry];
+                                break;
+                            }
+                            if (([scope isEqualToString:@"exact"]) && (matchedRange.length == [defintionString length])) {
+                                //NSLog(@"\'%@\'", defintionString);
+                                [tempArray addObject:entry];
+                                break;
+                            }
+                            
                         }
                     }
                     

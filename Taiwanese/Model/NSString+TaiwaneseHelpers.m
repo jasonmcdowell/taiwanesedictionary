@@ -82,6 +82,15 @@
     return [[changedString componentsSeparatedByCharactersInSet:invalidSet] componentsJoinedByString:@""];
 }
 
+- (NSString *)removeWhitespace
+{
+    NSString * changedString = [self copy];
+    
+    NSCharacterSet *whitespace = [NSCharacterSet characterSetWithCharactersInString:@"\t\n  \r"];
+    
+    return [changedString stringByTrimmingCharactersInSet:whitespace];
+}
+
 - (NSString *)removeDashes
 {
     NSString * changedString = [self copy];
@@ -229,6 +238,8 @@
 - (NSString *) convertNumberedPehoejiToTokens
 {
     NSString *changedString = [self copy];
+    
+    changedString = [changedString lowercaseString];
     
     // save multicharacter symbols that overlap with other symbols. This is a very inefficient version of tokenization.
     

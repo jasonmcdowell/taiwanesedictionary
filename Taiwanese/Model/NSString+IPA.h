@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (IPA)
-
+@interface NSString (InternationalPhoneticAlphabet)
+- (NSString *)convertNumberedPehoejiToIPA;
+- (NSString *)convertIPAToNumberedPehoeji;
 @end

@@ -48,9 +48,14 @@
     UINib *nib = [UINib nibWithNibName:@"DefinitionTableViewCell" bundle:nil];
     [[self tableView] registerNib:nib forCellReuseIdentifier:@"Definition"];
     
+    UIImage *starImage = [UIImage imageNamed:@"favorites"];
+    
+    
+    
+    
     // Add BarButtonItem for adding an Entry to Favorites
     UIBarButtonItem *addFavorite = [[UIBarButtonItem alloc]
-                                    initWithImage:[UIImage imageNamed:@"favorites"]
+                                    initWithImage:starImage
                                     style:UIBarButtonItemStylePlain
                                     target:self
                                     action:@selector(addFavorite)];
@@ -173,7 +178,6 @@
         //NSLog(@"Token: %@\tisWord: %d", (NSString *) tok.value, tok.isWord);
     }];
     
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -188,6 +192,9 @@
     }
     [self.navigationController.navigationBar setTitleTextAttributes:attributes];
     self.navigationItem.title = formattedTaiwanese;
+    
+    [self.tableView reloadData];
+    
 }
 
 - (void) saveHistory
@@ -197,8 +204,15 @@
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *fileName = @"recent.plist";
     NSString *filePath =  [documentsDirectory stringByAppendingPathComponent:fileName];
-    NSData *data = [NSData dataWithContentsOfFile:filePath];
-    NSArray *array = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    NSArray *array;
+    
+    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:filePath];
+    if (fileExists) {
+        NSData *data = [NSData dataWithContentsOfFile:filePath];
+        array = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    } else {
+        array = @[];
+    }
     
     // if history is nil, create an empty array
     if (!array) {
@@ -243,8 +257,15 @@
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *fileName = @"favorites.plist";
     NSString *filePath =  [documentsDirectory stringByAppendingPathComponent:fileName];
-    NSData *data = [NSData dataWithContentsOfFile:filePath];
-    NSArray *array = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    NSArray *array;
+    
+    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:filePath];
+    if (fileExists) {
+        NSData *data = [NSData dataWithContentsOfFile:filePath];
+        array = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    } else {
+        array = @[];
+    }
     
     // if array is nil, create an empty array
     if (!array) {
@@ -306,9 +327,9 @@
     NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@. %@",@(indexPath.row + 1),formattedTaiwanese] attributes:attributes];
     
     //cell.taiwaneseLabel.text = [NSString stringWithFormat:@"%@. %@",@(indexPath.row + 1),formattedTaiwanese];
-    cell.taiwaneseLabel.attributedText = attributedString;
-    cell.chineseLabel.text = definition.chinese;
-    cell.englishLabel.text = definition.english;
+    cell.taiwanese.attributedText = attributedString;
+    cell.chinese.text = definition.chinese;
+    cell.english.text = definition.english;
 
     if ([definition.examples count]) {
         NSString *examplesString = @"";
@@ -324,10 +345,10 @@
         }
         NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:[examplesString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] attributes:attributes];
         
-        cell.examplesLabel.attributedText = attributedString;
+        cell.examples.attributedText = attributedString;
         //cell.examplesLabel.text = [examplesString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     } else {
-        [cell.examplesLabel removeFromSuperview];
+        [cell.examples removeFromSuperview];
     }
     
     return cell;
@@ -342,14 +363,14 @@
     
     Definition *definition = self.entry.definitions[indexPath.row];
     NSString *formattedTaiwanese = [definition.taiwanese convertToTaiwaneseOrthography];
-    cell.taiwaneseLabel.text = [NSString stringWithFormat:@"%@. %@",@(indexPath.row + 1),formattedTaiwanese];
-    cell.chineseLabel.text = definition.chinese;
-    cell.englishLabel.text = definition.english;
+    cell.taiwanese.text = [NSString stringWithFormat:@"%@. %@",@(indexPath.row + 1),formattedTaiwanese];
+    cell.chinese.text = definition.chinese;
+    cell.english.text = definition.english;
     
     // Taiwanese Label height calculations
-    NSString *text = cell.taiwaneseLabel.text;
-    CGFloat width = cell.taiwaneseLabel.frame.size.width;
-    UIFont *font = cell.taiwaneseLabel.font;
+    NSString *text = cell.taiwanese.text;
+    CGFloat width = cell.taiwanese.frame.size.width;
+    UIFont *font = cell.taiwanese.font;
     NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName: font}];
     CGRect rect = [attributedText boundingRectWithSize:(CGSize){width, CGFLOAT_MAX}
                                                options:NSStringDrawingUsesLineFragmentOrigin
@@ -357,9 +378,9 @@
     CGFloat taiwaneseHeight = ceil(rect.size.height);
 
     // Chinese Label height calculations
-    text = cell.chineseLabel.text;
-    width = cell.chineseLabel.frame.size.width;
-    font = cell.chineseLabel.font;
+    text = cell.chinese.text;
+    width = cell.chinese.frame.size.width;
+    font = cell.chinese.font;
     attributedText = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName: font}];
     rect = [attributedText boundingRectWithSize:(CGSize){width, CGFLOAT_MAX}
                                         options:NSStringDrawingUsesLineFragmentOrigin
@@ -368,8 +389,8 @@
     
     // English Label height calculations
     text = definition.english;
-    width = cell.englishLabel.frame.size.width;
-    font = cell.englishLabel.font;
+    width = cell.english.frame.size.width;
+    font = cell.english.font;
     attributedText = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName: font}];
     rect = [attributedText boundingRectWithSize:(CGSize){width, CGFLOAT_MAX}
                                         options:NSStringDrawingUsesLineFragmentOrigin
@@ -393,13 +414,13 @@
     }
     NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:[examplesString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] attributes:attributes];
     
-    cell.examplesLabel.attributedText = attributedString;
+    cell.examples.attributedText = attributedString;
     //cell.examplesLabel.text = [examplesString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
     //text = cell.examplesLabel.text;
-    text = cell.examplesLabel.text;
-    width = cell.examplesLabel.frame.size.width;
-    font = cell.examplesLabel.font;
+    text = cell.examples.text;
+    width = cell.examples.frame.size.width;
+    font = cell.examples.font;
     attributedText = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName: font}];
     rect = [attributedText boundingRectWithSize:(CGSize){width, CGFLOAT_MAX}
                                                options:NSStringDrawingUsesLineFragmentOrigin

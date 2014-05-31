@@ -9,8 +9,17 @@
 #import <UIKit/UIKit.h>
 
 @interface DefinitionTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *taiwaneseLabel;
-@property (weak, nonatomic) IBOutlet UILabel *chineseLabel;
-@property (weak, nonatomic) IBOutlet UILabel *englishLabel;
-@property (weak, nonatomic) IBOutlet UILabel *examplesLabel;
+//@property (weak, nonatomic) IBOutlet UITextView *taiwanese;
+//@property (weak, nonatomic) IBOutlet UITextView *chinese;
+//@property (weak, nonatomic) IBOutlet UITextView *english;
+//@property (weak, nonatomic) IBOutlet UITextView *examples;
+
+@property (weak, nonatomic) IBOutlet UILabel *taiwanese;
+@property (weak, nonatomic) IBOutlet UILabel *chinese;
+@property (weak, nonatomic) IBOutlet UILabel *english;
+@property (weak, nonatomic) IBOutlet UILabel *examples;
+
+
+
+
 @end

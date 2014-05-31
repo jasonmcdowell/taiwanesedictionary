@@ -13,6 +13,7 @@
 #import "NSString+Tai_Lo.h"
 #import "NSString+DaiTong.h"
 #import "NSString+Zhuyin.h"
+#import "NSString+IPA.h"
 
 @implementation NSString (Taiwanese)
 
@@ -34,7 +35,7 @@
     if ([orthography isEqualToString:PEHOEJI]) {
         return [changedString convertNumberedPehoejiToPehoeji];
     } else if ([orthography isEqualToString:IPA]) {
-        return changedString;
+        return [changedString convertNumberedPehoejiToIPA];
     } else if ([orthography isEqualToString:REVISED_TLPA]) {
         return changedString;
     } else if ([orthography isEqualToString:BP]) {

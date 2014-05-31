@@ -63,10 +63,10 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="chineseLabel" destination="K1x-gB-jkx" id="v8Q-R5-I4W"/>
-                <outlet property="englishLabel" destination="hu3-RB-yf0" id="nau-j7-Epr"/>
-                <outlet property="examplesLabel" destination="hvd-lE-gHe" id="Pcu-Q7-6vS"/>
-                <outlet property="taiwaneseLabel" destination="Lxh-EU-4qV" id="817-nf-LES"/>
+                <outlet property="chinese" destination="K1x-gB-jkx" id="dCW-Pr-4Vp"/>
+                <outlet property="english" destination="hu3-RB-yf0" id="c0u-nl-4dd"/>
+                <outlet property="examples" destination="hvd-lE-gHe" id="hVL-u6-hbH"/>
+                <outlet property="taiwanese" destination="Lxh-EU-4qV" id="Ty1-LF-2lN"/>
             </connections>
         </tableViewCell>
     </objects>

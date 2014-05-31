@@ -13,6 +13,8 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *sortOrder;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *taiwaneseOrthography;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *maximumRecentEntries;
+@property (weak, nonatomic) IBOutlet UILabel *writingSystemName;
+@property (weak, nonatomic) IBOutlet UILabel *example;
 
 @end
 
@@ -31,7 +33,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+
     // load settings
 }
 
@@ -74,7 +76,16 @@
     
     [[NSUserDefaults standardUserDefaults] setObject:orthography forKey:@"orthography"];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    //NSLog(@"Saving orthography: %@", orthography);
+    
+    self.writingSystemName.text = orthography;
+    
+    NSString *exampleString = [@"tai5-oan5-oe7" convertToTaiwaneseOrthography];
+    NSDictionary *attributes = @{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue" size:16]};
+    if ([orthography isEqualToString:EXTENDED_BOPOMOFO]) {
+        attributes = @{NSFontAttributeName:[UIFont fontWithName:@"BabelStoneHan" size:16]};
+    }
+    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:exampleString attributes:attributes];
+    self.example.attributedText = attributedString;
     
 }
 
@@ -83,6 +94,11 @@
     NSInteger selectedSegmentIndex = 0;
     NSString *orthography = [[NSUserDefaults standardUserDefaults] objectForKey:@"orthography"];
     //NSLog(@"Loading orthography: %@", orthography);
+    
+    if (!orthography) {
+        orthography = PEHOEJI;
+        [[NSUserDefaults standardUserDefaults] setObject:orthography forKey:@"orthography"];
+    }
     
     if ([orthography isEqualToString:PEHOEJI]) {
         selectedSegmentIndex = 0;
@@ -100,6 +116,17 @@
     }
     
     self.taiwaneseOrthography.selectedSegmentIndex = selectedSegmentIndex;
+    
+    self.writingSystemName.text = orthography;
+    
+    NSString *exampleString = [@"tai5-oan5-oe7" convertToTaiwaneseOrthography];
+    NSDictionary *attributes = @{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue" size:16]};
+    if ([orthography isEqualToString:EXTENDED_BOPOMOFO]) {
+        attributes = @{NSFontAttributeName:[UIFont fontWithName:@"BabelStoneHan" size:16]};
+    }
+    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:exampleString attributes:attributes];
+    self.example.attributedText = attributedString;
+    
 }
 
 - (IBAction)sortOrder:(UISegmentedControl *)sender
@@ -130,6 +157,11 @@
     NSInteger selectedSegmentIndex = 0;
     NSString *sortOrderField = [[NSUserDefaults standardUserDefaults] objectForKey:@"sortOrder"];
     //NSLog(@"Loading sort order: %@", sortOrderField);
+    
+    if (!sortOrderField) {
+        sortOrderField = @"taiwanese";
+        [[NSUserDefaults standardUserDefaults] setObject:sortOrderField forKey:@"sortOrder"];
+    }
     
     if ([sortOrderField isEqualToString:@"taiwanese"]) {
         selectedSegmentIndex = 0;
@@ -162,6 +194,11 @@
 {
     NSInteger selectedSegmentIndex = 0;
     NSNumber *maximumRecentEntries = [[NSUserDefaults standardUserDefaults] objectForKey:@"maximumRecentEntries"];
+    
+    if (!maximumRecentEntries) {
+        maximumRecentEntries = [NSNumber numberWithInt:25];
+        [[NSUserDefaults standardUserDefaults] setObject:maximumRecentEntries forKey:@"maximumRecentEntries"];
+    }
     
     for (int i = 0; i < self.maximumRecentEntries.numberOfSegments ; i++) {
         NSNumber *max = @([[self.maximumRecentEntries titleForSegmentAtIndex:i] intValue]);

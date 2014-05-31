@@ -24,26 +24,18 @@
                                 <scopeButtonTitles>
                                     <string>begins</string>
                                     <string>contains</string>
+                                    <string>exact</string>
                                 </scopeButtonTitles>
                                 <connections>
                                     <outlet property="delegate" destination="vSX-hs-Q6j" id="Z9V-e0-ZUM"/>
                                 </connections>
                             </searchBar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xh3-d2-Rau">
-                                <rect key="frame" x="0.0" y="44" width="320" height="460"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xh3-d2-Rau" firstAttribute="trailing" secondItem="ZG4-0w-Vev" secondAttribute="trailing" id="9Ia-3Y-26c"/>
-                            <constraint firstAttribute="bottom" secondItem="xh3-d2-Rau" secondAttribute="bottom" id="CFm-WZ-fyQ"/>
-                            <constraint firstItem="xh3-d2-Rau" firstAttribute="leading" secondItem="Tq4-dc-uIi" secondAttribute="leading" id="L0V-il-pHm"/>
-                            <constraint firstItem="xh3-d2-Rau" firstAttribute="leading" secondItem="ZG4-0w-Vev" secondAttribute="leading" id="RiI-Hw-Ad3"/>
-                            <constraint firstAttribute="trailing" secondItem="xh3-d2-Rau" secondAttribute="trailing" id="TPL-Oi-dMO"/>
-                            <constraint firstItem="ZG4-0w-Vev" firstAttribute="top" secondItem="Tq4-dc-uIi" secondAttribute="top" id="XDt-PI-Nlm"/>
-                            <constraint firstItem="xh3-d2-Rau" firstAttribute="top" secondItem="ZG4-0w-Vev" secondAttribute="bottom" id="cn3-fg-Sff"/>
+                            <constraint firstAttribute="trailing" secondItem="ZG4-0w-Vev" secondAttribute="trailing" id="Bkj-mg-Ea5"/>
+                            <constraint firstItem="ZG4-0w-Vev" firstAttribute="leading" secondItem="Tq4-dc-uIi" secondAttribute="leading" id="iqs-O3-d1K"/>
+                            <constraint firstItem="ZG4-0w-Vev" firstAttribute="top" secondItem="Tq4-dc-uIi" secondAttribute="top" id="kHG-Gd-jfF"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
@@ -72,27 +64,24 @@
             </objects>
             <point key="canvasLocation" x="1847" y="476"/>
         </scene>
-        <!--View Controller - Instructions-->
+        <!--About View Controller - Instructions-->
         <scene sceneID="O9l-U7-L3V">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="VR8-B0-Rfp" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" hidesBottomBarWhenPushed="YES" id="VR8-B0-Rfp" customClass="AboutViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lfj-6L-Gj8"/>
                         <viewControllerLayoutGuide type="bottom" id="bEd-uZ-cx1"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="m9j-M4-dEW">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vTC-2V-ftg">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="959"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vTC-2V-ftg">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="959" id="KdZ-iB-1gB"/>
-                                </constraints>
                                 <attributedString key="attributedText">
-                                    <fragment content="Romanization system:">
+                                    <fragment content="Writing system:">
                                         <attributes>
                                             <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
                                             <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
@@ -101,36 +90,76 @@
                                     </fragment>
                                     <fragment>
                                         <string key="content">
-	Choose a Taiwanese orthography in the Settings tab.
+	Pe̍h-ōe-jī is the default writing system and the one which I have the most experience with. Please let me know if you find any problems. Choose your preferred writing system in the Settings tab.
 - Pe̍h-ōe-jī
 - Tâi-lô
 - DT (Daī-ghî tōng-iōng pīng-im)
 - Zhuyin (Extended Bopomofo)
-- IPA (International Phonetic Alphabet)</string>
-                                        <attributes>
-                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content" base64-UTF8="YES">
-Cg
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="50" name="Helvetica"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content" base64-UTF8="YES">
-Cg
+- IPA (International Phonetic Alphabet)
+
 </string>
                                         <attributes>
                                             <font key="NSFont" size="14" name="HelveticaNeue"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                         </attributes>
                                     </fragment>
-                                    <fragment content="Searching using Taiwanese:">
+                                    <fragment content="Search Scope:">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> 	You can set the search scope to </string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="begins">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Italic"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue-Italic"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=", ">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="contains">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Italic"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue-Italic"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=", or ">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="exact">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Italic"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue-Italic"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">. Setting the search scope will display entries beginning, containing or exactly matching the search term.
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+Searching using Taiwanese:</string>
                                         <attributes>
                                             <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
                                             <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
@@ -139,7 +168,35 @@ Cg
                                     </fragment>
                                     <fragment>
                                         <string key="content"> 	You can search using Taiwanese, English or Chinese by typing in the search box. 
-	You can search with or without tones marks and other special characters. If you do not indicate tone, words with any tone will be matched. If you indicate at least one tone, you must indicate them for every syllable. Searching using tones will usually only match words with whole syllables
+	You can search with or without tones marks and other special characters. In Peh-oe-ji, you can search using </string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="ou">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Italic"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue-Italic"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" for o͘ and ">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="nn">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Italic"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue-Italic"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> for ⁿ. You can also use o͘ and ⁿ directly if you can figure out how to type them.
+	If you do not indicate tone, words with any tone will be matched. If you indicate at least one tone, you must indicate them for every syllable. Searching using tones will usually only match words with complete syllables.
 
 </string>
                                         <attributes>
@@ -175,6 +232,73 @@ Cg
                                         <string key="content">
 	Syllables can be separated by dashes or spaces.
 
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">Example Searches:
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="The following examples searches will all display the entry for ">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="jī-tián">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Italic"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue-Italic"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=", meaning ">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="dictionary">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Italic"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue-Italic"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">.
+	dictionary
+	dict
+	ji tian
+	ji-tian
+	ji7 tian2
+	ji7-tian2
+	jī tián
+	jī-tián
+	ji tia
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">	字典</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HiraKakuProN-W3"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cgo
 </string>
                                         <attributes>
                                             <font key="NSFont" size="14" name="HelveticaNeue"/>
@@ -271,9 +395,7 @@ Tâi-lô
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                         </attributes>
                                     </fragment>
-                                    <fragment>
-                                        <string key="content">- http://en.wikipedia.org/wiki/Taiwanese_Romanization_System
-</string>
+                                    <fragment content="- http://en.wikipedia.org/wiki/Taiwanese_Romanization_System">
                                         <attributes>
                                             <font key="NSFont" size="9" name="HelveticaNeue"/>
                                             <font key="NSOriginalFont" size="9" name="HelveticaNeue"/>
@@ -282,6 +404,7 @@ Tâi-lô
                                     </fragment>
                                     <fragment>
                                         <string key="content">
+
 DT (Daī-ghî tōng-iōng pīng-im)
 </string>
                                         <attributes>
@@ -327,6 +450,7 @@ IPA (International Phonetic Alphabet)
                                     </fragment>
                                     <fragment>
                                         <string key="content">- http://en.wikipedia.org/wiki/IPA
+
 </string>
                                         <attributes>
                                             <font key="NSFont" size="9" name="HelveticaNeue"/>
@@ -335,12 +459,37 @@ IPA (International Phonetic Alphabet)
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <string key="content" base64-UTF8="YES">
-CgoKA
+                                        <string key="content">Contact the Developer:
 </string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">	Feel free to contact me with bug reports and feature requests. I'm writing this dictionary app in my spare time, but I welcome any ideas for improvement!
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">- http://taiwanese.nfshost.com
+- taiwanese.app@gmail.com</string>
                                         <attributes>
                                             <font key="NSFont" size="12" name="HelveticaNeue"/>
                                             <font key="NSOriginalFont" size="12" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="9" name="HelveticaNeue"/>
+                                            <font key="NSOriginalFont" size="9" name="HelveticaNeue"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                         </attributes>
                                     </fragment>
@@ -350,14 +499,22 @@ CgoKA
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="vTC-2V-ftg" firstAttribute="top" secondItem="m9j-M4-dEW" secondAttribute="top" id="9Kt-Ju-LTh"/>
-                            <constraint firstAttribute="trailing" secondItem="vTC-2V-ftg" secondAttribute="trailing" id="kCe-Wh-dWu"/>
-                            <constraint firstItem="vTC-2V-ftg" firstAttribute="leading" secondItem="m9j-M4-dEW" secondAttribute="leading" id="tIP-LS-uez"/>
-                        </constraints>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="Instructions" id="oiV-0r-jEa"/>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" title="Instructions" id="oiV-0r-jEa">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="9Jt-vR-8vv">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Bag-m1-tVD">
+                                <rect key="frame" x="249" y="7" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Contact">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendEmail:" destination="VR8-B0-Rfp" eventType="touchUpInside" id="lck-1n-phS"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pWu-KE-oe4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -380,7 +537,7 @@ CgoKA
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ib5-Gn-3yM">
-                                        <rect key="frame" x="20" y="162" width="280" height="29"/>
+                                        <rect key="frame" x="20" y="49" width="280" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <segments>
                                             <segment title="POJ"/>
@@ -394,7 +551,7 @@ CgoKA
                                         </connections>
                                     </segmentedControl>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="eFL-BK-8Xx">
-                                        <rect key="frame" x="20" y="49" width="280" height="29"/>
+                                        <rect key="frame" x="20" y="182" width="280" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <segments>
                                             <segment title="Taiwanese"/>
@@ -405,38 +562,66 @@ CgoKA
                                             <action selector="sortOrder:" destination="Ev7-Yr-TZW" eventType="valueChanged" id="GT9-8B-HdZ"/>
                                         </connections>
                                     </segmentedControl>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Taiwanese Orthography" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3k6-Hd-Iav">
-                                        <rect key="frame" x="20" y="133" width="181" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Taiwanese Writing System" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3k6-Hd-Iav">
+                                        <rect key="frame" x="20" y="20" width="201" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Maximum Recent Entries" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRR-qw-vc9">
-                                        <rect key="frame" x="20" y="228" width="193" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Writing System Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drN-pc-otj">
+                                        <rect key="frame" x="20" y="85" width="280" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="lgU-ng-fd3"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Example:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heo-Oh-Zu0">
+                                        <rect key="frame" x="51" y="114" width="72" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="ASl-MG-rfF"/>
+                                            <constraint firstAttribute="width" constant="72" id="WHP-6k-7F4"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ji-tian" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8C8-TP-ABa">
+                                        <rect key="frame" x="131" y="114" width="169" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maximum Recent Entries" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRR-qw-vc9">
+                                        <rect key="frame" x="20" y="263" width="193" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort order" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pjy-4J-Yxi">
-                                        <rect key="frame" x="20" y="20" width="78" height="21"/>
+                                        <rect key="frame" x="20" y="153" width="78" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* You can also pull down search results to sort" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1v6-fs-T19">
-                                        <rect key="frame" x="20" y="85" width="280" height="21"/>
+                                        <rect key="frame" x="20" y="218" width="280" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="w6r-r5-iTh"/>
+                                            <constraint firstAttribute="height" constant="21" id="ybY-VB-ymK"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gUi-1X-GNA">
-                                        <rect key="frame" x="20" y="257" width="280" height="29"/>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gUi-1X-GNA">
+                                        <rect key="frame" x="20" y="292" width="280" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <segments>
                                             <segment title="10"/>
@@ -451,36 +636,58 @@ CgoKA
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="1v6-fs-T19" firstAttribute="leading" secondItem="3k6-Hd-Iav" secondAttribute="leading" id="1Aa-WD-BbG"/>
-                                    <constraint firstItem="1v6-fs-T19" firstAttribute="trailing" secondItem="eFL-BK-8Xx" secondAttribute="trailing" id="3l1-iG-5ZL"/>
-                                    <constraint firstItem="eFL-BK-8Xx" firstAttribute="top" secondItem="Pjy-4J-Yxi" secondAttribute="bottom" constant="8" symbolic="YES" id="8lN-Ud-SpN"/>
-                                    <constraint firstItem="Pjy-4J-Yxi" firstAttribute="top" secondItem="nFa-2J-xEj" secondAttribute="top" constant="20" symbolic="YES" id="LDU-Nm-nhh"/>
-                                    <constraint firstItem="1v6-fs-T19" firstAttribute="top" secondItem="eFL-BK-8Xx" secondAttribute="bottom" constant="8" symbolic="YES" id="OSM-aW-L2R"/>
-                                    <constraint firstItem="3k6-Hd-Iav" firstAttribute="top" secondItem="1v6-fs-T19" secondAttribute="bottom" constant="27" id="UoY-gP-YU9"/>
-                                    <constraint firstItem="3k6-Hd-Iav" firstAttribute="leading" secondItem="Ib5-Gn-3yM" secondAttribute="leading" id="alS-fe-H9r"/>
-                                    <constraint firstItem="eFL-BK-8Xx" firstAttribute="leading" secondItem="Pjy-4J-Yxi" secondAttribute="leading" id="cep-Yo-zUd"/>
-                                    <constraint firstItem="eFL-BK-8Xx" firstAttribute="leading" secondItem="1v6-fs-T19" secondAttribute="leading" id="ecm-UY-KHc"/>
-                                    <constraint firstAttribute="trailing" secondItem="eFL-BK-8Xx" secondAttribute="trailing" constant="20" symbolic="YES" id="lqn-id-uId"/>
-                                    <constraint firstItem="Pjy-4J-Yxi" firstAttribute="leading" secondItem="nFa-2J-xEj" secondAttribute="leading" constant="20" symbolic="YES" id="ulZ-34-KIA"/>
-                                    <constraint firstItem="Ib5-Gn-3yM" firstAttribute="top" secondItem="3k6-Hd-Iav" secondAttribute="bottom" constant="8" symbolic="YES" id="yc5-18-6sm"/>
-                                    <constraint firstItem="Ib5-Gn-3yM" firstAttribute="trailing" secondItem="1v6-fs-T19" secondAttribute="trailing" id="zgx-iU-XmW"/>
+                                    <constraint firstItem="eFL-BK-8Xx" firstAttribute="leading" secondItem="Pjy-4J-Yxi" secondAttribute="leading" id="072-uw-mQv"/>
+                                    <constraint firstItem="Pjy-4J-Yxi" firstAttribute="top" secondItem="heo-Oh-Zu0" secondAttribute="bottom" constant="18" id="0Jd-av-6fh"/>
+                                    <constraint firstItem="eFL-BK-8Xx" firstAttribute="top" secondItem="Pjy-4J-Yxi" secondAttribute="bottom" constant="8" symbolic="YES" id="1dZ-ED-QjO"/>
+                                    <constraint firstItem="heo-Oh-Zu0" firstAttribute="top" secondItem="drN-pc-otj" secondAttribute="bottom" constant="8" symbolic="YES" id="1yE-mj-DAs"/>
+                                    <constraint firstItem="eFL-BK-8Xx" firstAttribute="leading" secondItem="1v6-fs-T19" secondAttribute="leading" id="4Cm-yN-M7E"/>
+                                    <constraint firstItem="drN-pc-otj" firstAttribute="leading" secondItem="Ib5-Gn-3yM" secondAttribute="leading" id="6td-18-dR1"/>
+                                    <constraint firstItem="Pjy-4J-Yxi" firstAttribute="leading" secondItem="drN-pc-otj" secondAttribute="leading" id="7H5-VI-T9o"/>
+                                    <constraint firstItem="8C8-TP-ABa" firstAttribute="leading" secondItem="heo-Oh-Zu0" secondAttribute="trailing" constant="8" symbolic="YES" id="8Aw-5f-1XW"/>
+                                    <constraint firstItem="1v6-fs-T19" firstAttribute="leading" secondItem="eRR-qw-vc9" secondAttribute="leading" id="CHU-mV-Br9"/>
+                                    <constraint firstItem="Ib5-Gn-3yM" firstAttribute="trailing" secondItem="drN-pc-otj" secondAttribute="trailing" id="G1y-ON-yDZ"/>
+                                    <constraint firstItem="Ib5-Gn-3yM" firstAttribute="top" secondItem="3k6-Hd-Iav" secondAttribute="bottom" constant="8" symbolic="YES" id="HbB-YJ-zDf"/>
+                                    <constraint firstItem="eFL-BK-8Xx" firstAttribute="trailing" secondItem="8C8-TP-ABa" secondAttribute="trailing" id="NQJ-T7-qBr"/>
+                                    <constraint firstItem="3k6-Hd-Iav" firstAttribute="leading" secondItem="nFa-2J-xEj" secondAttribute="leading" constant="20" symbolic="YES" id="Nck-jC-K9q"/>
+                                    <constraint firstItem="heo-Oh-Zu0" firstAttribute="leading" secondItem="nFa-2J-xEj" secondAttribute="leading" constant="51" id="W7B-LO-4KX"/>
+                                    <constraint firstItem="3k6-Hd-Iav" firstAttribute="top" secondItem="nFa-2J-xEj" secondAttribute="top" constant="20" symbolic="YES" id="Ztv-bg-J7i"/>
+                                    <constraint firstItem="8C8-TP-ABa" firstAttribute="trailing" secondItem="drN-pc-otj" secondAttribute="trailing" id="aqb-lj-kjn"/>
+                                    <constraint firstItem="gUi-1X-GNA" firstAttribute="leading" secondItem="eRR-qw-vc9" secondAttribute="leading" id="bQF-Vx-c8a"/>
+                                    <constraint firstItem="1v6-fs-T19" firstAttribute="top" secondItem="eFL-BK-8Xx" secondAttribute="bottom" constant="8" symbolic="YES" id="bXW-VQ-6tr"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ib5-Gn-3yM" secondAttribute="trailing" constant="20" symbolic="YES" id="cjn-bB-R0l"/>
+                                    <constraint firstItem="gUi-1X-GNA" firstAttribute="top" secondItem="eRR-qw-vc9" secondAttribute="bottom" constant="8" symbolic="YES" id="fWd-En-t8v"/>
+                                    <constraint firstItem="drN-pc-otj" firstAttribute="top" secondItem="Ib5-Gn-3yM" secondAttribute="bottom" constant="8" symbolic="YES" id="haA-hJ-XiF"/>
+                                    <constraint firstItem="1v6-fs-T19" firstAttribute="trailing" secondItem="gUi-1X-GNA" secondAttribute="trailing" id="lcg-ZX-CWy"/>
+                                    <constraint firstItem="8C8-TP-ABa" firstAttribute="baseline" secondItem="heo-Oh-Zu0" secondAttribute="baseline" id="reS-s1-T3L"/>
+                                    <constraint firstItem="8C8-TP-ABa" firstAttribute="top" secondItem="drN-pc-otj" secondAttribute="bottom" constant="8" symbolic="YES" id="rod-Qg-vmV"/>
+                                    <constraint firstItem="eFL-BK-8Xx" firstAttribute="trailing" secondItem="1v6-fs-T19" secondAttribute="trailing" id="sq1-KW-K1j"/>
+                                    <constraint firstItem="eRR-qw-vc9" firstAttribute="top" secondItem="1v6-fs-T19" secondAttribute="bottom" constant="24" id="v0F-0I-bIg"/>
+                                    <constraint firstItem="3k6-Hd-Iav" firstAttribute="leading" secondItem="Ib5-Gn-3yM" secondAttribute="leading" id="wjt-Lc-kLo"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="nFa-2J-xEj" firstAttribute="top" secondItem="IbV-WZ-uwW" secondAttribute="top" id="JRe-IF-VAo"/>
-                            <constraint firstItem="nFa-2J-xEj" firstAttribute="leading" secondItem="IbV-WZ-uwW" secondAttribute="leading" id="aIh-Z8-QSh"/>
-                            <constraint firstAttribute="trailing" secondItem="nFa-2J-xEj" secondAttribute="trailing" id="lEz-PL-vjI"/>
-                            <constraint firstAttribute="bottom" secondItem="nFa-2J-xEj" secondAttribute="bottom" id="sHo-pM-zVG"/>
+                            <constraint firstAttribute="trailing" secondItem="nFa-2J-xEj" secondAttribute="trailing" id="Yys-bB-VaM"/>
+                            <constraint firstItem="nFa-2J-xEj" firstAttribute="top" secondItem="IbV-WZ-uwW" secondAttribute="top" id="jyU-eF-b5d"/>
+                            <constraint firstItem="nFa-2J-xEj" firstAttribute="leading" secondItem="IbV-WZ-uwW" secondAttribute="leading" id="mXN-EK-ea2"/>
+                            <constraint firstAttribute="bottom" secondItem="nFa-2J-xEj" secondAttribute="bottom" id="z8h-Qi-W5j"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" title="Settings" id="mm4-p1-pGE"/>
+                    <navigationItem key="navigationItem" title="Settings" id="mm4-p1-pGE">
+                        <barButtonItem key="rightBarButtonItem" title="Help" id="otw-T5-uIT">
+                            <connections>
+                                <segue destination="VR8-B0-Rfp" kind="push" id="Dm0-Ic-rfe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="example" destination="8C8-TP-ABa" id="SYZ-J5-XXg"/>
                         <outlet property="maximumRecentEntries" destination="gUi-1X-GNA" id="nn3-I4-ulr"/>
                         <outlet property="sortOrder" destination="eFL-BK-8Xx" id="sfX-cN-9s3"/>
                         <outlet property="taiwaneseOrthography" destination="Ib5-Gn-3yM" id="Wwj-E5-FxJ"/>
+                        <outlet property="writingSystemName" destination="drN-pc-otj" id="GDj-Fu-HZa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e5l-WC-nFr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -500,19 +707,13 @@ CgoKA
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="t3i-Gs-aPJ">
-                                <rect key="frame" x="128" y="20" width="172" height="100"/>
+                                <rect key="frame" x="88" y="20" width="212" height="100"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Taiwanese Dictionary
-Version 1.1
+                                <string key="text">Taiwanese Dictionary 1.1
 
 Copyright © 2014 
-Jason McDowell
-
-
-
-
-</string>
+Jason McDowell</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -539,32 +740,59 @@ _____________________________________
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZNh-xh-0cL">
-                                <rect key="frame" x="20" y="20" width="100" height="100"/>
+                                <rect key="frame" x="20" y="20" width="60" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="f9L-3X-IYt"/>
-                                    <constraint firstAttribute="height" constant="100" id="zMB-ug-OUo"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="fred">
+                                <state key="normal" title="Fred" image="fredAbout">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="XNv-kB-agm" kind="push" identifier="fred" id="ejo-dm-jwp"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QkV-rJ-fUg">
+                                <rect key="frame" x="135" y="100" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="0Ka-uV-GcZ"/>
+                                </constraints>
+                                <state key="normal" title="Website">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="website:" destination="w89-fa-pE9" eventType="touchUpInside" id="WhY-VO-8sw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nkn-J8-bom">
+                                <rect key="frame" x="198" y="100" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="qgH-mB-0cT"/>
+                                </constraints>
+                                <state key="normal" title="Contact">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendEmail:" destination="w89-fa-pE9" eventType="touchUpInside" id="eUu-yM-iXu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ZNh-xh-0cL" firstAttribute="leading" secondItem="sAq-Vb-Wb3" secondAttribute="leading" constant="20" symbolic="YES" id="0CZ-OA-JNW"/>
-                            <constraint firstItem="ZNh-xh-0cL" firstAttribute="top" secondItem="sAq-Vb-Wb3" secondAttribute="top" constant="20" symbolic="YES" id="GUR-pY-Y8T"/>
-                            <constraint firstAttribute="bottom" secondItem="YPW-Rz-pKX" secondAttribute="bottom" id="K8D-Nu-dMK"/>
-                            <constraint firstItem="YPW-Rz-pKX" firstAttribute="trailing" secondItem="t3i-Gs-aPJ" secondAttribute="trailing" id="MJc-Ps-ddf"/>
-                            <constraint firstItem="ZNh-xh-0cL" firstAttribute="top" secondItem="t3i-Gs-aPJ" secondAttribute="top" id="Oc4-yU-CrF"/>
-                            <constraint firstItem="YPW-Rz-pKX" firstAttribute="top" secondItem="ZNh-xh-0cL" secondAttribute="bottom" constant="8" symbolic="YES" id="POr-8U-Z86"/>
-                            <constraint firstItem="t3i-Gs-aPJ" firstAttribute="leading" secondItem="ZNh-xh-0cL" secondAttribute="trailing" constant="8" symbolic="YES" id="cYt-Dd-9Qc"/>
-                            <constraint firstItem="YPW-Rz-pKX" firstAttribute="top" secondItem="t3i-Gs-aPJ" secondAttribute="bottom" constant="8" symbolic="YES" id="jcw-C6-94z"/>
-                            <constraint firstItem="YPW-Rz-pKX" firstAttribute="leading" secondItem="ZNh-xh-0cL" secondAttribute="leading" id="kbW-PC-Wb7"/>
-                            <constraint firstAttribute="trailing" secondItem="t3i-Gs-aPJ" secondAttribute="trailing" constant="20" symbolic="YES" id="mYX-oW-kA7"/>
+                            <constraint firstItem="QkV-rJ-fUg" firstAttribute="top" secondItem="V7P-Uz-AHB" secondAttribute="bottom" constant="100" id="1FL-AR-Ein"/>
+                            <constraint firstItem="QkV-rJ-fUg" firstAttribute="baseline" secondItem="Nkn-J8-bom" secondAttribute="baseline" id="Fnj-2K-RBu"/>
+                            <constraint firstItem="Nkn-J8-bom" firstAttribute="leading" secondItem="QkV-rJ-fUg" secondAttribute="trailing" constant="8" symbolic="YES" id="Ixd-lj-O9B"/>
+                            <constraint firstItem="YPW-Rz-pKX" firstAttribute="top" secondItem="ZNh-xh-0cL" secondAttribute="bottom" constant="8" symbolic="YES" id="KZ9-hc-bMH"/>
+                            <constraint firstAttribute="trailing" secondItem="Nkn-J8-bom" secondAttribute="trailing" constant="67" id="MO0-C0-soY"/>
+                            <constraint firstAttribute="bottom" secondItem="YPW-Rz-pKX" secondAttribute="bottom" id="Oet-uD-zcz"/>
+                            <constraint firstItem="t3i-Gs-aPJ" firstAttribute="trailing" secondItem="YPW-Rz-pKX" secondAttribute="trailing" id="Svq-gn-z9F"/>
+                            <constraint firstItem="ZNh-xh-0cL" firstAttribute="top" secondItem="sAq-Vb-Wb3" secondAttribute="top" constant="20" symbolic="YES" id="YPv-ie-3Ib"/>
+                            <constraint firstItem="YPW-Rz-pKX" firstAttribute="top" secondItem="t3i-Gs-aPJ" secondAttribute="bottom" constant="8" symbolic="YES" id="ZMZ-Iw-KfA"/>
+                            <constraint firstItem="ZNh-xh-0cL" firstAttribute="leading" secondItem="sAq-Vb-Wb3" secondAttribute="leading" constant="20" symbolic="YES" id="aOP-k4-6E2"/>
+                            <constraint firstItem="QkV-rJ-fUg" firstAttribute="leading" secondItem="ZNh-xh-0cL" secondAttribute="trailing" constant="55" id="gsM-WF-6Fo"/>
+                            <constraint firstAttribute="trailing" secondItem="t3i-Gs-aPJ" secondAttribute="trailing" constant="20" symbolic="YES" id="i5Z-8V-CNb"/>
+                            <constraint firstItem="YPW-Rz-pKX" firstAttribute="leading" secondItem="ZNh-xh-0cL" secondAttribute="leading" id="o6G-3V-xSQ"/>
+                            <constraint firstItem="t3i-Gs-aPJ" firstAttribute="leading" secondItem="ZNh-xh-0cL" secondAttribute="trailing" constant="8" symbolic="YES" id="uul-5i-Sqa"/>
+                            <constraint firstItem="t3i-Gs-aPJ" firstAttribute="top" secondItem="ZNh-xh-0cL" secondAttribute="top" id="xhJ-ge-IeP"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
@@ -719,69 +947,6 @@ _____________________________________
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Definition" rowHeight="285" id="D23-Wa-cs5" customClass="DefinitionTableViewCell">
-                                <rect key="frame" x="0.0" y="86" width="320" height="285"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="D23-Wa-cs5" id="ngT-GQ-QFq">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="172" placeholderIntrinsicHeight="21" text="Taiwanese" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="172" translatesAutoresizingMaskIntoConstraints="NO" id="dBB-GK-jYo">
-                                            <rect key="frame" x="20" y="20" width="172" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="21" text="Chinese" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="100" translatesAutoresizingMaskIntoConstraints="NO" id="Qa8-xA-z7W">
-                                            <rect key="frame" x="200" y="20" width="100" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="280" placeholderIntrinsicHeight="50" text="English" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="ClA-On-zSr">
-                                            <rect key="frame" x="20" y="49" width="280" height="50"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="263" placeholderIntrinsicHeight="157" text="Examples" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="263" translatesAutoresizingMaskIntoConstraints="NO" id="r9E-iG-LDm">
-                                            <rect key="frame" x="37" y="107" width="263" height="157"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="r9E-iG-LDm" secondAttribute="bottom" constant="20" id="7Vq-95-o6z"/>
-                                        <constraint firstItem="ClA-On-zSr" firstAttribute="top" secondItem="dBB-GK-jYo" secondAttribute="bottom" constant="8" symbolic="YES" id="AOq-Ru-bUO"/>
-                                        <constraint firstAttribute="trailing" secondItem="Qa8-xA-z7W" secondAttribute="trailing" constant="20" symbolic="YES" id="BFj-rx-B1o"/>
-                                        <constraint firstItem="r9E-iG-LDm" firstAttribute="trailing" secondItem="ClA-On-zSr" secondAttribute="trailing" id="Of1-JT-2r1"/>
-                                        <constraint firstItem="Qa8-xA-z7W" firstAttribute="trailing" secondItem="ClA-On-zSr" secondAttribute="trailing" id="T1y-7Q-cuK"/>
-                                        <constraint firstItem="Qa8-xA-z7W" firstAttribute="leading" secondItem="dBB-GK-jYo" secondAttribute="trailing" constant="8" symbolic="YES" id="W6i-hf-bmC"/>
-                                        <constraint firstItem="Qa8-xA-z7W" firstAttribute="top" secondItem="dBB-GK-jYo" secondAttribute="top" id="YDT-YY-Y4b"/>
-                                        <constraint firstItem="dBB-GK-jYo" firstAttribute="top" secondItem="ngT-GQ-QFq" secondAttribute="top" constant="20" symbolic="YES" id="Ymo-Gu-Zq9"/>
-                                        <constraint firstItem="dBB-GK-jYo" firstAttribute="baseline" secondItem="Qa8-xA-z7W" secondAttribute="baseline" id="cd6-mL-rjZ"/>
-                                        <constraint firstItem="dBB-GK-jYo" firstAttribute="leading" secondItem="ClA-On-zSr" secondAttribute="leading" id="cyX-sM-UCS"/>
-                                        <constraint firstItem="dBB-GK-jYo" firstAttribute="leading" secondItem="ngT-GQ-QFq" secondAttribute="leading" constant="20" symbolic="YES" id="ucC-c3-0IV"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="chineseLabel" destination="Qa8-xA-z7W" id="dOU-Vi-ztv"/>
-                                    <outlet property="englishLabel" destination="ClA-On-zSr" id="Jdx-zq-2FS"/>
-                                    <outlet property="examplesLabel" destination="r9E-iG-LDm" id="Ehp-XF-5cf"/>
-                                    <outlet property="taiwaneseLabel" destination="dBB-GK-jYo" id="PzH-bw-ayu"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="bPO-7B-FDe" id="IRT-eo-cof"/>
                             <outlet property="delegate" destination="bPO-7B-FDe" id="vGl-kD-bhD"/>
@@ -801,70 +966,6 @@ _____________________________________
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Definition" rowHeight="285" id="iwo-k3-jrL" customClass="DefinitionTableViewCell">
-                                <rect key="frame" x="0.0" y="86" width="320" height="285"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iwo-k3-jrL" id="FTf-dk-ZJN">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="172" placeholderIntrinsicHeight="21" text="Taiwanese" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="172" translatesAutoresizingMaskIntoConstraints="NO" id="7y3-Rs-VQR">
-                                            <rect key="frame" x="20" y="20" width="172" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="21" text="Chinese" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="100" translatesAutoresizingMaskIntoConstraints="NO" id="CL5-6o-OVS">
-                                            <rect key="frame" x="200" y="20" width="100" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="280" placeholderIntrinsicHeight="50" text="English" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="1iI-cM-LdS">
-                                            <rect key="frame" x="20" y="49" width="280" height="50"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="263" placeholderIntrinsicHeight="157" text="Examples" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="263" translatesAutoresizingMaskIntoConstraints="NO" id="qiI-JL-QID">
-                                            <rect key="frame" x="37" y="107" width="263" height="157"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="1iI-cM-LdS" firstAttribute="top" secondItem="7y3-Rs-VQR" secondAttribute="bottom" constant="8" symbolic="YES" id="4Ci-TY-Nmn"/>
-                                        <constraint firstItem="CL5-6o-OVS" firstAttribute="trailing" secondItem="1iI-cM-LdS" secondAttribute="trailing" id="B1v-5k-t4P"/>
-                                        <constraint firstItem="CL5-6o-OVS" firstAttribute="top" secondItem="7y3-Rs-VQR" secondAttribute="top" id="HNF-6i-BQZ"/>
-                                        <constraint firstItem="7y3-Rs-VQR" firstAttribute="baseline" secondItem="CL5-6o-OVS" secondAttribute="baseline" id="IWb-qd-HPw"/>
-                                        <constraint firstItem="7y3-Rs-VQR" firstAttribute="leading" secondItem="FTf-dk-ZJN" secondAttribute="leading" constant="20" symbolic="YES" id="K4v-Gc-HzU"/>
-                                        <constraint firstItem="7y3-Rs-VQR" firstAttribute="leading" secondItem="1iI-cM-LdS" secondAttribute="leading" id="M5S-dj-vhc"/>
-                                        <constraint firstAttribute="bottom" secondItem="qiI-JL-QID" secondAttribute="bottom" constant="20" id="RGG-37-yYW"/>
-                                        <constraint firstItem="qiI-JL-QID" firstAttribute="trailing" secondItem="1iI-cM-LdS" secondAttribute="trailing" id="ZaY-7V-O2C"/>
-                                        <constraint firstItem="qiI-JL-QID" firstAttribute="top" secondItem="1iI-cM-LdS" secondAttribute="bottom" constant="8" symbolic="YES" id="d0o-X1-uif"/>
-                                        <constraint firstItem="7y3-Rs-VQR" firstAttribute="top" secondItem="FTf-dk-ZJN" secondAttribute="top" constant="20" symbolic="YES" id="fUf-Tj-qd6"/>
-                                        <constraint firstItem="CL5-6o-OVS" firstAttribute="leading" secondItem="7y3-Rs-VQR" secondAttribute="trailing" constant="8" symbolic="YES" id="wz6-gP-YXJ"/>
-                                        <constraint firstAttribute="trailing" secondItem="CL5-6o-OVS" secondAttribute="trailing" constant="20" symbolic="YES" id="zD6-bF-F5P"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="chineseLabel" destination="CL5-6o-OVS" id="G6y-nR-ah7"/>
-                                    <outlet property="englishLabel" destination="1iI-cM-LdS" id="64f-on-MNw"/>
-                                    <outlet property="examplesLabel" destination="qiI-JL-QID" id="v2A-cX-lmR"/>
-                                    <outlet property="taiwaneseLabel" destination="7y3-Rs-VQR" id="iEi-0X-0CB"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="93r-ux-HCP" id="tVp-sn-6Yz"/>
                             <outlet property="delegate" destination="93r-ux-HCP" id="wMU-53-9Vk"/>
@@ -977,7 +1078,7 @@ _____________________________________
     </scenes>
     <resources>
         <image name="favorites" width="30" height="28"/>
-        <image name="fred" width="100" height="100"/>
+        <image name="fredAbout" width="60" height="100"/>
         <image name="fredIcon" width="14" height="30"/>
         <image name="history" width="30" height="30"/>
         <image name="search" width="30" height="29"/>
@@ -988,4 +1089,7 @@ _____________________________________
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="Dm0-Ic-rfe"/>
+    </inferredMetricsTieBreakers>
 </document>

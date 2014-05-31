@@ -34,8 +34,16 @@
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *fileName = [self.listTitle stringByAppendingString:@".plist"];
     NSString *filePath =  [documentsDirectory stringByAppendingPathComponent:fileName];
-    NSData *data = [NSData dataWithContentsOfFile:filePath];
-    NSArray *array = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    NSArray *array;
+    
+    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:filePath];
+    
+    if (fileExists) {
+        NSData *data = [NSData dataWithContentsOfFile:filePath];
+        array = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    } else {
+        array = @[];
+    }
     
     // if array is nil, create an empty array
     if (!array) {

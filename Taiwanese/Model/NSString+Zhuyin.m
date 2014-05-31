@@ -14,7 +14,7 @@
 - (NSString *)convertNumberedPehoejiToZhuyin
 {
     NSString *changedString = [self copy];
-    
+        
     changedString = [changedString convertNumberedPehoejiToTokens];
     
     NSDictionary *ZhuyinSymbols4 = @{
@@ -121,6 +121,7 @@
     
     //NSLog(@"%@", changedString);
     //NSLog(@" ");
+    
     return changedString;
 }
 
@@ -130,7 +131,6 @@
     
     // change diacritics to numbers
     // move numbers
-    
     
     // save multicharacter symbols that overlap with other symbols. This is a very inefficient version of tokenization.
     
@@ -261,7 +261,8 @@
                     //NSLog(@"Temp: %@", temp);
                 } else {
                     // insert the tone number after the main vowel, with priority o,a,e,u,i,n,m
-                    NSArray *vowels = @[@"ㄛ", @"ㄨ", @"ㄚ", @"ㆤ", @"ㄧ", @"ㄋ", @"ㆬ"];
+                    
+                    NSArray *vowels = @[@"ㄛ", @"ㄨ", @"ㄚ", @"ㆤ", @"ㄧ", @"ㄋ", @"ㆬ", @"ㆦ",@"ㄐ",@"ㄒ",@"ㄑ",@"ㆢ",@"ㄞ",@"ㄠ",@"ㆰ",@"ㆱ",@"ㆭ",@"ㆧ",@"ㆩ",@"ㆫ",@"ㆥ",@"ㆪ",@"ㆮ",@"ㆯ",@"ㆲ",@"ㆳ"];
                     
                     for (NSString *vowel in vowels) {
                         NSRange range;
