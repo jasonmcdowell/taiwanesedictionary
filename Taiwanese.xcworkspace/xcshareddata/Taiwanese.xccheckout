@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>FEFF2845-C7D9-42AB-8839-96FF35519DC5</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Taiwanese</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C388956F-40A0-4DDE-B5E2-1B48AFF9CD6D</key>
+		<string>https://bitbucket.org/jasonmcdowell/taiwanese.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Taiwanese.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C388956F-40A0-4DDE-B5E2-1B48AFF9CD6D</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://bitbucket.org/jasonmcdowell/taiwanese.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C388956F-40A0-4DDE-B5E2-1B48AFF9CD6D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C388956F-40A0-4DDE-B5E2-1B48AFF9CD6D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>taiwanese</string>
+		</dict>
+	</array>
+</dict>
+</plist>

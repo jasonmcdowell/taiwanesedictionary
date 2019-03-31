@@ -1,9 +1,9 @@
-Future Features
+Future Features?
 
-1. Core Data.
+1. Core Data
 2. Speech Synthesis
 3. Refactor transliteration
-4. Improve Settings using table view.
-5. Make entries selectable using Text Views.
-6. Fix bug involving the pull to sort search results.
-7. 
+4. Improve Settings using table view
+5. Make entries selectable using Text Views
+6. Fix bug involving the pull to sort search results and the gray line that appears when searching long then short results
+7. -[NSKeyedUnarchiver initForReadingWithData:]: data is NULL for Recents and Favorites 
